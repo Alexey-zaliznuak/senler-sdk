@@ -1,14 +1,13 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { HttpClientConfig } from '../types';
+import { HttpClientConfig, QueryParams } from '../types';
 import { API_BASE_URL, DEFAULT_API_VERSION } from '../constants';
-
 
 export class HttpClient {
   private client: AxiosInstance;
 
   constructor(config: HttpClientConfig) {
-    config.baseURL = config.baseURL || API_BASE_URL
-    config.apiVersion = config.apiVersion || DEFAULT_API_VERSION
+    config.baseURL = config.baseURL || API_BASE_URL;
+    config.apiVersion = config.apiVersion || DEFAULT_API_VERSION;
 
     this.client = axios.create({
       baseURL: config.baseURL,
@@ -18,12 +17,12 @@ export class HttpClient {
       params: {
         access_token: config.accessToken,
         vk_group_id: config.vkGroupId,
-        v: config.apiVersion,
-      },
+        v: config.apiVersion
+      }
     });
   }
 
-  async get<T>(url: string, params?: Record<string, any>): Promise<T> {
+  async get<T>(url: string, params?: Record<string, QueryParams>): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.client.get(url, { params });
       return response.data;
@@ -32,7 +31,7 @@ export class HttpClient {
     }
   }
 
-  async post<T>(url: string, data?: Record<string, any>): Promise<T> {
+  async post<T>(url: string, data?: Record<string, QueryParams>): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.client.post(url, data);
       return response.data;

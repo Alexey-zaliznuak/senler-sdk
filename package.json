@@ -2,16 +2,21 @@
   "name": "senler-sdk",
   "version": "0.1.0",
   "description": "SDK for Senler API",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
+    "start": "npm run build && node dist/index.js",
     "build": "microbundle",
-    "watch": "microbundle watch",
-    "start": "npm run build && node dist/index.js"
+    "lint": "eslint --fix",
+    "watch": "microbundle watch"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "eslint": "^9.9.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },

@@ -6,3 +6,5 @@ export interface HttpClientConfig {
 }
 
 export interface ApiConfig extends HttpClientConfig {}
+
+export type QueryParams = Record<string, string | number | boolean | null>;
