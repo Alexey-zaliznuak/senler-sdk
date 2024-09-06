@@ -1,6 +1,13 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { HttpClientConfig, QueryParams } from '../types';
+import { QueryParams } from '../types';
 import { API_BASE_URL, DEFAULT_API_VERSION } from '../constants';
+
+export interface HttpClientConfig {
+  apiVersion?: string;
+  baseURL?: string;
+  accessToken: string;
+  vkGroupId: string;
+}
 
 export class HttpClient {
   private client: AxiosInstance;
@@ -22,7 +29,7 @@ export class HttpClient {
     });
   }
 
-  async get<T>(url: string, params?: Record<string, QueryParams>): Promise<T> {
+  async get<T>(url: string, params?: QueryParams): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.client.get(url, { params });
       return response.data;

@@ -1,4 +1,1 @@
-import { SenlerApiClient } from './client';
-import { ApiConfig } from './types';
-
-export { SenlerApiClient, ApiConfig };
+export { SenlerApiClient, ApiClientConfig } from './client';

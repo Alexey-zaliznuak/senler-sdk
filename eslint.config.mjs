@@ -4,10 +4,12 @@ import prettier from 'eslint-plugin-prettier';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 
+
 // Используем FlatCompat для совместимости с плагинами
 const compat = new FlatCompat({
   baseDirectory: resolve('.'),
 });
+
 
 export default [
   {

@@ -2,7 +2,6 @@
   "name": "senler-sdk",
   "version": "0.1.0",
   "description": "SDK for Senler API",
-  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "source": "src/index.ts",
