@@ -1,7 +1,7 @@
 export class ApiError extends Error {
   errorCode: number;
 
-  constructor(errorCode: number) {
+  constructor(errorCode: number | any) {
     const message = ApiError.getErrorMessage(errorCode);
 
     super(message);
@@ -10,7 +10,7 @@ export class ApiError extends Error {
     this.errorCode = errorCode;
   }
 
-  private static getErrorMessage(errorCode: number): string {
+  private static getErrorMessage(errorCode: number | any): string {
     switch (errorCode) {
       case 1:
         return 'Missing required parameter.';

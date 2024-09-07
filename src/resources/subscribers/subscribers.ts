@@ -1,4 +1,5 @@
 import { HttpClient } from '../../core/HttpClient';
+import { GetSubscribersRequestParams } from './dto/get.dto';
 
 export class SubscribersResource {
   private httpClient: HttpClient;
@@ -7,7 +8,7 @@ export class SubscribersResource {
     this.httpClient = httpClient;
   }
 
-  async getSubscribers(params?: Record<string, any>) {
-    return this.httpClient.get('subscribers.get', params);
+  async getSubscribers(params: GetSubscribersRequestParams) {
+    return this.httpClient.get('subscribers/get', params);
   }
 }

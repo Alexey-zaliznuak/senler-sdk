@@ -1,6 +1,6 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { QueryParams } from '../types';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { API_BASE_URL, DEFAULT_API_VERSION } from '../constants';
+import { handleApiError } from './response/handleApiError';
 
 export interface HttpClientConfig {
   apiVersion?: string;
@@ -29,7 +29,8 @@ export class HttpClient {
     });
   }
 
-  async get<T>(url: string, params?: QueryParams): Promise<T> {
+  @handleApiError
+  async get<T>(url: string, params?: AxiosRequestConfig['params']): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.client.get(url, { params });
       return response.data;
@@ -38,12 +39,12 @@ export class HttpClient {
     }
   }
 
-  async post<T>(url: string, data?: Record<string, QueryParams>): Promise<T> {
-    try {
-      const response: AxiosResponse<T> = await this.client.post(url, data);
-      return response.data;
-    } catch (error) {
-      throw new Error(`POST request failed: ${(error as Error).message}`);
-    }
-  }
+  // async post<T>(url: string, data?: Record<string, QueryParams>): Promise<T> {
+  //   try {
+  //     const response: AxiosResponse<T> = await this.client.post(url, data);
+  //     return response.data;
+  //   } catch (error) {
+  //     throw new Error(`POST request failed: ${(error as Error).message}`);
+  //   }
+  // }
 }
