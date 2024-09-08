@@ -1,18 +1,6 @@
 import { handleApiError } from '../../../src/core/response/handleApiError';
 import { ApiError } from '../../../src/core/errors/ApiError';
-
-
-const mockSuccessResponse = {
-  success: true,
-  data: { key: 'value' }
-};
-
-
-const mockErrorResponse = {
-  success: false,
-  error_code: 1,
-  error_message: 'Some error occurred'
-};
+import { mockErrorResponse, mockSuccessResponse } from '../../mockResponses';
 
 
 class TestClass {

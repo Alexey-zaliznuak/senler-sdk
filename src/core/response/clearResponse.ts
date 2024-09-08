@@ -3,7 +3,7 @@
  * from the response object of an API method. This is useful for returning only the relevant
  * data to the user or client, without any status-related or error-related fields.
  */
-export function clearResponse(target: any, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor {
+export function clearResponse(_target: any, _propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor {
   const originalMethod = descriptor.value;
 
   descriptor.value = async function(...args: any[]) {
