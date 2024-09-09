@@ -5,7 +5,7 @@ import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 
 
-// Используем FlatCompat для совместимости с плагинами
+// Use FlatCompat for compatibility with plugins
 const compat = new FlatCompat({
   baseDirectory: resolve('.'),
 });
