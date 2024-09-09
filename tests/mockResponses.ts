@@ -1,5 +1,3 @@
-// TODO: remove if unusefull
-
 export const mockSuccessResponseData = {
   items: [
     {
