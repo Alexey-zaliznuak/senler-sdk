@@ -18,8 +18,8 @@ export default [
       'tests/**/*.ts',
     ],
     languageOptions: {
-      ecmaVersion: 2020, // Используем ECMAScript 2020
-      sourceType: 'module', // Модули ES
+      ecmaVersion: 2020,
+      sourceType: 'module',
       parser: tsParser,
       parserOptions: {
         project: './tsconfig.json',
