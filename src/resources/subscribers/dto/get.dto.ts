@@ -1,4 +1,5 @@
 import { Subscriber } from "./subscriber.dto";
+import { SourceType } from "./subscriber.subscription.dto";
 
 
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
@@ -58,7 +59,7 @@ export interface GetSubscribersRequestParams {
 
   // Subscription source
   // Examples: 'subscriptions', 'widget', 'api', etc.
-  source?: string[];
+  source?: SourceType[];
 
   // Campaign source
   // Example: ['vk']
@@ -77,7 +78,7 @@ export interface GetSubscribersRequestParams {
   utm_content?: string[];
 
   // Keyword
-  // Example: ['заказать стул онлайн']
+  // Example: ['bill tables online']
   utm_term?: string[];
 
   // Date of subscription from, format: d.m.Y H:i:s

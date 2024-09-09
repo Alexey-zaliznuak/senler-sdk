@@ -1,6 +1,6 @@
 import { handleApiError } from '../../../src/core/response/handle-api-error';
 import { ApiError } from '../../../src/core/errors/api-error';
-import { mockErrorResponse, mockSuccessResponse } from '../../mockResponses';
+import { mockErrorResponse, mockSuccessResponse } from '../../mocks/core';
 
 
 class TestClass {

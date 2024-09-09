@@ -1,5 +1,5 @@
 import { clearResponse } from "../../../src/core/response/clear-response";
-import { mockSuccessResponseData, mockSuccessResponse } from "../../mockResponses";
+import { mockSuccessResponseData, mockSuccessResponse } from "../../mocks/core";
 
 
 class TestClass {
