@@ -4,6 +4,8 @@
 
 ## Описание
 
+### TODO добавить что в аннотациях не указываются success, error_code, error_message т.к их перехватаывают, обраюатывают и чистят handleApiError и clearApiResponse декоротары
+
 `SenlerApi` — это TypeScript-библиотека для удобного взаимодействия с [Senler API](https://help.senler.ru/senler/dev/api). Она предоставляет модульную структуру для работы с различными ресурсами Senler, такими как подписчики, рассылки и сообщения, с использованием access_token и vk_group_id для авторизации.
 
 ## Установка
