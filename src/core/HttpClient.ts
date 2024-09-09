@@ -1,6 +1,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { API_BASE_URL, DEFAULT_API_VERSION } from '../constants';
-import { handleApiError } from './response/handleApiError';
+import { handleApiError } from './response/handle-api-error';
+import { clearResponse } from './response/clear-response';
+
 
 export interface HttpClientConfig {
   apiVersion?: string;
@@ -30,6 +32,7 @@ export class HttpClient {
   }
 
   @handleApiError
+  @clearResponse
   async get<T>(url: string, params?: AxiosRequestConfig['params']): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.client.get(url, { params });
