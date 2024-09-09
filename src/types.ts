@@ -1,3 +1,3 @@
-export { BaseResponse } from './core/response/BaseResponse.dto';
+// TODO: import more types
 
-export type QueryParams = Record<string, string | number | boolean | null>;
+export { BaseResponse } from './core/response/base-response';
