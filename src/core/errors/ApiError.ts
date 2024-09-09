@@ -1,3 +1,5 @@
+import { ERROR_CODES } from "../../constants";
+
 export class ApiError extends Error {
   errorCode: number;
 
@@ -10,24 +12,10 @@ export class ApiError extends Error {
     this.errorCode = errorCode;
   }
 
-  private static getErrorMessage(errorCode: number | any): string {
-    switch (errorCode) {
-      case 1:
-        return 'Missing required parameter.';
-      case 2:
-        return 'Hash is missing.';
-      case 4:
-        return 'User did not allow sending messages.';
-      case 5:
-        return 'User not found.';
-      case 9:
-        return 'Too many requests (limit exceeded).';
-      case 13:
-        return 'Token not found.';
-      case 14:
-        return 'Invalid token.';
-      default:
-        return `Unknown error, code: ${errorCode}.`;
+  public static getErrorMessage(code: any): string {
+    if (typeof code === 'number' && code in ERROR_CODES) {
+      return ERROR_CODES[code];
     }
+    return "Unknown error";
   }
 }
