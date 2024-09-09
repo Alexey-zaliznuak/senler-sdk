@@ -1,5 +1,5 @@
-import { ApiError } from '../errors/ApiError';
-import { BaseResponse } from './BaseResponse.dto';
+import { ApiError } from '../errors/api-error';
+import { BaseResponse } from './base-response';
 
 /**
  * Decorator that checks the `success` field from the response object of an API method.

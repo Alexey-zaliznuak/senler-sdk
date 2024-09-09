@@ -1,4 +1,4 @@
-import { clearResponse } from "../../../src/core/response/clearResponse";
+import { clearResponse } from "../../../src/core/response/clear-response";
 import { mockSuccessResponseData, mockSuccessResponse } from "../../mockResponses";
 
 

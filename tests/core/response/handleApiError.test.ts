@@ -1,5 +1,5 @@
-import { handleApiError } from '../../../src/core/response/handleApiError';
-import { ApiError } from '../../../src/core/errors/ApiError';
+import { handleApiError } from '../../../src/core/response/handle-api-error';
+import { ApiError } from '../../../src/core/errors/api-error';
 import { mockErrorResponse, mockSuccessResponse } from '../../mockResponses';
 
 
