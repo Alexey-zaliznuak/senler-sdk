@@ -1,16 +1,23 @@
 // tests/myApi.test.js
 import nock from 'nock';
-import { fetchUserData } from '../src/lib/myApi';
+import { getSubscribersMock } from '../../mocks/resources/subscribers/get-subscribers.mock';
+import { HttpClient } from '../../../src/core/HttpClient';
 
-describe('API Interaction Tests with Nock', () => {
+
+describe('Get subscribers tests', () => {
+  let client: HttpClient;
+
+  beforeEach(() => {
+    client = new HttpClient({
+      accessToken: process.env.SENLER_TESTS_ACCESS_TOKEN!,
+      vkGroupId: process.env.SENLER_TESTS_VK_GTOUP_ID!,
+    });
+  });
+
   it('should return mocked user data', async () => {
-    // Настраиваем nock для мокирования запроса к внешнему API
-    const mockResponse = { id: 1, name: 'John Doe' };
+    const mockResponse = getSubscribersMock;
 
-    // Мокируем GET-запрос к https://api.example.com/user
-    nock('https://api.example.com')
-      .get('/user')
-      .reply(200, mockResponse);
+    nock().get('/user').reply(200, mockResponse);
 
     // Вызываем наш метод и проверяем результат
     const result = await fetchUserData();

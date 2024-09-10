@@ -14,7 +14,7 @@ export interface Subscriber {
   vk_user_id: number;
 
   // If the user is blacklisted, the value is "1", otherwise "0"
-  ignore: "1" | "0";
+  ignore: 1 | 0;
 
   first_name: string;
   last_name: string;
