@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-dotenv.config({ override: true });
+dotenv.config();
 
 describe('Environment Variables Check', () => {
   it('should have all required environment variables', () => {

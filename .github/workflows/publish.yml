@@ -7,6 +7,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      SENLER_TESTS_ACCESS_TOKEN: ${{ secrets.SENLER_TESTS_ACCESS_TOKEN }}
+      SENLER_TESTS_VK_GROUP_ID: ${{ secrets.SENLER_TESTS_VK_GROUP_ID }}
 
     steps:
       - name: Checkout code

@@ -3,7 +3,7 @@ import { DEFAULT_API_VERSION } from '../src/constants';
 import { BaseResponse } from '../src/types';
 
 
-dotenv.config({ override: true });
+dotenv.config();
 
 
 export const mockSuccessResponseData = {
