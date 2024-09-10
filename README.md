@@ -1,11 +1,5 @@
-
 # Senler API Client
-### Сгенерино через ИИ, просто для вида
-
 ## Описание
-
-### TODO добавить что в аннотациях не указываются success, error_code, error_message т.к их перехватаывают, обраюатывают и чистят handleApiError и clearApiResponse декоротары
-
 `SenlerSDK` — это TypeScript-библиотека для удобного взаимодействия с [Senler API](https://help.senler.ru/senler/dev/api). Она предоставляет модульную структуру для работы с различными ресурсами Senler, такими как подписчики, рассылки и сообщения и т.д
 
 ## Установка
@@ -31,18 +25,7 @@ yarn add senler-api-client
 Для работы с API вам потребуется `access_token` и `vk_group_id` вашего сообщества ВКонтакте.
 
 ```typescript
-import { SenlerApi } from 'senler-api-client';
 
-const senlerApi = new SenlerApi('your-access-token', 'your-vk-group-id');
-
-// Пример использования методов
-senlerApi.subscribers.getSubscribers().then(subscribers => {
-  console.log('Subscribers:', subscribers);
-});
-
-senlerApi.campaigns.createCampaign({ title: 'New Campaign', message: 'Hello, World!' }).then(campaign => {
-  console.log('Campaign created:', campaign);
-});
 ```
 
 ## Методы
@@ -78,16 +61,11 @@ src/
 ### Обработка ошибок
 
 Все методы API возвращают промисы. Чтобы правильно обрабатывать ошибки, используйте блоки `try-catch` или методы `.catch()`.
-
-```typescript
-senlerApi.subscribers.getSubscribers()
-  .then(subscribers => console.log('Subscribers:', subscribers))
-  .catch(error => console.error('Error fetching subscribers:', error));
-```
+Ошибки реализованные через success, error_code, error_message ([см](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki).)
 
 ## Тестирование
 
-Для тестирования проекта используйте [Jest](https://jestjs.io/). Пример команды для запуска тестов:
+Для тестирования проекта используется [Jest](https://jestjs.io/).
 
 ```bash
 npm run test
@@ -96,4 +74,3 @@ npm run test
 ## Лицензия
 
 Этот проект лицензируется под лицензией MIT. См. [LICENSE](./LICENSE) для подробностей.
-

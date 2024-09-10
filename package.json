@@ -1,11 +1,14 @@
 {
   "name": "senler-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SDK for Senler API",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "microbundle",
