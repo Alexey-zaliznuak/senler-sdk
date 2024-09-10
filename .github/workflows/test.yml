@@ -1,0 +1,29 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SENLER_TESTS_ACCESS_TOKEN: ${{ secrets.SENLER_TESTS_ACCESS_TOKEN }}
+      SENLER_TESTS_VK_GROUP_ID: ${{ secrets.SENLER_TESTS_VK_GROUP_ID }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
+
