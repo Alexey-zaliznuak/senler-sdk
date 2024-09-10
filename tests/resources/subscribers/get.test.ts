@@ -17,12 +17,9 @@ describe('Get subscribers tests', () => {
   it('should return mocked user data', async () => {
     const mockResponse = getSubscribersMock;
 
-    nock(client.httpClient.baseUrl).get(
-     '/subscribers/get?' + buildSenlerApiQueryParams()
-    ).reply(
-      200,
-      buildMockSuccessResponse(mockResponse)
-    );
+    nock(client.httpClient.baseUrl)
+      .get('/subscribers/get?' + buildSenlerApiQueryParams())
+      .reply(200, buildMockSuccessResponse(mockResponse));
     const result = await client.subscribers.get();
 
     expect(result).toEqual(mockResponse);

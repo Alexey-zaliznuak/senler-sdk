@@ -33,8 +33,6 @@ describe('handleApiError decorator', () => {
   });
 
   it('should throw ApiError with correct error code and message', async () => {
-    await expect(testClass.apiMethodWithError()).rejects.toThrow(
-      new ApiError(mockFailedResponse.error_code, mockFailedResponse.error_message)
-    );
+    await expect(testClass.apiMethodWithError()).rejects.toThrow(new ApiError(mockFailedResponse.error_code, mockFailedResponse.error_message));
   });
 });

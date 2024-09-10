@@ -16,15 +16,15 @@ export class ApiError extends Error {
     let message: string;
 
     if (typeof code === 'number' && code in ERROR_CODES) {
-      message = ERROR_CODES[code]
+      message = ERROR_CODES[code];
     } else {
-      message = `Undefined error`
-    };
-
-    if (responseErrorMessage) {
-      message = message + ", details: " + responseErrorMessage
+      message = 'Undefined error';
     }
 
-    return message
+    if (responseErrorMessage) {
+      message = message + ', details: ' + responseErrorMessage;
+    }
+
+    return message;
   }
 }

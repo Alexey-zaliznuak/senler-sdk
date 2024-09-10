@@ -4,7 +4,7 @@ import { buildMockSuccessResponse, mockFailedResponse, mockSuccessResponseData }
 class TestClass {
   @clearResponse
   async apiMethodWithErrorDetails(): Promise<typeof mockFailedResponse & typeof mockSuccessResponseData> {
-    return {...mockFailedResponse, ...mockSuccessResponseData};
+    return { ...mockFailedResponse, ...mockSuccessResponseData };
   }
 
   @clearResponse

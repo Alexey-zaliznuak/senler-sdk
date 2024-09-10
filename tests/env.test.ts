@@ -1,14 +1,6 @@
 import dotenv from 'dotenv';
 
-
-console.log(process.env)
-
-
 dotenv.config();
-
-
-console.log(process.env)
-
 
 describe('Environment Variables Check', () => {
   it('should have all required environment variables', () => {
