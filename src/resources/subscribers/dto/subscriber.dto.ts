@@ -28,5 +28,5 @@ export interface Subscriber {
   // List of Senler tags and utm tags
   utms: Utm[];
 
-  vars: Var[];
+  vars?: Var[];
 }
