@@ -1,5 +1,10 @@
+import dotenv from 'dotenv';
 import { DEFAULT_API_VERSION } from '../src/constants';
 import { BaseResponse } from '../src/types';
+
+
+dotenv.config({ override: true });
+
 
 export const mockSuccessResponseData = {
   items: { id: 1, name: 'John Doe' }
