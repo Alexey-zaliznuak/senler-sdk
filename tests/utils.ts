@@ -1,17 +1,18 @@
-import { BaseResponse } from "../src/types";
+import { BaseResponse } from '../src/types';
 
+export const mockSuccessResponseData = {
+  items: { id: 1, name: 'John Doe' }
+};
 
-export function buildSuccessResponse<T>(data: T): BaseResponse<T> {
+export function buildMockSuccessResponse<T extends object = typeof mockSuccessResponseData>(data: T = mockSuccessResponseData as T): BaseResponse<T> {
   return {
     success: true,
     ...data
   };
 }
 
-export function getFailedResponse(): BaseResponse {
-  return {
-    success: false,
-    error_code: 0,
-    error_message: "Unknown error"
-  };
-}
+export const mockFailedResponse = {
+  success: false,
+  error_code: 0,
+  error_message: 'Something went wrong'
+};

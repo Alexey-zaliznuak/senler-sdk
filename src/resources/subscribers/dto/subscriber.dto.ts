@@ -1,7 +1,6 @@
-import { Subscription } from "./subscriber.subscription.dto";
-import { Utm } from "./subscriber.utm.dto"
-import { Var } from "./subscriber.var.dto";
-
+import { Subscription } from './subscriber.subscription.dto';
+import { Utm } from './subscriber.utm.dto';
+import { Var } from './subscriber.var.dto';
 
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov#struktura-elementa-massiva-s-podpischikami-items
 export interface Subscriber {

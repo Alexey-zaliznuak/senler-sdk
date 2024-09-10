@@ -49,8 +49,8 @@ export default [
 
       // TypeScript-specific rules
       '@typescript-eslint/explicit-function-return-type': 'warn',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 
       // Warnings for console usage

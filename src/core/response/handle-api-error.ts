@@ -10,11 +10,11 @@ import { BaseResponse } from './base-response';
 export function handleApiError(_target: any, _propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor {
   const originalMethod = descriptor.value;
 
-  descriptor.value = async function(...args: any[]) {
+  descriptor.value = async function(...args: any[]): Promise<any> {
     const result: BaseResponse = await originalMethod.apply(this, args);
 
     if (result.success === false) {
-      throw new ApiError(result.error_code);
+      throw new ApiError(result.error_code, result.error_message);
     }
 
     return result;

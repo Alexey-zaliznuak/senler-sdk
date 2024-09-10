@@ -3,7 +3,6 @@ import { API_BASE_URL, DEFAULT_API_VERSION } from '../constants';
 import { handleApiError } from './response/handle-api-error';
 import { clearResponse } from './response/clear-response';
 
-
 export interface HttpClientConfig {
   apiVersion?: string;
   baseURL?: string;
@@ -28,19 +27,24 @@ export class HttpClient {
     this.client = this._createAxiosClient();
   }
 
-  @handleApiError
   @clearResponse
+  @handleApiError
   async get<T>(url: string, params?: AxiosRequestConfig['params']): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.client.get(url, { params });
+
       return response.data;
     } catch (error) {
       throw new Error(`GET request failed: ${(error as Error).message}`);
     }
   }
 
-  get baseUrl() : string {
+  get baseUrl(): string {
     return this._baseUrl;
+  }
+
+  get apiVersion(): string {
+    return this._apiVersion;
   }
 
   private _createAxiosClient(): AxiosInstance {
@@ -52,7 +56,7 @@ export class HttpClient {
       params: {
         access_token: this._accessToken,
         vk_group_id: this._vkGroupId,
-        v: this._apiVersion,
+        v: this._apiVersion
       }
     });
   }

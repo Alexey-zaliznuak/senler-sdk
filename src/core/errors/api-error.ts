@@ -1,10 +1,10 @@
-import { ERROR_CODES } from "../../constants";
+import { ERROR_CODES } from '../../constants';
 
 export class ApiError extends Error {
   errorCode: number;
 
-  constructor(errorCode: number | any) {
-    const message = ApiError.getErrorMessage(errorCode);
+  constructor(errorCode: number | any, errorMessage?: string) {
+    const message = ApiError.getErrorMessage(errorCode, errorMessage);
 
     super(message);
 
@@ -12,10 +12,19 @@ export class ApiError extends Error {
     this.errorCode = errorCode;
   }
 
-  public static getErrorMessage(code: any): string {
+  public static getErrorMessage(code: any, responseErrorMessage?: string): string {
+    let message: string;
+
     if (typeof code === 'number' && code in ERROR_CODES) {
-      return ERROR_CODES[code];
+      message = ERROR_CODES[code]
+    } else {
+      message = `Undefined error`
+    };
+
+    if (responseErrorMessage) {
+      message = message + ", details: " + responseErrorMessage
     }
-    return "Unknown error";
+
+    return message
   }
 }

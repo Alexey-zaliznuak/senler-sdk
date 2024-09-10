@@ -1,19 +1,20 @@
-import { clearResponse } from "../../../src/core/response/clear-response";
-import { mockSuccessResponseData, mockSuccessResponse } from "../../mocks/core";
-
+import { clearResponse } from '../../../src/core/response/clear-response';
+import { buildMockSuccessResponse, mockFailedResponse, mockSuccessResponseData } from '../../utils';
 
 class TestClass {
   @clearResponse
-  async apiMethodWithErrorDetails() {
-    return mockSuccessResponse
+  async apiMethodWithErrorDetails(): Promise<typeof mockFailedResponse & typeof mockSuccessResponseData> {
+    return {...mockFailedResponse, ...mockSuccessResponseData};
   }
 
   @clearResponse
-  async apiMethodWithOutErrorDetails() {
-    return mockSuccessResponseData
+  async apiMethodWithOutErrorDetails(): Promise<typeof mockSuccessResponseData> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { success, ...data } = buildMockSuccessResponse();
+
+    return data;
   }
 }
-
 
 describe('Clear api response decorator', () => {
   let testClass: TestClass;

@@ -1,9 +1,7 @@
 import { HttpClient, HttpClientConfig } from './core/HttpClient';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
 
-
 export interface ApiClientConfig extends HttpClientConfig {}
-
 
 export class SenlerApiClient {
   public readonly httpClient: HttpClient;

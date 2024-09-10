@@ -18,5 +18,5 @@ export enum SourceType {
   API = 'api',
   Site = 'site',
   Hand = 'hand',
-  Other = 'other',
+  Other = 'other'
 }

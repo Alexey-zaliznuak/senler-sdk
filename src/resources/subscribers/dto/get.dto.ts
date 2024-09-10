@@ -1,6 +1,5 @@
-import { Subscriber } from "./subscriber.dto";
-import { SourceType } from "./subscriber.subscription.dto";
-
+import { Subscriber } from './subscriber.dto';
+import { SourceType } from './subscriber.subscription.dto';
 
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
 export interface GetSubscribersRequestParams {
