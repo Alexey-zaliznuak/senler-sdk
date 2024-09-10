@@ -8,7 +8,7 @@ export class SubscribersResource {
     this.httpClient = httpClient;
   }
 
-  async getSubscribers(params: GetSubscribersRequestParams): Promise<GetSubscribersResponse> {
+  async get(params?: GetSubscribersRequestParams): Promise<GetSubscribersResponse> {
     return await this.httpClient.get<GetSubscribersResponse>('subscribers/get', params);
   }
 }
