@@ -6,6 +6,9 @@
   "module": "dist/index.esm.js",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "microbundle",
