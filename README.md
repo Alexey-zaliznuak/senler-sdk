@@ -68,7 +68,7 @@ app.get(
     session: false, // Disable session (senler does not used it)
   }),
 
-  (req, res) => {
+  async (req, res) => {
     const client = new SenlerApiClient({
       accessToken: req.accessToken,
       vkGroupId: "YOUR_VK_GROUP_ID",
