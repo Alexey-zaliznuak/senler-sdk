@@ -1,6 +1,6 @@
 {
   "name": "senler-sdk",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "SDK for Senler API",
   "source": "src/index.ts",
   "main": "dist/index.js",
