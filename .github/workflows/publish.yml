@@ -41,6 +41,8 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Clean npm cache
+        run: npm cache clean --force
       - name: Install dependencies
         run: npm install
 
