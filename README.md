@@ -36,8 +36,7 @@ client.subscribers.get().then((res) => console.log(res))
 ### Installation
 
 ```bash
-npm i passport
-npm i passport-senler
+npm i passport passport-senler
 ```
 
 ### Use api client for get subscribers with received access token
