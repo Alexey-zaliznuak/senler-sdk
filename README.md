@@ -39,14 +39,6 @@ client.subscribers.get().then((res) => console.log(res))
 All API methods return promises. To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
 Errors implemented via success, error_code, error_message ([see](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki ).) are converted and throws out as an ApiError with the corresponding message.
 
-## Testing
-
-[Jest] is used to test the project(https://jestjs.io /).
-
-```bash
-npm run test
-```
-
 ## License
 
 This project is licensed under the MIT license. See [LICENSE](./LICENSE) for details.
