@@ -21,8 +21,8 @@ import { SenlerApiClient } from "senler-sdk"
 
 
 const client = new SenlerApiClient({
-  accessToken: process.env.SENLER_TESTS_ACCESS_TOKEN!,
-  vkGroupId: process.env.SENLER_TESTS_VK_GTOUP_ID!
+  accessToken: "<SENLER_ACCESS_TOKEN>",
+  vkGroupId: "<SENLER_VK_GROUP_ID>"
 })
 
 client.subscribers.get().then((res) => console.log(res))
