@@ -1,24 +1,22 @@
-# Senler API Client
-## Описание
+# Senler SDK
+## Description
 `SenlerSDK` — это TypeScript-библиотека для удобного взаимодействия с [Senler API](https://help.senler.ru/senler/dev/api). Она предоставляет модульную структуру для работы с различными ресурсами Senler, такими как подписчики, рассылки и сообщения и т.д
 
-## Установка
-
-Для установки библиотеки используйте npm или yarn:
+## Installation
 
 ### npm
 
 ```bash
-npm install senler-api-client
+npm install senler-sdk
 ```
 
 ### yarn
 
 ```bash
-yarn add senler-api-client
+yarn add senler-sdk
 ```
 
-## Использование
+## Usage
 
 ### Инициализация API клиента
 
