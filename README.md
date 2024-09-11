@@ -19,7 +19,6 @@ To work with the API, you will need the `access_token` and `vk_group_id` of your
 ```typescript
 import { SenlerApiClient } from "senler-sdk"
 
-
 const client = new SenlerApiClient({
   accessToken: "YOUR_ACCESS_TOKEN",
   vkGroupId: "YOUR_VK_GROUP_ID",
