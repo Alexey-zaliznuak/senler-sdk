@@ -21,8 +21,8 @@ import { SenlerApiClient } from "senler-sdk"
 
 
 const client = new SenlerApiClient({
-  accessToken: "<SENLER_ACCESS_TOKEN>",
-  vkGroupId: "<SENLER_VK_GROUP_ID>"
+  accessToken: "abcde123",
+  vkGroupId: "123",
 })
 
 client.subscribers.get().then((res) => console.log(res))
@@ -32,12 +32,12 @@ client.subscribers.get().then((res) => console.log(res))
 ## Methods
 
 ### Subscribers
-- **`client.subscribers.get(params?: GetSubscribersRequestParams): Promise<GetSubscribersResponse>`** — Get subscribers list.
+- **`get(params?: GetSubscribersRequestParams): Promise<GetSubscribersResponse>`** — Get subscribers list.
 
 ### Error handling
 
 All API methods return promises. To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
-Errors implemented via success, error_code, error_message ([see](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki ).) are converted and throws out as an ApiError with the corresponding message.
+Errors implemented via success, error_code, error_message ([docs](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki)) are converted and throws out as an ApiError with the corresponding message.
 
 ## License
 
