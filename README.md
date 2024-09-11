@@ -90,7 +90,7 @@ app.listen(3000, () => {
 
 ### Error handling
 
-All API methods return promises. To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
+To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
 
 Errors implemented via `success`, `error_code` and `error_message` ([docs](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki)) are converted and throws out as an ApiError with the corresponding message.
 
