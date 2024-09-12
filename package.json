@@ -1,6 +1,6 @@
 {
   "name": "senler-sdk",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "SDK for Senler API",
   "source": "src/index.ts",
   "license": "MIT",
