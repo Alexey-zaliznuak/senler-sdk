@@ -1,4 +1,4 @@
-import { Utm } from "./subscriber.utm.dto"
+import { Utm } from './subscriber.utm.dto';
 
 export interface AddSubscribersRequestParams extends Partial<Utm> {
   // VKontakte user ID it is possible to add both one user at a time and in bulk
