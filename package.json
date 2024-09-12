@@ -9,7 +9,7 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "microbundle --tsconfig tsconfig.json --no-sourcemap",
+    "build": "microbundle",
     "start": "npm run build && node dist/index.js",
     "lint": "eslint --fix",
     "watch": "microbundle watch",
