@@ -3,11 +3,18 @@ import { Utm } from './subscriber.utm.dto';
 export interface AddSubscribersRequestParams extends Partial<Utm> {
   // VKontakte user ID it is possible to add both one user at a time and in bulk
   // Example: 1
-  vk_user_id: number;
+  vk_user_id: number | number[];
 
   // Id of the subscriber group (0 - without a group)
   // Example: 123
   subscription_id: number;
 }
 
-export interface AddSubscribersResponse {}
+export interface AddSubscribersResponse {
+  subscribers: AddSubscribersUserOperationDetails[],
+}
+
+export interface AddSubscribersUserOperationDetails {
+  vk_user_id: string;
+  success: boolean;
+}

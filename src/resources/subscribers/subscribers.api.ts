@@ -19,6 +19,8 @@ export class SubscribersResource {
 
   /**
    * Adding a subscriber to a group of subscribers.
+   *
+   * The error does not appear when trying to add an existing user.
    */
   async add(params?: AddSubscribersRequestParams): Promise<AddSubscribersResponse> {
     return await this.httpClient.get<AddSubscribersResponse>('subscribers/add', params);
