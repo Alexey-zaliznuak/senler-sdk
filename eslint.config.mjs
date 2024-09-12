@@ -22,7 +22,7 @@ export default [
       sourceType: 'module',
       parser: tsParser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tests.tsconfig.json',
       },
     },
     plugins: {
