@@ -1,6 +1,7 @@
 import { Subscription } from './subscriber.subscription.dto';
-import { Utm } from './subscriber.utm.dto';
+import { UtmFilterParams } from './subscriber.utm.dto';
 import { Var } from './subscriber.var.dto';
+
 
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov#struktura-elementa-massiva-s-podpischikami-items
 export interface Subscriber {
@@ -13,7 +14,7 @@ export interface Subscriber {
   vk_user_id: number;
 
   // If the user is blacklisted, the value is "1", otherwise "0"
-  ignore: 1 | 0;
+  ignore: 0 | 1;
 
   first_name: string;
   last_name: string;
@@ -26,7 +27,7 @@ export interface Subscriber {
   subscriptions: Subscription[];
 
   // List of Senler tags and utm tags
-  utms: Utm[];
+  utms: UtmFilterParams[];
 
   vars?: Var[];
 }

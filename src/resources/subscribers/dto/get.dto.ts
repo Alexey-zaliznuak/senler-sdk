@@ -1,8 +1,11 @@
-import { Subscriber } from './subscriber.dto';
-import { SourceType } from './subscriber.subscription.dto';
-
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
-export interface GetSubscribersRequestParams {
+
+import { Subscriber } from './subscriber.dto';
+import { SubscriptionSourceType } from './subscriber.subscription.dto';
+import { UtmManyFilterParams } from './subscriber.utm.dto';
+
+
+export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams> {
   // Number of elements to return
   // Max: 100
   // Example: 50
@@ -52,33 +55,9 @@ export interface GetSubscribersRequestParams {
   // Example: [123]
   ignore_away_delivery_id?: number[];
 
-  // UTM tag IDs from Senler
-  // Example: [0, 123]
-  utm_id?: number[];
-
   // Subscription source
   // Examples: 'subscriptions', 'widget', 'api', etc.
-  source?: SourceType[];
-
-  // Campaign source
-  // Example: ['vk']
-  utm_source?: string[];
-
-  // Traffic type
-  // Example: ['cpc']
-  utm_medium?: string[];
-
-  // Campaign name
-  // Example: ['skidka_po_karte']
-  utm_campaign?: string[];
-
-  // Advertisement identifier
-  // Example: ['banner']
-  utm_content?: string[];
-
-  // Keyword
-  // Example: ['bill tables online']
-  utm_term?: string[];
+  source?: SubscriptionSourceType[];
 
   // Date of subscription from, format: d.m.Y H:i:s
   // Example: 26.11.2018 10:00:00
@@ -135,7 +114,7 @@ export interface GetSubscribersRequestParams {
   ignore_step_id?: string[];
 
   // Subscriber status filter, 1 for Active, 2 for Inactive
-  lead_status?: number;
+  lead_status?: 1 | 2;
 
   // Name of the variable
   // Example: 'age'

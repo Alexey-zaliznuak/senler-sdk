@@ -9,8 +9,9 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "microbundle",
     "start": "npm run build && node dist/index.js",
+    "build": "npm run build:remove-dist && microbundle",
+    "build:remove-dist": "if exist dist (rmdir /s /q dist)",
     "lint": "eslint --fix",
     "watch": "microbundle watch",
     "test": "jest"

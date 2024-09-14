@@ -1,5 +1,8 @@
-*.log
-.DS_Store
 node_modules
 dist
+
+*.log
 .env
+.DS_Store
+
+test-api.ts

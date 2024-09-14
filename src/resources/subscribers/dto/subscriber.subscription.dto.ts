@@ -1,4 +1,5 @@
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov#struktura-elementa-massiva-s-podpischikami-items
+
 export interface Subscription {
   // Date of the subscription format: d.m.Y H:i:s
   // Example: 27.11.2018 10:00:00
@@ -7,10 +8,10 @@ export interface Subscription {
   // ID of the subscriber group
   subscription_id: number;
 
-  source: SourceType;
+  source: SubscriptionSourceType;
 }
 
-export enum SourceType {
+export enum SubscriptionSourceType {
   Subscriptions = 'subscriptions',
   Subscription = 'subscription',
   Widget = 'widget',

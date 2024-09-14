@@ -1,5 +1,5 @@
 import { GetSubscribersResponse } from '../../../../src/resources/subscribers/dto/get.dto';
-import { SourceType } from '../../../../src/resources/subscribers/dto/subscriber.subscription.dto';
+import { SubscriptionSourceType } from '../../../../src/resources/subscribers/dto/subscriber.subscription.dto';
 
 export const getSubscribersMock: GetSubscribersResponse = {
   offset_id: '5c6992770b295058e641bb86',
@@ -19,7 +19,7 @@ export const getSubscribersMock: GetSubscribersResponse = {
         {
           date: '27.11.2018 10:00:00',
           subscription_id: 1,
-          source: SourceType.API
+          source: SubscriptionSourceType.API
         }
       ],
       utms: [
