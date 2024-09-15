@@ -1,20 +1,15 @@
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
 
+import { GetSubscribersStatisticsBaseRequestParams } from "./getStatsBase.dto";
 import { SubscriptionSourceType } from "./subscriber.subscription.dto";
 import { Utm, UtmFilterParams } from "./subscriber.utm.dto";
 
 
-export interface GetSubscriptionsStatisticRequestParams extends Partial<UtmFilterParams> {
-  // Date and time from which the subscription/unsubscription occurred
-  // Format: d.m.Y H:i:s
-  // Example: 26.11.2018 10:00:00
-  date_from: string;
-
-  // Date and time until which the subscription/unsubscription occurred
-  // Format: d.m.Y H:i:s
-  // Example: 27.11.2018 10:00:00
-  date_to: string;
-
+export interface GetSubscriptionsStatisticsRequestParams
+  extends
+    Partial<UtmFilterParams>,
+    GetSubscribersStatisticsBaseRequestParams
+  {
   // Number of elements to return
   // Max: 100
   // Example: 50
@@ -23,23 +18,6 @@ export interface GetSubscriptionsStatisticRequestParams extends Partial<UtmFilte
   // Offset for fetching a subset of conversations
   // Example: 10
   offset?: number;
-
-  // VK user IDs
-  // Example: [1]
-  vk_user_id?: number[];
-
-  // Subscriber group IDs
-  // Example: [123]
-  subscription_id?: number[];
-
-  // Exclude subscribers from these groups (0 for no group)
-  // Example: [0, 123]
-  ignore_subscription_id?: number[];
-
-  // Subscription source
-  // Possible values: 'subscriptions', 'subscription', 'widget', 'keyword', 'api', 'site', 'hand', 'other'
-  // Example: ['subscription']
-  source?: SubscriptionSourceType[];
 }
 
 export interface GetSubscriptionsStatisticResponse {

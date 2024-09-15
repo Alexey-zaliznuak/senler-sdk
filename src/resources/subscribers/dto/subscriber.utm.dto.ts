@@ -1,5 +1,11 @@
+/**
+ * For responses annotations
+ */
 export interface Utm extends UtmFilterParams {};
 
+/**
+ * For request params annotations
+ */
 export interface UtmFilterParams {
   // ID of the Senler tags is an
   // Example: 123
