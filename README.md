@@ -1,4 +1,6 @@
 # Senler SDK
+![Tests workflow](https://github.com/Alexey-zaliznuak/senler-sdk/actions/workflows/test.yml/badge.svg)
+
 ## Description
 `SenlerSDK' is a TypeScript library for easy interaction with the [Senler API](https://help.senler.ru/senler/dev/api ). It provides a modular structure for working with various Senler resources, such as subscribers, mailing lists, messages, etc.
 
@@ -85,11 +87,38 @@ app.listen(3000, () => {
 ## Methods
 
 ### Subscribers
-- **`get(params?: GetSubscribersRequestParams)`** — Get subscribers list.
+- **`get(params?: GetSubscribersRequestParams)`** — Get list of subscribers.
+
+- **`addInGroup(params?: AddSubscribersInGroupRequestParams)`** — Add subscriber(s) in group.
+
+- **`delFromGroup(params?: DelSubscriberFromSubscriptionGroupRequestParams)`** — Del subscriber from group of subscribers.
+
+- **`getSubscriptionsStatistics(params?: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on registration and cancellation of subscriptions.
+
+- **`getSubscriptionsCountStatistics(params?: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on count of registration and cancellation of subscriptions.
+
 
 ### Error handling
 
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
+```typescript
+
+export const client = new SenlerApiClient({
+  accessToken: "YOUR_TOKEN",
+  vkGroupId: "YOUR_VK_GROUP_ID",
+})
+
+export const app = express();
+
+app.get('/get', async (_req, res) => {
+  try {
+    res.json(await client.subscribers.get())
+  }
+  catch (error: any) {
+    res.send(error.message)
+  }
+});
+```
 
 Errors implemented via `success`, `error_code` and `error_message` ([docs](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki)) are converted and throws out as an ApiError with the corresponding message.
 
