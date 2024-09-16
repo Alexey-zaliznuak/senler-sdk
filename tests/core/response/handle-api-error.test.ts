@@ -39,7 +39,9 @@ describe('handleApiError decorator', () => {
   it('should throw ApiError with correct details', async () => {
     try {
       await testClass.apiMethodWithError()
-    } catch (error) {
+    }
+
+    catch (error) {
       expect(error).toHaveProperty('details', {
         errorCode: mockFailedResponse.error_code,
         errorMessage: mockFailedResponse.error_message,
