@@ -31,7 +31,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika
    */
-  async addInGroup(params?: AddSubscribersInGroupRequestParams): Promise<AddSubscribersInGroupResponse> {
+  async addInGroup(params: AddSubscribersInGroupRequestParams): Promise<AddSubscribersInGroupResponse> {
     return await this.httpClient.get<AddSubscribersInGroupResponse>(`${this.RESOURCE_NAME}/add`, params);
   }
 
@@ -42,7 +42,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika
    */
-  async delFromGroup(params?: DelSubscriberFromSubscriptionGroupRequestParams): Promise<DelSubscriberFromSubscriptionGroupResponse> {
+  async delFromGroup(params: DelSubscriberFromSubscriptionGroupRequestParams): Promise<DelSubscriberFromSubscriptionGroupResponse> {
     return await this.httpClient.get<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, params);
   }
 

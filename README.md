@@ -93,16 +93,16 @@ app.listen(3000, () => {
 ### Subscribers
 - **`get(params?: GetSubscribersRequestParams)`** — Get list of subscribers.
 
-- **`addInGroup(params?: AddSubscribersInGroupRequestParams)`** — Add subscriber(s) in group.
+- **`addInGroup(params: AddSubscribersInGroupRequestParams)`** — Add subscriber(s) in group.
 
-- **`delFromGroup(params?: DelSubscriberFromSubscriptionGroupRequestParams)`** — Del subscriber from group of subscribers.
+- **`delFromGroup(params: DelSubscriberFromSubscriptionGroupRequestParams)`** — Del subscriber from group of subscribers.
 
-- **`getSubscriptionsStatistics(params?: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on registration and cancellation of subscriptions.
+- **`getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on registration and cancellation of subscriptions.
 
-- **`getSubscriptionsCountStatistics(params?: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on count of registration and cancellation of subscriptions.
+- **`getSubscriptionsCountStatistics(params: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on count of registration and cancellation of subscriptions.
 
 
-### Error handling
+## Error handling
 
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
 ```typescript
@@ -131,8 +131,17 @@ Errors implemented via `success`, `error_code` and `error_message` ([docs](https
 
 - Add more resources
 
+- Module tests??
+
+- Logging
+
+- Retrying
+
 - Caching
 
+- Full API reference??
+
+- Simple Integrations Examples
 
 ## License
 
