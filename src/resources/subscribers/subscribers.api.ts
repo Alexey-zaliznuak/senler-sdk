@@ -2,7 +2,8 @@ import { HttpClient } from '../../core/HttpClient';
 import { GetSubscribersRequestParams, GetSubscribersResponse } from './dto/get.dto';
 import { AddSubscribersRequestParams, AddSubscribersResponse } from './dto/add.dto';
 import { DelSubscriberFromSubscriptionGroupRequestParams, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
-import { GetSubscriptionsStatisticRequestParams, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto'
+import { GetSubscriptionsStatisticsRequestParams, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto'
+import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequestParams } from './dto/statCount.dto';
 
 
 export class SubscribersResource {
@@ -50,7 +51,16 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
    */
-  async getSubscriptionsStatistics(params: GetSubscriptionsStatisticRequestParams): Promise<GetSubscriptionsStatisticResponse> {
+  async getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequestParams): Promise<GetSubscriptionsStatisticResponse> {
     return await this.httpClient.get<GetSubscriptionsStatisticResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
+  }
+
+  /**
+   * Statistics on registration and cancellation of subscriptions.
+   *
+   * https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
+   */
+  async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticsRequestParams): Promise<GetSubscriptionsCountStatisticResponse> {
+    return await this.httpClient.get<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 }

@@ -2,10 +2,19 @@
 
 import { GetSubscribersStatisticsBaseRequestParams } from "./getStatsBase.dto";
 import { SubscriptionSourceType } from "./subscriber.subscription.dto";
-import { Utm, UtmFilterParams } from "./subscriber.utm.dto";
+import { Utm } from "./subscriber.utm.dto";
 
 
-export interface GetSubscriptionsStatisticRequestParams extends Partial<UtmFilterParams>, GetSubscribersStatisticsBaseRequestParams {}
+export interface GetSubscriptionsStatisticsRequestParams extends GetSubscribersStatisticsBaseRequestParams {
+  // Number of elements to return
+  // Max: 100
+  // Example: 50
+  count?: number;
+
+  // Offset for fetching a subset of conversations
+  // Example: 10
+  offset?: number;
+}
 
 export interface GetSubscriptionsStatisticResponse {
   items: SubscriptionAction[];

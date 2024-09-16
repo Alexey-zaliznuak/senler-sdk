@@ -1,5 +1,3 @@
-// https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
-
 import { SubscriptionSourceType } from "./subscriber.subscription.dto";
 import { UtmFilterParams } from "./subscriber.utm.dto";
 
