@@ -32,7 +32,18 @@ describe('handleApiError decorator', () => {
     await expect(testClass.apiMethodWithError()).rejects.toThrow(ApiError);
   });
 
-  it('should throw ApiError with correct error code and message', async () => {
+  it('should throw ApiError with correct message', async () => {
     await expect(testClass.apiMethodWithError()).rejects.toThrow(new ApiError(mockFailedResponse.error_code, mockFailedResponse.error_message));
+  });
+
+  it('should throw ApiError with correct details', async () => {
+    try {
+      await testClass.apiMethodWithError()
+    } catch (error) {
+      expect(error).toHaveProperty('details', {
+        errorCode: mockFailedResponse.error_code,
+        errorMessage: mockFailedResponse.error_message,
+      })
+    }
   });
 });
