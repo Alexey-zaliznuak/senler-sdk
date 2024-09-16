@@ -2,7 +2,7 @@
 
 import { UtmFilterParams } from './subscriber.utm.dto';
 
-export interface AddSubscribersRequestParams extends Partial<UtmFilterParams> {
+export interface AddSubscribersInGroupRequestParams extends Partial<UtmFilterParams> {
   /**
    * VKontakte user ID it is possible to add both one user at a time and in bulk
    * Example: 1
@@ -14,11 +14,11 @@ export interface AddSubscribersRequestParams extends Partial<UtmFilterParams> {
   subscription_id: number;
 }
 
-export interface AddSubscribersResponse {
-  subscribers: AddSubscribersUserOperationDetails[],
+export interface AddSubscribersInGroupResponse {
+  subscribers: AddSubscribersInGroupUserOperationDetails[],
 }
 
-export interface AddSubscribersUserOperationDetails {
+export interface AddSubscribersInGroupUserOperationDetails {
   vk_user_id: string;
   success: boolean;
   error?: string;
