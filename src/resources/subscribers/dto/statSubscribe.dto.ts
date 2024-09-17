@@ -1,7 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
 
+import { SubscriptionSourceType } from 'src/resources/share/types'
 import { GetSubscribersStatisticsBaseRequestParams } from "./getStatsBase.dto";
-import { SubscriptionSourceType } from "./subscriber.subscription.dto";
+
 import { Utm } from "./subscriber.utm.dto";
 
 
