@@ -107,12 +107,12 @@ app.listen(3000, () => {
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
 ```typescript
 
-export const client = new SenlerApiClient({
+const client = new SenlerApiClient({
   accessToken: "YOUR_TOKEN",
   vkGroupId: "YOUR_VK_GROUP_ID",
 })
 
-export const app = express();
+const app = express();
 
 app.get('/get', async (_req, res) => {
   try {
