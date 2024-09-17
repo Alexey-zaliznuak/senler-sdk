@@ -1,6 +1,6 @@
 {
   "name": "senler-sdk",
-  "version": "0.4.4",
+  "version": "0.4.10",
   "description": "SDK for Senler API",
   "source": "src/index.ts",
   "license": "MIT",
@@ -10,7 +10,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "build": "npm run build:remove-dist && microbundle",
+    "build": "microbundle",
+    "clean-build": "npm run build:remove-dist && microbundle",
     "build:remove-dist": "if exist dist (rmdir /s /q dist)",
     "lint": "eslint --fix",
     "watch": "microbundle watch",

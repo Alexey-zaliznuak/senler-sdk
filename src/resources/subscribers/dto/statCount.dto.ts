@@ -1,4 +1,4 @@
-// https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
+/** https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok */
 
 import { GetSubscribersStatisticsBaseRequestParams } from "./getStatsBase.dto";
 
