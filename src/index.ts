@@ -17,11 +17,11 @@ const client = new SenlerApiClient({
 // ).then((res) => console.log(res))
 
 
-client.utms.getLink({'utm_id': '1860366', 'subscription_id': '2058906'}).then((res) => console.log(res));
-client.utms.getSubscriptionsCountStatistics({
-    date_from: "10.10.2000",
-    date_to: "10.11.3000",
-  }).then((res) => console.log(res));
+client.utms.get().then((res) => console.log(res));
+// client.utms.getSubscriptionsCountStatistics({
+//     date_from: "10.10.2000",
+//     date_to: "10.11.3000",
+//   }).then((res) => console.log(res));
 
 // client.subscribers.
 // client.subscribers.

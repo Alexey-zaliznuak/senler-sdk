@@ -1,7 +1,7 @@
 /**
- * Structure of the received utm tag
+ * Label with a subscriber counter for a specific group
  */
-export interface UtmTagStructure {
+export interface UtmTag {
   /**
    * Utm identifier - tags
    *

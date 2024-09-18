@@ -1,8 +1,8 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov#struktura-elementa-massiva-s-podpischikami-items */
 
-import { Subscription } from './subscriber.subscription.dto';
-import { UtmFilterParams } from './subscriber.utm.dto';
-import { Var } from './subscriber.var.dto';
+import { Subscription } from '../../subscribers/dto/subscriber.subscription.dto';
+import { Var } from '../../subscribers/dto/subscriber.var.dto';
+import { UtmFilterParams } from './utm-params-type';
 
 export interface Subscriber {
   /**

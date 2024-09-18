@@ -1,6 +1,6 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov#struktura-elementa-massiva-s-podpischikami-items */
 
-import { SubscriptionSourceType } from 'src/resources/share/types'
+import { SubscriptionSourceType } from 'src/resources/share/types';
 
 export interface Subscription {
   /**
@@ -14,5 +14,3 @@ export interface Subscription {
 
   source: SubscriptionSourceType;
 }
-
-

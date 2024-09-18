@@ -1,6 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika  */
 
-import { UtmFilterParams } from './subscriber.utm.dto';
+import { UtmFilterParams } from 'src/resources/share/types'
+
 
 export interface AddSubscribersInGroupRequestParams extends Partial<UtmFilterParams> {
   /**
@@ -19,7 +20,7 @@ export interface AddSubscribersInGroupRequestParams extends Partial<UtmFilterPar
 }
 
 export interface AddSubscribersInGroupResponse {
-  subscribers: AddSubscribersInGroupUserOperationDetails[],
+  subscribers: AddSubscribersInGroupUserOperationDetails[];
 }
 
 export interface AddSubscribersInGroupUserOperationDetails {

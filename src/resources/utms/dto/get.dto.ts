@@ -1,6 +1,6 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok
 
-import { UtmTagStructure } from './get.utm.dto';
+import { UtmTag } from './get.utm.dto';
 
 /**
  * Returns a list of all utm tags
@@ -24,11 +24,6 @@ export interface GetUtmRequestParams {
    */
   offset?: number;
 
-  /**
-   * Utm tag ids
-   *
-   * Example: [123]
-   */
   utm_id?: Array<number>;
 }
 
@@ -40,5 +35,5 @@ export interface GetUtmResponse {
    * Example: `'20'`
    */
   count: string;
-  items: Array<UtmTagStructure>;
+  items: Array<UtmTag>;
 }

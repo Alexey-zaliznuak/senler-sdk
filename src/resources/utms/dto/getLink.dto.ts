@@ -1,8 +1,6 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki
 
-/**
- * Getting a link to a subscription page with a tag
- */
+/** Getting a link to a subscription page with a tag */
 export interface GetLinkUtmRequestParams {
   /**
    * Utm tag id

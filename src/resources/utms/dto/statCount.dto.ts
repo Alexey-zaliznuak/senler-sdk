@@ -1,6 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
 
-import { UtmTagWithSubscribeCountStructure } from './statCount.subscription.dto';
+import { UtmTagWithSubscribeCount } from './statCount.subscription.dto'
+
 
 /**
  * Getting statistics on the number of subscriptions to ***any*** group with the utm tag
@@ -47,5 +48,5 @@ export interface StatCountUtmsResponse {
   /**
    * Link to a group of subscribers with a label
    */
-  items: Array<UtmTagWithSubscribeCountStructure>;
+  items: Array<UtmTagWithSubscribeCount>;
 }

@@ -1,68 +1,68 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
 
-import { SubscriptionStructure } from './statSubscribe.subscription.dto';
+import { SubscriptionAction } from 'src/resources/share/types';
 
 /**
  * Getting an array of subscriber actions associated with a utm tag
  */
 export interface StatSubscribeUtmsRequestParams {
   /**
-   * date and time from which subscribed/unsubscribed
+   * Date and time from which subscribed/unsubscribed
    *
-   * format: `d.m.Y H:i:s` example: `26.11.2018 10:00:00`
+   * Format: `d.m.Y H:i:s` Example: `26.11.2018 10:00:00`
    */
   date_from: string;
 
   /**
-   * date and time before which subscribed/unsubscribed
+   * Date and time before which subscribed/unsubscribed
    *
-   * format: `d.m.Y H:i:s` example: `27.11.2018 10:00:00`
+   * Format: `d.m.Y H:i:s` Example: `27.11.2018 10:00:00`
    */
   date_to: string;
 
   /**
-   * number of elements to return information about
+   * Number of elements to return information about
    *
-   * maximum: `100`
+   * Maximum: `100`
    *
-   * example: `50`
+   * Example: `50`
    */
   count?: number;
 
   /**
-   * offset - how many elements to sample from
+   * Offset - how many elements to sample from
    *
-   * default: `0` | max: `100,000`
+   * Default: `0` | max: `100,000`
    *
-   * example: `50`
+   * Example: `50`
    */
   offset?: number;
 
   /**
    * VKontakte user IDs
    *
-   * example: `[1]`
+   * Example: `[1]`
    */
   vk_user_id?: Array<number>;
 
   /**
-   * идентификаторы групп подписчиков
+   * Subscriber group ID (missing if the subscription is without a group)
    *
-   * пример: `[123]`
+   * Example: `[123]`
    */
   subscription_id?: Array<number>;
 
   /**
-   * utm identifiers - Senler utm tags
+   * Utm identifiers - Senler utm tags
    *
-   * example: `[0,123]`
+   * Example: `[0,123]`
    */
   utm_id?: Array<number>;
 
   /**
-   * subscriber action: 0 - all, 1 - subscribe, 2 - unsubscribe (default 0)
+   * Subscriber action: 0 - all, 1 - subscribe, 2 - unsubscribe (default 0)
    *
-   * example: `1`
+   * Example: `1`
    */
   action?: number;
 }
@@ -77,5 +77,5 @@ export interface StatSubscribeUtmsResponse {
    */
   count: number;
 
-  items: Array<SubscriptionStructure>;
+  items: Array<SubscriptionAction>;
 }

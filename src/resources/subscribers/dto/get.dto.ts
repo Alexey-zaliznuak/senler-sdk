@@ -1,9 +1,6 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov */
 
-import { Subscriber } from './subscriber.dto';
-import { SubscriptionSourceType } from './subscriber.subscription.dto';
-import { UtmManyFilterParams } from './subscriber.utm.dto';
-
+import { Subscriber, SubscriptionSourceType, UtmManyFilterParams } from 'src/resources/share/types';
 
 export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams> {
   /**

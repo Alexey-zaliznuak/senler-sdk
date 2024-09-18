@@ -1,6 +1,5 @@
-import { SubscriptionSourceType } from "./subscriber.subscription.dto";
-import { UtmFilterParams } from "./subscriber.utm.dto";
-
+import { UtmFilterParams } from 'src/resources/share/types';
+import { SubscriptionSourceType } from 'src/types';
 
 export interface GetSubscribersStatisticsBaseRequestParams extends Partial<UtmFilterParams> {
   /**
