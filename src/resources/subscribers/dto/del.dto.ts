@@ -9,7 +9,7 @@ export interface DelSubscriberFromSubscriptionGroupRequestParams {
 
   /**
    * ID of the subscriber group (0 - full unsubscription from all groups)
-   * Example: 123
+   * Example: `123`
    */
   subscription_id: number;
 }

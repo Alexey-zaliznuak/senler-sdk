@@ -7,13 +7,13 @@ import { Var } from './subscriber.var.dto';
 export interface Subscriber {
   /**
    * Date of the first subscription format: d.m.Y H:i:s
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date: string;
 
   /**
    * VKontakte subscriber ID
-   * Example: 1
+   * Example: `1`
    */
   vk_user_id: number;
 
@@ -25,7 +25,7 @@ export interface Subscriber {
 
   /**
    * Link to the subscriber's image
-   * Example: https://sun6-6.userapi.com;
+   * Example: `https://sun6-6.userapi.com`;
    */
   photo: string;
 

@@ -9,39 +9,39 @@ export interface Utm extends UtmFilterParams {};
 export interface UtmFilterParams {
   /**
    * ID of the Senler tags is an
-   * Example: 123
+   * Example: `123`
    */
   utm_id: number;
 
   /**
    * Campaign source
-   * Example: vk
+   * Example: `vk`
    */
   utm_source: string;
 
   /**
    * Traffic type
-   * Example: cpc
+   * Example: `cpc`
    */
   utm_medium: string;
 
   /**
    * Campaign name
    *
-   * Example: skid_ko_karte
+   * Example: `skid_ko_karte`
    */
   utm_campaign: string;
 
   /**
    * The ad ID
    *
-   * Example: banner
+   * Example: `banner`
    */
   utm_content: string;
 
   /**
    * Keyword
-   * Example: order a chair online
+   * Example: `order a chair online`
    */
   utm_term: string;
 }
@@ -49,37 +49,37 @@ export interface UtmFilterParams {
 export interface UtmManyFilterParams {
   /**
    * UTM tag IDs from Senler
-   * Example: [0, 123]
+   * Example: `[0, 123]`
    */
   utm_id: number[];
 
   /**
    * Campaign source
-   * Example: ['vk']
+   * Example: `['vk']`
    */
   utm_source: string[];
 
   /**
    * Traffic type
-   * Example: ['cpc']
+   * Example: `['cpc']`
    */
   utm_medium: string[];
 
   /**
    * Campaign name
-   * Example: ['skidka_po_karte']
+   * Example: `['skidka_po_karte']`
    */
   utm_campaign: string[];
 
   /**
    * Advertisement identifier
-   * Example: ['banner']
+   * Example: `['banner']`
    */
   utm_content: string[];
 
   /**
    * Keyword
-   * Example: ['bill tables online']
+   * Example: `['bill tables online']`
    */
   utm_term: string[];
 }

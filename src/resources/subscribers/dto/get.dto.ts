@@ -9,28 +9,28 @@ export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams
   /**
    * Number of elements to return
    *
-   * max: 100
+   * Max: `100`
    */
   count?: number;
 
   /**
    * Offset for fetching the next set
    *
-   * Example: '5c6992770b295058e641bb86'
+   * Example: `5c6992770b295058e641bb86`
    */
   offset_id?: string;
 
   /**
    * VK user IDs
    *
-   * Example: [1, 2]
+   * Example: `[1, 2]`
    */
   vk_user_id?: number[];
 
   /**
    * Subscriber group IDs, 0 for no group
    *
-   * Example: [1, 2]
+   * Example: `[1, 2]`
    */
   subscription_id?: number[];
 
@@ -44,48 +44,48 @@ export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams
   /**
    * IDs of deliveries received by subscribers
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   delivery_id?: number[];
 
   /**
    * Exclude subscribers who received these deliveries
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   ignore_delivery_id?: number[];
 
   /**
    * Deliveries with errors
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   error_delivery_id?: number[];
 
   /**
    * IDs of deliveries read by users
-   * Example: [123]
+   * Example: `[123]`
    */
   read_delivery_id?: number[];
 
   /**
    * Deliveries not read by users
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   ignore_read_delivery_id?: number[];
 
   /**
    * Deliveries where users clicked links
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   away_delivery_id?: number[];
 
   /**
    * Deliveries where users did not click links
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   ignore_away_delivery_id?: number[];
 
@@ -99,49 +99,49 @@ export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams
   /**
    * Date of subscription from, format: d.m.Y H:i:s
    *
-   * Example: 26.11.2018 10:00:00
+   * Example: `26.11.2018 10:00:00`
    */
   date_subscription_from?: string;
 
   /**
    * Date of subscription to, format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_subscription_to?: string;
 
   /**
    * Date of first subscription from, format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_first_from?: string;
 
   /**
    * Date of first subscription to, format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_first_to?: string;
 
   /**
    * Date of delivery from, format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_delivery_from?: string;
 
   /**
    * Date of delivery to, format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_delivery_to?: string;
 
   /**
    * Date of first delivery from, format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_first_delivery_from?: string;
 
@@ -163,28 +163,28 @@ export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams
   /**
    * Bot ID
    *
-   * Example: 1
+   * Example: `1`
    */
   bot_id?: number;
 
   /**
    * Bot step IDs for the given bot
    *
-   * Example: ['5c6992770b295058e641bb86']
+   * Example: `['5c6992770b295058e641bb86']`
    */
   step_id?: string[];
 
   /**
    * Exclude subscribers from this bot
    *
-   * Example: 1
+   * Example: `1`
    */
   ignore_bot_id?: number;
 
   /**
    * Exclude steps for the bot in ignore_bot_id
    *
-   * Example: ['5c6992770b295058e641bb86']
+   * Example: `['5c6992770b295058e641bb86']`
    */
   ignore_step_id?: string[];
 
@@ -194,14 +194,14 @@ export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams
   /**
    * Name of the variable
    *
-   * Example: 'age'
+   * Example: `age`
    */
   var_name?: string;
 
   /**
    * Value of the variable
    *
-   * Example: '30'
+   * Example: `30`
    */
   var_value?: string;
 }
@@ -210,7 +210,7 @@ export interface GetSubscribersResponse {
   /**
    * The offset that needs to be transmitted to select the next set
    *
-   * Example: 5c6992770b295058e641bb86
+   * Example: `5c6992770b295058e641bb86`
    */
   offset_id: string;
 

@@ -3,7 +3,7 @@
 export interface Subscription {
   /**
    * Date of the subscription format: d.m.Y H:i:s
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date: string;
 

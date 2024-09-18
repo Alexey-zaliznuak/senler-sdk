@@ -8,7 +8,7 @@ export interface GetSubscribersStatisticsBaseRequestParams extends Partial<UtmFi
    *
    * Format: d.m.Y H:i:s
    *
-   * Example: 26.11.2018 10:00:00
+   * Example: `26.11.2018 10:00:00`
    */
   date_from: string;
 
@@ -17,35 +17,35 @@ export interface GetSubscribersStatisticsBaseRequestParams extends Partial<UtmFi
    *
    * Format: d.m.Y H:i:s
    *
-   * Example: 27.11.2018 10:00:00
+   * Example: `27.11.2018 10:00:00`
    */
   date_to: string;
 
   /**
    * VK user IDs
    *
-   * Example: [1]
+   * Example: `[1]`
    */
   vk_user_id?: number[];
 
   /**
    * Subscriber group IDs
    *
-   * Example: [123]
+   * Example: `[123]`
    */
   subscription_id?: number[];
 
   /**
    * Exclude subscribers from these groups (0 for no group)
    *
-   * Example: [0, 123]
+   * Example: `[0, 123]`
    */
   ignore_subscription_id?: number[];
 
   /**
    * Subscription source
    *
-   * Example: ['subscription']
+   * Example: `['subscription']`
    */
   source?: SubscriptionSourceType[];
 }
