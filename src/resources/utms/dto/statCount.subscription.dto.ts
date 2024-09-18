@@ -2,22 +2,22 @@ export interface UtmTagWithSubscribeCountStructure {
   /**
    * Senler utm tag id
    *
-   * example: `123`
+   * Example: `123`
    */
   utm_id: number;
 
   /**
-   * number of subscriptions made
+   * Number of subscriptions made
    *
-   * example: `312`
+   * Example: `312`
    */
 
   count_subscribe: number;
 
   /**
-   * number of cancelled subscriptions
+   * Number of cancelled subscriptions
    *
-   * example: `2`
+   * Example: `2`
    */
 
   count_unsubscribe: number;

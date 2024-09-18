@@ -68,9 +68,9 @@ export interface StatSubscribeUtmsResponse {
   success: boolean;
 
   /**
-   * number of all elements in the sample
+   * Number of all elements in the sample
    *
-   * example: `20`
+   * Example: `20`
    */
   count: number;
 

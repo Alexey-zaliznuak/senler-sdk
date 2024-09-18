@@ -66,7 +66,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
    */
-  async statCount(params: StatCountUtmsRequestParams): Promise<StatCountUtmsResponse> {
+  async getSubscriptionsCountStatistics(params: StatCountUtmsRequestParams): Promise<StatCountUtmsResponse> {
     return await this.httpClient.get<StatCountUtmsResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 
@@ -75,7 +75,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
    */
-  async statSubscribe(params: StatSubscribeUtmsRequestParams): Promise<StatSubscribeUtmsResponse> {
+  async getSubscriptionsStatistics(params: StatSubscribeUtmsRequestParams): Promise<StatSubscribeUtmsResponse> {
     return await this.httpClient.get<StatSubscribeUtmsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
   }
 }

@@ -1,29 +1,29 @@
 export interface UtmTagStructure {
   /**
-   * utm identifier - tags
+   * Utm identifier - tags
    *
-   * example: 123
+   * Example: `'123'`
    */
-  utm_id: number;
+  utm_id: string;
 
   /**
-   * label name
+   * Label name
    *
-   * example: label 1
+   * Example: `'label 1'`
    */
   name: string;
 
   /**
-   * default subscriber group id
+   * Default subscriber group id
    *
-   * example: 123
+   * Example: `'123'`
    */
-  subscription_id: number;
+  subscription_id: string;
 
   /**
-   * subscription counter
+   * Subscription counter
    *
-   * example: 421
+   * Example: `'421'`
    */
-  count: number;
+  count: string;
 }

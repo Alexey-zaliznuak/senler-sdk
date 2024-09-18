@@ -4,27 +4,27 @@ import { UtmTagStructure } from './get.utm.dto';
 
 export interface GetUtmRequestParams {
   /**
-   * number of elements to return information about
+   * Number of elements to return information about
    *
-   * maximum: 100
+   * Maximum: 100
    *
-   * example: 50
+   * Example: 50
    */
   count?: number;
 
   /**
-   * offset - how many elements to sample from
+   * Offset - how many elements to sample from
    *
-   * default: 0 | max: 100,000
+   * Default: 0 | max: 100,000
    *
-   * example: 50
+   * Example: 50
    */
   offset?: number;
 
   /**
-   * utm tag ids
+   * Utm tag ids
    *
-   * example: [123]
+   * Example: [123]
    */
   utm_id?: Array<number>;
 }
@@ -32,10 +32,10 @@ export interface GetUtmRequestParams {
 export interface GetUtmResponse {
   success: boolean;
   /**
-   * number of all elements in the sample
+   * Number of all elements in the sample
    *
-   * example: 20
+   * Example: `'20'`
    */
-  count: number;
+  count: string;
   items: Array<UtmTagStructure>;
 }

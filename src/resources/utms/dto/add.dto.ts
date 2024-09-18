@@ -9,4 +9,9 @@ export interface AddUtmRequestParams {
 
 export interface AddUtmResponse {
   success: boolean;
+
+  /**
+   * Created Utm id
+   */
+  utm_id: string
 }

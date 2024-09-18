@@ -2,25 +2,25 @@
 
 export interface GetLinkUtmRequestParams {
   /**
-   * utm tag id
+   * Utm tag id
    *
-   * example: `123`
+   * Example: `'123'`
    */
-  utm_id: number;
+  utm_id: string;
 
   /**
-   * subscriber group id
+   * Subscriber group id
    *
-   * example: `123`
+   * Example: `'123'`
    */
-  subscription_id: number;
+  subscription_id: string;
 
   /**
-   * Автоматическая подписка при переходе: 0 - нет, 1 - да (по умолчанию: 0)
+   * Automatic subscription on transition: 0 - no, 1 - yes (default: 0)
    *
-   * пример: `1`
+   * Example: `1`
    */
-  force?: Array<number>;
+  force?: number;
 }
 
 export interface GetLinkUtmResponse {

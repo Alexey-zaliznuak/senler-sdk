@@ -2,11 +2,11 @@
 
 export interface DeleteUtmRequestParams {
   /**
-   * utm id
+   * Utm id
    *
-   * example: 123
+   * Example: `'123'`
    */
-  utm_id: number;
+  utm_id: string;
 }
 
 export interface DeleteUtmResponse {

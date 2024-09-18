@@ -2,16 +2,16 @@
 
 export interface EditUtmRequestParams {
   /**
-   * utm id
+   * Utm id
    *
-   * example: 123
+   * Example: `'123'`
    */
-  utm_id: number;
+  utm_id: string;
 
   /**
-   * new label name
+   * New label name
    *
-   * example: label 1
+   * Example: label 1
    */
   name: string;
 }
