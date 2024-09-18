@@ -6,3 +6,5 @@ export { AddSubscribersInGroupRequestParams, AddSubscribersInGroupResponse, AddS
 export { DelSubscriberFromSubscriptionGroupRequestParams, DelSubscriberFromSubscriptionGroupResponse,} from './resources/subscribers/dto/del.dto';
 export { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequestParams,} from './resources/subscribers/dto/statCount.dto';
 export { GetSubscriptionsStatisticResponse, GetSubscriptionsStatisticsRequestParams,} from './resources/subscribers/dto/statSubscribe.dto';
+
+export { SubscriptionSourceType } from './resources/share/types'

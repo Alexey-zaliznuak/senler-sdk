@@ -1,5 +1,5 @@
 import { GetSubscribersResponse } from '../../../../src/resources/subscribers/dto/get.dto';
-import { SubscriptionSourceType } from '../../../../src/resources/subscribers/dto/subscriber.subscription.dto';
+import { SubscriptionSourceType } from '../../../../src/resources/share/types';
 
 export const getSubscribersMock: GetSubscribersResponse = {
   offset_id: '5c6992770b295058e641bb86',
