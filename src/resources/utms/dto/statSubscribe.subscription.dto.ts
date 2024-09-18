@@ -1,5 +1,8 @@
 import { SubscriptionSourceType } from 'src/resources/share/types';
 
+/**
+ * User action structure
+ */
 export interface SubscriptionStructure {
   /**
    * Subscription date

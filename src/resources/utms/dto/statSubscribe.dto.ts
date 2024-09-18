@@ -2,6 +2,9 @@
 
 import { SubscriptionStructure } from './statSubscribe.subscription.dto';
 
+/**
+ * Getting an array of subscriber actions associated with a utm tag
+ */
 export interface StatSubscribeUtmsRequestParams {
   /**
    * date and time from which subscribed/unsubscribed

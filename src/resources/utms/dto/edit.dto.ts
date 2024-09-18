@@ -1,5 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku
 
+/**
+ * Changes the utm tag by its `utm_id`
+ */
 export interface EditUtmRequestParams {
   /**
    * Utm id

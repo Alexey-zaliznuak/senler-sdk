@@ -1,3 +1,6 @@
+/**
+ * Structure of the received utm tag
+ */
 export interface UtmTagStructure {
   /**
    * Utm identifier - tags

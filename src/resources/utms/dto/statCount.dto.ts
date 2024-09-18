@@ -2,6 +2,9 @@
 
 import { UtmTagWithSubscribeCountStructure } from './statCount.subscription.dto';
 
+/**
+ * Getting statistics on the number of subscriptions to ***any*** group with the utm tag
+ */
 export interface StatCountUtmsRequestParams {
   /**
    * Date and time from which subscribed/unsubscribed

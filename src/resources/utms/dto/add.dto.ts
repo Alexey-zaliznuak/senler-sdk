@@ -1,5 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
 
+/**
+ * Add utm tag
+ */
 export interface AddUtmRequestParams {
   /**
    * Example: tag 1
@@ -13,5 +16,5 @@ export interface AddUtmResponse {
   /**
    * Created Utm id
    */
-  utm_id: string
+  utm_id: string;
 }

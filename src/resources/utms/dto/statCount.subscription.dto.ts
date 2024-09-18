@@ -1,3 +1,8 @@
+/**
+ * Array element structure with labels
+ *
+ * Value for StatCountUtms
+ */
 export interface UtmTagWithSubscribeCountStructure {
   /**
    * Senler utm tag id
