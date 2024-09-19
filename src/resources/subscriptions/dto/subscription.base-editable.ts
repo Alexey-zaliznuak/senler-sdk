@@ -1,10 +1,4 @@
-/** https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/dobavlenie-gruppy-podpischikov */
-
-
-export interface AddSubscribersGroupRequest{
-  /** Name of group of subscriptions */
-  name: string;
-
+export interface BaseEditableSubscribersGroup {
   /**
    * Title on the subscription page
    *
@@ -133,8 +127,4 @@ export interface AddSubscribersGroupRequest{
    * Example: `[34576]`
    */
   bot_ids?: number[]
-}
-
-export interface AddSubscribersGroupResponse {
-  subscription_id: string;
 }

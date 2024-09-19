@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientConfig } from './core/HttpClient';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
-import { SubscribersGroupsResource } from './resources/subscribers-groups/subscribers-groups.api';
+import { SubscribersGroupsResource } from './resources/subscriptions/subscription.api';
 import { UtmsResource } from './resources/utms/utms.api'
 
 export interface ApiClientConfig extends HttpClientConfig {}
