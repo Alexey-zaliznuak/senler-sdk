@@ -1,10 +1,10 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok */
 
-import { GetSubscribersStatisticsBaseRequestParams } from './getStatsBase.dto';
+import { GetSubscribersStatisticsBaseRequest } from './getStatsBase.dto';
 
 import { SubscriptionAction } from 'src/resources/share/types';
 
-export interface GetSubscriptionsStatisticsRequestParams extends GetSubscribersStatisticsBaseRequestParams {
+export interface GetSubscriptionsStatisticsRequest extends GetSubscribersStatisticsBaseRequest {
   /**
    * Number of elements to return
    *

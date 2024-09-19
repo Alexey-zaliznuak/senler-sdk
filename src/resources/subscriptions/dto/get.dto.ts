@@ -3,7 +3,7 @@
 import { Subscription } from "./subscription.dto";
 
 
-export interface GetSubscribersGroupsRequestParams{
+export interface GetSubscribersGroupsRequest{
   /**
    * Number of elements to return
    *

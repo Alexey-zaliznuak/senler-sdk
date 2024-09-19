@@ -1,7 +1,7 @@
 import { UtmFilterParams } from 'src/resources/share/types';
 import { SubscriptionSourceType } from 'src/types';
 
-export interface GetSubscribersStatisticsBaseRequestParams extends Partial<UtmFilterParams> {
+export interface GetSubscribersStatisticsBaseRequest extends Partial<UtmFilterParams> {
   /**
    * Date and time from which the subscription/unsubscription occurred
    *

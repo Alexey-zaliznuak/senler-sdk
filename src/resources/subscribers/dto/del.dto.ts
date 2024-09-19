@@ -1,6 +1,6 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika */
 
-export interface DelSubscriberFromSubscriptionGroupRequestParams {
+export interface DelSubscriberFromSubscriptionGroupRequest {
   /**
    * VKontakte user ID
    * Examples: 1; [1, 2, 3]

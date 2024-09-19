@@ -2,7 +2,7 @@ import { HttpClient } from '../../core/HttpClient';
 import { AddSubscribersGroupRequest, AddSubscribersGroupResponse } from './dto/add.dto';
 import { DelSubscribersGroupRequest, DelSubscribersGroupResponse } from './dto/del.dto';
 import { EditSubscribersGroupRequest, EditSubscribersGroupResponse } from './dto/edit.dto';
-import { GetSubscribersGroupsRequestParams, GetSubscribersGroupsResponse } from './dto/get.dto';
+import { GetSubscribersGroupsRequest, GetSubscribersGroupsResponse } from './dto/get.dto';
 
 
 export class SubscribersGroupsResource {
@@ -19,8 +19,8 @@ export class SubscribersGroupsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov
    */
-  async get(params?: GetSubscribersGroupsRequestParams): Promise<GetSubscribersGroupsResponse> {
-    return await this.httpClient.request<GetSubscribersGroupsResponse>(`${this.RESOURCE_NAME}/get`, params);
+  async get(data?: GetSubscribersGroupsRequest): Promise<GetSubscribersGroupsResponse> {
+    return await this.httpClient.request<GetSubscribersGroupsResponse>(`${this.RESOURCE_NAME}/get`, data);
   }
 
   /**

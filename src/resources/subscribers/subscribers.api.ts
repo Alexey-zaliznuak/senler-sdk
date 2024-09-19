@@ -1,9 +1,9 @@
 import { HttpClient } from '../../core/HttpClient';
-import { GetSubscribersRequestParams, GetSubscribersResponse } from './dto/get.dto';
-import { AddSubscribersInGroupRequestParams, AddSubscribersInGroupResponse } from './dto/add.dto';
-import { DelSubscriberFromSubscriptionGroupRequestParams, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
-import { GetSubscriptionsStatisticsRequestParams, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto'
-import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequestParams } from './dto/statCount.dto';
+import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
+import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
+import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
+import { GetSubscriptionsStatisticsRequest, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto'
+import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequest } from './dto/statCount.dto';
 
 
 export class SubscribersResource {
@@ -20,7 +20,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
-  async get(params?: GetSubscribersRequestParams): Promise<GetSubscribersResponse> {
+  async get(params?: GetSubscribersRequest): Promise<GetSubscribersResponse> {
     return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, params);
   }
 
@@ -31,7 +31,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika
    */
-  async addInGroup(params: AddSubscribersInGroupRequestParams): Promise<AddSubscribersInGroupResponse> {
+  async addInGroup(params: AddSubscribersInGroupRequest): Promise<AddSubscribersInGroupResponse> {
     return await this.httpClient.request<AddSubscribersInGroupResponse>(`${this.RESOURCE_NAME}/add`, params);
   }
 
@@ -42,7 +42,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika
    */
-  async delFromGroup(params: DelSubscriberFromSubscriptionGroupRequestParams): Promise<DelSubscriberFromSubscriptionGroupResponse> {
+  async delFromGroup(params: DelSubscriberFromSubscriptionGroupRequest): Promise<DelSubscriberFromSubscriptionGroupResponse> {
     return await this.httpClient.request<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, params);
   }
 
@@ -51,7 +51,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
    */
-  async getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequestParams): Promise<GetSubscriptionsStatisticResponse> {
+  async getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequest): Promise<GetSubscriptionsStatisticResponse> {
     return await this.httpClient.request<GetSubscriptionsStatisticResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
   }
 
@@ -60,7 +60,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount
    */
-  async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticsRequestParams): Promise<GetSubscriptionsCountStatisticResponse> {
+  async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticsRequest): Promise<GetSubscriptionsCountStatisticResponse> {
     return await this.httpClient.request<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 }

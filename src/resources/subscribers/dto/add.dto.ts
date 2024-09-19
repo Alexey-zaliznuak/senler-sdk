@@ -3,7 +3,7 @@
 import { UtmFilterParams } from 'src/resources/share/types'
 
 
-export interface AddSubscribersInGroupRequestParams extends Partial<UtmFilterParams> {
+export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
   /**
    * VKontakte user ID it is possible to add both one user at a time and in bulk
    *

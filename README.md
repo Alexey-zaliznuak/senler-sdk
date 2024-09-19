@@ -91,16 +91,33 @@ app.listen(3000, () => {
 ## Methods
 
 ### Subscribers
-- **`get(params?: GetSubscribersRequestParams)`** — Get list of subscribers.
+- **`get(data?: GetSubscribersRequest)`** — Get list of subscribers.
 
-- **`addInGroup(params: AddSubscribersInGroupRequestParams)`** — Add subscriber(s) in group.
+- **`addInGroup(data: AddSubscribersInGroupRequest)`** — Add subscriber(s) in group.
 
-- **`delFromGroup(params: DelSubscriberFromSubscriptionGroupRequestParams)`** — Del subscriber from group of subscribers.
+- **`delFromGroup(data: DelSubscriberFromSubscriptionGroupRequest)`** — Del subscriber from group of subscribers.
 
-- **`getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on registration and cancellation of subscriptions.
+- **`getSubscriptionsStatistics(data: GetSubscriptionsStatisticsRequest)`** — Get statistics on registration and cancellation of subscriptions.
 
-- **`getSubscriptionsCountStatistics(params: GetSubscriptionsStatisticsRequestParams)`** — Get statistics on count of registration and cancellation of subscriptions.
+- **`getSubscriptionsCountStatistics(data: GetSubscriptionsStatisticsRequest)`** — Get statistics on count of registration and cancellation of subscriptions.
 
+### Subscribers groups
+- **`get(data?: GetSubscribersGroupsRequest)`** — Getting list of subscribers groups.
+
+- **`add(data: AddSubscribersGroupRequest)`** — Add subscribers group.
+
+- **`edit(data: EditSubscribersGroupRequest)`** — Edit subscribers group.
+
+- **`del(data: DelSubscribersGroupRequest)`** — Del subscribers group.
+
+### Subscribers groups
+- **`get(data?: GetSubscribersGroupsRequest)`** — Getting list of subscribers groups.
+
+- **`add(data: AddSubscribersGroupRequest)`** — Add subscribers group.
+
+- **`edit(data: EditSubscribersGroupRequest)`** — Edit subscribers group.
+
+- **`del(data: DelSubscribersGroupRequest)`** — Del subscribers group.
 
 ## Error handling
 

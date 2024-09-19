@@ -2,7 +2,7 @@
 
 import { Subscriber, SubscriptionSourceType, UtmManyFilterParams } from 'src/resources/share/types';
 
-export interface GetSubscribersRequestParams extends Partial<UtmManyFilterParams> {
+export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
   /**
    * Number of elements to return
    *
