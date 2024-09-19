@@ -29,13 +29,13 @@ export class HttpClient {
 
   @clearResponse
   @handleApiError
-  async get<T>(url: string, params?: AxiosRequestConfig['params']): Promise<T> {
+  async request<T>(url: string, data?: AxiosRequestConfig['params']): Promise<T> {
     try {
-      const response: AxiosResponse<T> = await this.client.get(url, { params });
-
+      const response: AxiosResponse<T> = await this.client.post(url, data);
       return response.data;
-    } catch (error) {
-      throw new Error(`GET request failed: ${(error as Error).message}`);
+    }
+    catch (error) {
+      throw new Error(`Request failed: ${(error as Error).message}`);
     }
   }
 
@@ -51,7 +51,7 @@ export class HttpClient {
     return axios.create({
       baseURL: this._baseUrl,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'multipart/form-data.'
       },
       params: {
         access_token: this._accessToken,

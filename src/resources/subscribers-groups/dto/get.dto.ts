@@ -3,7 +3,7 @@
 import { Subscription } from "./subscription.dto";
 
 
-export interface GetSubscriptionsRequestParams{
+export interface GetSubscribersGroupsRequestParams{
   /**
    * Number of elements to return
    *
@@ -30,7 +30,7 @@ export interface GetSubscriptionsRequestParams{
   subscription_id?: number[];
 }
 
-export interface GetSubscriptionsResponse {
+export interface GetSubscribersGroupsResponse {
   count: number;
   items: Subscription[];
 }

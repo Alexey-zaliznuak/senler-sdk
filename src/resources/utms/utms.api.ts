@@ -22,7 +22,7 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
    */
   async add(params: AddUtmRequestParams): Promise<AddUtmResponse> {
-    return await this.httpClient.get<AddUtmResponse>(`${this.RESOURCE_NAME}/add`, params);
+    return await this.httpClient.request<AddUtmResponse>(`${this.RESOURCE_NAME}/add`, params);
   }
 
   /**
@@ -31,7 +31,7 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku
    */
   async edit(params: EditUtmRequestParams): Promise<EditUtmResponse> {
-    return await this.httpClient.get<EditUtmResponse>(`${this.RESOURCE_NAME}/edit`, params);
+    return await this.httpClient.request<EditUtmResponse>(`${this.RESOURCE_NAME}/edit`, params);
   }
 
   /**
@@ -40,7 +40,7 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki
    */
   async del(params: DeleteUtmRequestParams): Promise<DeleteUtmResponse> {
-    return await this.httpClient.get<DeleteUtmResponse>(`${this.RESOURCE_NAME}/del`, params);
+    return await this.httpClient.request<DeleteUtmResponse>(`${this.RESOURCE_NAME}/del`, params);
   }
 
   /**
@@ -49,7 +49,7 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok
    */
   async get(params?: GetUtmRequestParams): Promise<GetUtmResponse> {
-    return await this.httpClient.get<GetUtmResponse>(`${this.RESOURCE_NAME}/get`, params);
+    return await this.httpClient.request<GetUtmResponse>(`${this.RESOURCE_NAME}/get`, params);
   }
 
   /**
@@ -58,7 +58,7 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki
    */
   async getLink(params: GetLinkUtmRequestParams): Promise<GetLinkUtmResponse> {
-    return await this.httpClient.get<GetLinkUtmResponse>(`${this.RESOURCE_NAME}/getLink`, params);
+    return await this.httpClient.request<GetLinkUtmResponse>(`${this.RESOURCE_NAME}/getLink`, params);
   }
 
   /**
@@ -67,7 +67,7 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
    */
   async getSubscriptionsCountStatistics(params: StatCountUtmsRequestParams): Promise<StatCountUtmsResponse> {
-    return await this.httpClient.get<StatCountUtmsResponse>(`${this.RESOURCE_NAME}/statCount`, params);
+    return await this.httpClient.request<StatCountUtmsResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 
   /**
@@ -76,6 +76,6 @@ export class UtmsResource {
    * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
    */
   async getSubscriptionsStatistics(params: StatSubscribeUtmsRequestParams): Promise<StatSubscribeUtmsResponse> {
-    return await this.httpClient.get<StatSubscribeUtmsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
+    return await this.httpClient.request<StatSubscribeUtmsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
   }
 }

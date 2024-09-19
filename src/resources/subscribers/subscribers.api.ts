@@ -21,7 +21,7 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
   async get(params?: GetSubscribersRequestParams): Promise<GetSubscribersResponse> {
-    return await this.httpClient.get<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, params);
+    return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, params);
   }
 
   /**
@@ -32,7 +32,7 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika
    */
   async addInGroup(params: AddSubscribersInGroupRequestParams): Promise<AddSubscribersInGroupResponse> {
-    return await this.httpClient.get<AddSubscribersInGroupResponse>(`${this.RESOURCE_NAME}/add`, params);
+    return await this.httpClient.request<AddSubscribersInGroupResponse>(`${this.RESOURCE_NAME}/add`, params);
   }
 
   /**
@@ -43,7 +43,7 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika
    */
   async delFromGroup(params: DelSubscriberFromSubscriptionGroupRequestParams): Promise<DelSubscriberFromSubscriptionGroupResponse> {
-    return await this.httpClient.get<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, params);
+    return await this.httpClient.request<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, params);
   }
 
   /**
@@ -52,7 +52,7 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
    */
   async getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequestParams): Promise<GetSubscriptionsStatisticResponse> {
-    return await this.httpClient.get<GetSubscriptionsStatisticResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
+    return await this.httpClient.request<GetSubscriptionsStatisticResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
   }
 
   /**
@@ -61,6 +61,6 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount
    */
   async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticsRequestParams): Promise<GetSubscriptionsCountStatisticResponse> {
-    return await this.httpClient.get<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, params);
+    return await this.httpClient.request<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 }

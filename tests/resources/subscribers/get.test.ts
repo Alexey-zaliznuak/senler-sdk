@@ -18,10 +18,10 @@ describe('Get subscribers tests', () => {
     const mockResponse = getSubscribersMock;
 
     nock(client.httpClient.baseUrl)
-      .get('/subscribers/get?' + buildSenlerApiQueryParams())
+      .post('/subscribers/get?' + buildSenlerApiQueryParams())
       .reply(200, buildMockSuccessResponse(mockResponse));
-    const result = await client.subscribers.get();
 
+    const result = await client.subscribers.get();
     expect(result).toEqual(mockResponse);
   });
 });
