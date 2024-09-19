@@ -126,5 +126,5 @@ export interface BaseEditableSubscribersGroup {
    *
    * Example: `[34576]`
    */
-  bot_ids?: number[]
+  bot_ids?: number[];
 }

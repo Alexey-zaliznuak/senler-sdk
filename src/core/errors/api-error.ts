@@ -11,7 +11,7 @@ export class ApiError extends Error {
 
     this.name = 'ApiError';
     this.errorCode = errorCode;
-    this.details = {errorCode, errorMessage};
+    this.details = { errorCode, errorMessage };
   }
 
   public static buildErrorMessage(code: any, responseErrorMessage?: string): string {

@@ -1,9 +1,8 @@
 /** https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov */
 
-import { Subscription } from "./subscription.dto";
+import { Subscription } from './subscription.dto';
 
-
-export interface GetSubscribersGroupsRequest{
+export interface GetSubscribersGroupsRequest {
   /**
    * Number of elements to return
    *

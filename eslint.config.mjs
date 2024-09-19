@@ -33,6 +33,9 @@ export default [
       // Enforce single quotes for strings
       quotes: ['error', 'single', { avoidEscape: true }],
 
+      'brace-style': "off",
+      // 'brace-style': ["error", "stroustrup", { "allowSingleLine": false }],
+
       // Limit maximum line length to 200 characters
       'max-len': [
         'error',

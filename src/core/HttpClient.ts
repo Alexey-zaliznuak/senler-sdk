@@ -33,8 +33,7 @@ export class HttpClient {
     try {
       const response: AxiosResponse<T> = await this.client.post(url, data);
       return response.data;
-    }
-    catch (error) {
+    } catch (error) {
       throw new Error(`Request failed: ${(error as Error).message}`);
     }
   }

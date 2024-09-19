@@ -4,7 +4,6 @@ import { DelSubscribersGroupRequest, DelSubscribersGroupResponse } from './dto/d
 import { EditSubscribersGroupRequest, EditSubscribersGroupResponse } from './dto/edit.dto';
 import { GetSubscribersGroupsRequest, GetSubscribersGroupsResponse } from './dto/get.dto';
 
-
 export class SubscribersGroupsResource {
   private httpClient: HttpClient;
 

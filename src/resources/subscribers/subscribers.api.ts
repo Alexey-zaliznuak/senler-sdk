@@ -2,9 +2,8 @@ import { HttpClient } from '../../core/HttpClient';
 import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
 import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
-import { GetSubscriptionsStatisticsRequest, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto'
+import { GetSubscriptionsStatisticsRequest, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto';
 import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequest } from './dto/statCount.dto';
-
 
 export class SubscribersResource {
   private httpClient: HttpClient;

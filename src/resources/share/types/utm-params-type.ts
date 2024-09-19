@@ -1,7 +1,7 @@
 /**
  * For responses annotations
  */
-export interface Utm extends UtmFilterParams {};
+export interface Utm extends UtmFilterParams {}
 
 /**
  * For request params annotations
