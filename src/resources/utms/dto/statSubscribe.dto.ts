@@ -5,7 +5,7 @@ import { SubscriptionAction } from 'src/resources/share/types';
 /**
  * Getting an array of subscriber actions associated with a utm tag
  */
-export interface GetSubscriptionsStatisticsRequestParams {
+export interface GetSubscriptionsStatisticsRequest {
   /**
    * Date and time from which subscribed/unsubscribed
    *

@@ -3,7 +3,7 @@
 import { UtmTag } from './get.utm.dto';
 
 /** Return a list of all utm tags */
-export interface GetUtmRequestParams {
+export interface GetUtmRequest {
   /**
    * Number of elements to return information about
    *
@@ -27,11 +27,13 @@ export interface GetUtmRequestParams {
 
 export interface GetUtmResponse {
   success: boolean;
+
   /**
    * Number of all elements in the sample
    *
    * Example: `'20'`
    */
   count: string;
+
   items: Array<UtmTag>;
 }
