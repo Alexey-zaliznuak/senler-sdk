@@ -110,15 +110,6 @@ app.listen(3000, () => {
 
 - **`del(data: DelSubscribersGroupRequest)`** — Del subscribers group.
 
-### Subscribers groups
-- **`get(data?: GetSubscribersGroupsRequest)`** — Getting list of subscribers groups.
-
-- **`add(data: AddSubscribersGroupRequest)`** — Add subscribers group.
-
-- **`edit(data: EditSubscribersGroupRequest)`** — Edit subscribers group.
-
-- **`del(data: DelSubscribersGroupRequest)`** — Del subscribers group.
-
 ## Error handling
 
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
