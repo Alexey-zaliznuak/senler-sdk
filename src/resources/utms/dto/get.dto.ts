@@ -2,9 +2,7 @@
 
 import { UtmTag } from './get.utm.dto';
 
-/**
- * Returns a list of all utm tags
- */
+/** Return a list of all utm tags */
 export interface GetUtmRequestParams {
   /**
    * Number of elements to return information about

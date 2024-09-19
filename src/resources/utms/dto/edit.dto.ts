@@ -5,9 +5,9 @@ export interface EditUtmRequestParams {
   utm_id: string;
 
   /**
-   * New label name
+   * New utm tag name
    *
-   * Example: label 1
+   * Example: `'label 1'`
    */
   name: string;
 }

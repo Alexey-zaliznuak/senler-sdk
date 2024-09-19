@@ -4,8 +4,8 @@ import { DeleteUtmRequestParams, DeleteUtmResponse } from './dto/del.dto';
 import { EditUtmRequestParams, EditUtmResponse } from './dto/edit.dto';
 import { GetUtmRequestParams, GetUtmResponse } from './dto/get.dto';
 import { GetLinkUtmRequestParams, GetLinkUtmResponse } from './dto/getLink.dto';
-import { StatCountUtmsRequestParams, StatCountUtmsResponse } from './dto/statCount.dto';
-import { StatSubscribeUtmsRequestParams, StatSubscribeUtmsResponse } from './dto/statSubscribe.dto';
+import { GetSubscriptionsCountStatisticsRequestParams, SubscriptionsCountStatisticsResponse } from './dto/statCount.dto';
+import { GetSubscriptionsStatisticsRequestParams, SubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
 
 export class UtmsResource {
   private httpClient: HttpClient;
@@ -66,8 +66,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
    */
-  async getSubscriptionsCountStatistics(params: StatCountUtmsRequestParams): Promise<StatCountUtmsResponse> {
-    return await this.httpClient.request<StatCountUtmsResponse>(`${this.RESOURCE_NAME}/statCount`, params);
+  async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticsRequestParams): Promise<SubscriptionsCountStatisticsResponse> {
+    return await this.httpClient.request<SubscriptionsCountStatisticsResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 
   /**
@@ -75,7 +75,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
    */
-  async getSubscriptionsStatistics(params: StatSubscribeUtmsRequestParams): Promise<StatSubscribeUtmsResponse> {
-    return await this.httpClient.request<StatSubscribeUtmsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
+  async getSubscriptionsStatistics(params: GetSubscriptionsStatisticsRequestParams): Promise<SubscriptionsStatisticsResponse> {
+    return await this.httpClient.request<SubscriptionsStatisticsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, params);
   }
 }

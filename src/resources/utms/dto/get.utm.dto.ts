@@ -1,16 +1,9 @@
-/**
- * Label with a subscriber counter for a specific group
- */
+/** Utm tag with a subscriber counter for a specific group */
 export interface UtmTag {
-  /**
-   * Utm identifier - tags
-   *
-   * Example: `'123'`
-   */
   utm_id: string;
 
   /**
-   * Label name
+   * Utm tag name
    *
    * Example: `'label 1'`
    */

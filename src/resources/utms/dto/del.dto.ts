@@ -2,11 +2,6 @@
 
 /** Remove the utm tag by `utm_id`*/
 export interface DeleteUtmRequestParams {
-  /**
-   * Utm id
-   *
-   * Example: `'123'`
-   */
   utm_id: string;
 }
 

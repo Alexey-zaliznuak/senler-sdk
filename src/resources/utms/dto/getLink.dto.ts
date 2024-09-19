@@ -2,11 +2,6 @@
 
 /** Getting a link to a subscription page with a tag */
 export interface GetLinkUtmRequestParams {
-  /**
-   * Utm tag id
-   *
-   * Example: `'123'`
-   */
   utm_id: string;
 
   /**
@@ -26,8 +21,7 @@ export interface GetLinkUtmRequestParams {
 
 export interface GetLinkUtmResponse {
   success: boolean;
-  /**
-   * Link to a group of subscribers with a label
-   */
+
+  /** Link to a group of subscribers with a utm tag */
   link: number;
 }

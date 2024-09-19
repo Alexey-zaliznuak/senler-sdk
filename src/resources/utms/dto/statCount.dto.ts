@@ -1,12 +1,9 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
 
-import { UtmTagWithSubscribeCount } from './statCount.subscription.dto'
+import { UtmTagWithSubscribeCount } from './statCount.subscription.dto';
 
-
-/**
- * Getting statistics on the number of subscriptions to ***any*** group with the utm tag
- */
-export interface StatCountUtmsRequestParams {
+/** Getting statistics on the number of subscriptions to ***any*** group with the utm tag */
+export interface GetSubscriptionsCountStatisticsRequestParams {
   /**
    * Date and time from which subscribed/unsubscribed
    *
@@ -43,7 +40,7 @@ export interface StatCountUtmsRequestParams {
   utm_id?: Array<number>;
 }
 
-export interface StatCountUtmsResponse {
+export interface SubscriptionsCountStatisticsResponse {
   success: boolean;
   /**
    * Link to a group of subscribers with a label
