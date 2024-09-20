@@ -4,6 +4,7 @@ import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './d
 import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
 import { GetSubscriptionsStatisticsRequest, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto';
 import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequest } from './dto/statCount.dto';
+import { GetSubscribersCountResponse } from './dto/count.dto';
 
 export class SubscribersResource {
   private httpClient: HttpClient;
@@ -21,6 +22,12 @@ export class SubscribersResource {
    */
   async get(params?: GetSubscribersRequest): Promise<GetSubscribersResponse> {
     return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, params);
+  }
+
+  /** Get count of subscribers */
+  async count(): Promise<number> {
+    const result = await this.httpClient.request<GetSubscribersCountResponse>(`${this.RESOURCE_NAME}/count`);
+    return result.count
   }
 
   /**
