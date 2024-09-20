@@ -27,7 +27,7 @@ export class SubscribersResource {
   /** Get count of subscribers */
   async count(): Promise<number> {
     const result = await this.httpClient.request<GetSubscribersCountResponse>(`${this.RESOURCE_NAME}/count`);
-    return result.count
+    return result.count;
   }
 
   /**
