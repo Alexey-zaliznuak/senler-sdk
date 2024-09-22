@@ -12,7 +12,7 @@ export interface HttpClientConfig {
 }
 
 export interface LoggingConfig extends LoggerOptions {
-  destination?: DestinationStream
+  destination?: DestinationStream;
 }
 
 export class HttpClient {
@@ -37,21 +37,20 @@ export class HttpClient {
   @clearResponse
   @handleApiError
   async request<T>(url: string, data?: AxiosRequestConfig['params']): Promise<T> {
-    const logger = this._createChildRequestLogger(url)
+    const logger = this._createChildRequestLogger(url);
 
-    logger.info({data}, "Send request")
+    logger.info({ data }, 'Send request');
 
     try {
       const response: AxiosResponse<T> = await this.client.postForm(url, data);
 
-      logger.info({data: response.data}, "Received response")
+      logger.info({ data: response.data }, 'Received response');
 
       return response.data;
-    }
-    catch (error) {
+    } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
 
-      logger.error({url, data, error}, `Failed request: ${errorMessage}`)
+      logger.error({ url, data, error }, `Failed request: ${errorMessage}`);
 
       throw new Error(`Request failed: ${errorMessage}`);
     }
@@ -65,9 +64,9 @@ export class HttpClient {
         vk_group_id: this._vkGroupId,
         v: this._apiVersion
       }
-    }
+    };
 
-    this.logger.debug({axiosConfig}, "Create axios client:")
+    this.logger.debug({ axiosConfig }, 'Create axios client:');
 
     return axios.create(axiosConfig);
   }
@@ -77,18 +76,21 @@ export class HttpClient {
       return pino({
         level: 'error',
         base: { pid: false },
-        timestamp: pino.stdTimeFunctions.isoTime,
-      })
+        timestamp: pino.stdTimeFunctions.isoTime
+      });
     }
 
-    const {destination, ...loggerOptions} = loggingConfig;
+    const { destination, ...loggerOptions } = loggingConfig;
 
-    return pino(loggerOptions, destination)
+    return pino(loggerOptions, destination);
   }
 
   private _createChildRequestLogger(endpoint: string): Logger {
-    return this.logger.child({endpoint, requestId: this._generateRequestId()})
+    return this.logger.child({ endpoint, requestId: this._generateRequestId() });
   }
 
-  private _generateRequestId = (): string => Math.random().toString(16).slice(2)
+  private _generateRequestId = (): string =>
+    Math.random()
+      .toString(16)
+      .slice(2);
 }
