@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientConfig } from './core/HttpClient';
+import { HttpClient, HttpClientConfig, LoggingConfig } from './core/HttpClient';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
 import { SubscribersGroupsResource } from './resources/subscriptions/subscription.api';
 import { UtmsResource } from './resources/utms/utms.api';
@@ -12,8 +12,8 @@ export class SenlerApiClient {
   public readonly subscribersGroups: SubscribersGroupsResource;
   public readonly utms: UtmsResource;
 
-  constructor(config: ApiClientConfig) {
-    this.httpClient = new HttpClient(config as HttpClientConfig);
+  constructor(config: ApiClientConfig, loggingConfig?: LoggingConfig) {
+    this.httpClient = new HttpClient(config as HttpClientConfig, loggingConfig);
 
     this.subscribers = new SubscribersResource(this.httpClient);
     this.subscribersGroups = new SubscribersGroupsResource(this.httpClient);
