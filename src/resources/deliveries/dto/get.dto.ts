@@ -1,10 +1,9 @@
 // https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok
 
-import { Delivery } from './get.delivery.dto'
+import { Delivery } from './get.delivery.dto';
 import { DeliveriesStatus } from './get.status.dto';
 import { DeliveriesType } from './get.type.dto';
 
-/** Return a list of all utm tags */
 export interface GetDeliveriesRequest {
   /**
    * Number of elements to return information about
@@ -26,8 +25,32 @@ export interface GetDeliveriesRequest {
 
   delivery_id?: Array<number>;
 
+  /**
+   * deliveries types:
+   *
+   * `chain` Auto message
+   *
+   * `subscription` Group mailing
+   *
+   * `once` Targeted mailing
+   *
+   * `single` One-time mailing
+   *
+   * example: `['once','auto','subscription','chain','single']`
+   */
   type?: Array<DeliveriesType>;
 
+  /**
+   * mailing status:
+   *
+   * `waiting` Waiting
+   *
+   * `progress` Processing
+   *
+   * `done` Completed
+   *
+   * example: ['waiting', 'progress', 'done', 'error']
+   */
   status?: Array<keyof typeof DeliveriesStatus>;
 }
 

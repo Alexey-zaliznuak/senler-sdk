@@ -13,30 +13,29 @@ export class DeliveriesResource {
   }
 
   /**
-   * Add Utm.
+   * Get all deliveries.
    *
-   * https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
+   * https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok
    */
   async get(data?: GetDeliveriesRequest): Promise<GetDeliveriesResponse> {
     return await this.httpClient.request<GetDeliveriesResponse>(`${this.RESOURCE_NAME}/get`, data);
   }
 
   /**
-   * Subscription statistics with tags.
+   * Delivery statistic with user info.
    *
-   * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
+   * https://help.senler.ru/senler/dev/api/methods/rassylki/statistika-dostavki
    */
   async getSubscriptionsStatistics(data: GetRecipientStatisticsRequest): Promise<RecipientStatisticsResponse> {
     return await this.httpClient.request<RecipientStatisticsResponse>(`${this.RESOURCE_NAME}/stat`, data);
   }
 
   /**
-   * Utm statistics.
+   * Delivery count statistic.
    *
-   * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
+   * https://help.senler.ru/senler/dev/api/methods/rassylki/statcount
    */
   async getSubscriptionsCountStatistics(data: GetDeliveryCountStatisticsRequest): Promise<DeliveryCountStatisticsResponse> {
     return await this.httpClient.request<DeliveryCountStatisticsResponse>(`${this.RESOURCE_NAME}/statCount`, data);
   }
-
 }

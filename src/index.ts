@@ -3,8 +3,8 @@ export { ApiClientConfig, SenlerApiClient } from './client';
 import { SenlerApiClient } from './client';
 
 const client = new SenlerApiClient({
-  accessToken: 'e63ca6c301835ae0aec4830595e47bd972547c396475511b',
-  vkGroupId: '209371835',
+  accessToken: 'b3d3d339878abf9b8356768eaa21480e8bc0ec8d16696640',
+  vkGroupId: '218001424',
 });
 
 // client.subscribers.get().then((res) => console.log(res))
@@ -17,7 +17,10 @@ const client = new SenlerApiClient({
 // ).then((res) => console.log(res))
 
 
-client.deliveries.get({status: ['done']}).then((res) => console.log(res));
+client.deliveries.getSubscriptionsCountStatistics({
+    date_from: "10.10.2000",
+    date_to: "10.11.3000",
+  }).then((res) => console.log(res));
 
 // client.subscribers.
 // client.subscribers.

@@ -22,9 +22,14 @@ export interface DeliveryToUserAgent {
 
   delivery_id: string;
 
-  vk_id: string;
+  vk_id: number;
 
-  error: string;
+  error: number;
 
-  error_code: string;
+  error_code: number;
+
+  is_read: 0 | 1;
+
+  /** Message id in dialog */
+  conversation_message_id: number;
 }
