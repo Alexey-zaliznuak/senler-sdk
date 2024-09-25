@@ -1,5 +1,7 @@
 import { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
 import { HttpClient } from './core/http-client';
+import { BotsResource } from './resources/bots/deliveries.api';
+import { DeliveriesResource } from './resources/deliveries/deliveries.api';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
 import { SubscribersGroupsResource } from './resources/subscriptions/subscription.api';
 import { UtmsResource } from './resources/utms/utms.api';
@@ -14,6 +16,8 @@ export class SenlerApiClient {
   public readonly subscribers: SubscribersResource;
   public readonly subscribersGroups: SubscribersGroupsResource;
   public readonly utms: UtmsResource;
+  public readonly deliveries: DeliveriesResource;
+  public readonly bots: BotsResource;
 
   constructor(
     apiConfig: ApiClientConfig,
@@ -27,5 +31,7 @@ export class SenlerApiClient {
     this.subscribers = new SubscribersResource(this.httpClient);
     this.subscribersGroups = new SubscribersGroupsResource(this.httpClient);
     this.utms = new UtmsResource(this.httpClient);
+    this.deliveries = new DeliveriesResource(this.httpClient);
+    this.bots = new BotsResource(this.httpClient);
   }
 }

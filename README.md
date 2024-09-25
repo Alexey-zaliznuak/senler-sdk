@@ -110,6 +110,28 @@ app.listen(3000, () => {
 
 - **`del(data: DelSubscribersGroupRequest)`** — Del subscribers group.
 
+### Utms
+- **`get(data?: GetUtmRequest)`** — Getting list of utm tags.
+
+- **`add(data: AddUtmRequest)`** — Add utm tag.
+
+- **`edit(data: EditUtmRequest)`** — Edit utm tag.
+
+- **`del(data: DeleteUtmRequest)`** — Del utm tag.
+
+- **`getLink(data: GetLinkUtmRequest)`** — Get link to a subscription page with a utm.
+
+- **`getSubscriptionsCountStatistics(data: GetSubscriptionsCountStatisticsRequest)`** — Get statistics on the count of subscriptions with utm tags.
+
+- **`getSubscriptionsStatistics(data: GetSubscriptionsStatisticsRequest)`** — Get statistics on user actions with utm tags.
+
+### Deliveries
+- **`get(data?: GetDeliveriesRequest)`** — Get list of deliveries.
+
+- **`getSubscriptionsStatistics(data: GetRecipientStatisticsRequest)`** — Delivery statistic with user info.
+
+- **`getSubscriptionsCountStatistics(data: GetDeliveryCountStatisticsRequest)`** — Delivery count statistic.
+
 ## Error handling
 
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.

@@ -5,6 +5,4 @@ export interface DeleteUtmRequest {
   utm_id: string;
 }
 
-export interface DeleteUtmResponse {
-  success: boolean;
-}
+export interface DeleteUtmResponse {}
