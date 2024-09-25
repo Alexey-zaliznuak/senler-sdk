@@ -17,10 +17,7 @@ const client = new SenlerApiClient({
 // ).then((res) => console.log(res))
 
 
-client.deliveries.getSubscriptionsCountStatistics({
-    date_from: "10.10.2000",
-    date_to: "10.11.3000",
-  }).then((res) => console.log(res));
+client.bots.get().then((res) => console.log(res));
 
 // client.subscribers.
 // client.subscribers.
