@@ -26,8 +26,6 @@ export interface GetUtmRequest {
 }
 
 export interface GetUtmResponse {
-  success: boolean;
-
   /**
    * Number of all elements in the sample
    *

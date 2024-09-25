@@ -55,8 +55,6 @@ export interface GetDeliveriesRequest {
 }
 
 export interface GetDeliveriesResponse {
-  success: boolean;
-
   /**
    * Number of all elements in the sample
    *

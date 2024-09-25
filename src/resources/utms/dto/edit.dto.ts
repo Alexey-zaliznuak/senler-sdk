@@ -12,6 +12,4 @@ export interface EditUtmRequest {
   name: string;
 }
 
-export interface EditUtmResponse {
-  success: boolean;
-}
+export interface EditUtmResponse {}

@@ -2,9 +2,6 @@
 
 import { DeliveryToUserAgent } from './stat.deliveryToUserAgent.dto';
 
-/**
- * Getting an array of subscriber actions associated with a utm tag
- */
 export interface GetRecipientStatisticsRequest {
   /**
    * Date and time from which subscribed/unsubscribed
@@ -52,8 +49,6 @@ export interface GetRecipientStatisticsRequest {
 }
 
 export interface RecipientStatisticsResponse {
-  success: boolean;
-
   /**
    * Offset to pass to fetch the next set
    *

@@ -7,8 +7,6 @@ export interface AddUtmRequest {
 }
 
 export interface AddUtmResponse {
-  success: boolean;
-
   /** Created utm id */
   utm_id: string;
 }

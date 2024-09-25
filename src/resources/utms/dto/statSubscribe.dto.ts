@@ -68,8 +68,6 @@ export interface GetSubscriptionsStatisticsRequest {
 }
 
 export interface SubscriptionsStatisticsResponse {
-  success: boolean;
-
   /**
    * Number of all elements in the sample
    *

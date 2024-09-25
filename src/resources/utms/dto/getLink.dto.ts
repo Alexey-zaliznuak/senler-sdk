@@ -20,8 +20,6 @@ export interface GetLinkUtmRequest {
 }
 
 export interface GetLinkUtmResponse {
-  success: boolean;
-
   /** Link to a group of subscribers with a utm tag */
   link: number;
 }

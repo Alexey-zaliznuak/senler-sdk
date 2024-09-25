@@ -1,6 +1,5 @@
-// https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
+// https://help.senler.ru/senler/dev/api/methods/rassylki/statcount
 
-/** Getting statistics on the number of subscriptions to ***any*** group with the utm tag */
 export interface GetDeliveryCountStatisticsRequest {
   /**
    * Date and time from which subscribed/unsubscribed
@@ -32,8 +31,6 @@ export interface GetDeliveryCountStatisticsRequest {
 }
 
 export interface DeliveryCountStatisticsResponse {
-  success: boolean;
-
   /**
    * Offset to pass to fetch the next set
    *

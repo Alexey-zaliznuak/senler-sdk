@@ -41,8 +41,6 @@ export interface GetSubscriptionsCountStatisticsRequest {
 }
 
 export interface SubscriptionsCountStatisticsResponse {
-  success: boolean;
-
   /**
    * Link to a group of subscribers with a label
    */
