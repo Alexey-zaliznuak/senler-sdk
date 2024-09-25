@@ -163,10 +163,6 @@ Errors implemented via `success`, `error_code` and `error_message` ([docs](https
 
 - Module tests??
 
-- Logging
-
-- Retrying
-
 - Caching
 
 - Full API reference??
