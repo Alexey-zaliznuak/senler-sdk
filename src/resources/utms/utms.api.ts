@@ -1,4 +1,4 @@
-import { HttpClient } from '../../core/HttpClient';
+import { HttpClient } from '../../core/http-client';
 import { AddUtmRequest, AddUtmResponse } from './dto/add.dto';
 import { DeleteUtmRequest, DeleteUtmResponse } from './dto/del.dto';
 import { EditUtmRequest, EditUtmResponse } from './dto/edit.dto';
@@ -17,7 +17,8 @@ export class UtmsResource {
   }
 
   /**
-   * Add Utm.
+   * Add Utm.clear
+   *
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
    */

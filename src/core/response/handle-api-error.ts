@@ -1,4 +1,4 @@
-import { ApiError } from '../errors/api-error';
+import { ApiError } from '../errors';
 import { BaseResponse } from './base-response';
 
 /**

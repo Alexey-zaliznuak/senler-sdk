@@ -1,5 +1,5 @@
 import { handleApiError } from '../../../src/core/response/handle-api-error';
-import { ApiError } from '../../../src/core/errors/api-error';
+import { ApiError } from '../../../src/core/errors';
 import { BaseResponse } from '../../../src/types';
 import { buildMockSuccessResponse, mockFailedResponse, mockSuccessResponseData } from '../../utils';
 

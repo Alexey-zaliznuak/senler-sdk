@@ -1,4 +1,4 @@
-import { HttpClient } from '../../core/HttpClient';
+import { HttpClient } from '../../core/http-client';
 import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
 import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
