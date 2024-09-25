@@ -1,4 +1,4 @@
-import { HttpClient } from '../../core/HttpClient'
+import { HttpClient } from '../../core/http-client'
 import { GetDeliveriesRequest, GetDeliveriesResponse } from './dto/get.dto'
 import { GetRecipientStatisticsRequest, RecipientStatisticsResponse } from './dto/stat.dto'
 import { GetDeliveryCountStatisticsRequest, DeliveryCountStatisticsResponse } from './dto/statCount.dto'
