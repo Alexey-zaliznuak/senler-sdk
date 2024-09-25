@@ -125,6 +125,13 @@ app.listen(3000, () => {
 
 - **`getSubscriptionsStatistics(data: GetSubscriptionsStatisticsRequest)`** — Get statistics on user actions with utm tags.
 
+### Deliveries
+- **`get(data?: GetDeliveriesRequest)`** — Get list of deliveries.
+
+- **`getSubscriptionsStatistics(data: GetRecipientStatisticsRequest)`** — Delivery statistic with user info.
+
+- **`getSubscriptionsCountStatistics(data: GetDeliveryCountStatisticsRequest)`** — Delivery count statistic.
+
 ## Error handling
 
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
