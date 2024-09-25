@@ -1,8 +1,8 @@
-import { HttpClient } from '../../core/http-client'
-import { AddSubscriberRequest, AddSubscriberResponse } from './dto/addSubscriber.dto'
-import { DelSubscriberRequest, DelSubscriberResponse } from './dto/delSubscriber.dto'
-import { GetBotsListRequest, GetBotsListResponse } from './dto/get.dto'
-import { GetStepsRequest, GetStepsResponse } from './dto/getSteps.dto'
+import { HttpClient } from '../../core/http-client';
+import { AddSubscriberRequest, AddSubscriberResponse } from './dto/addSubscriber.dto';
+import { DelSubscriberRequest, DelSubscriberResponse } from './dto/delSubscriber.dto';
+import { GetBotsListRequest, GetBotsListResponse } from './dto/get.dto';
+import { GetStepsRequest, GetStepsResponse } from './dto/getSteps.dto';
 
 export class BotsResource {
   private httpClient: HttpClient;

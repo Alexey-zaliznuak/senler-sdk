@@ -5,7 +5,7 @@ export interface GetDeliveryCountStatisticsRequest {
    * Date and time from which subscribed/unsubscribed
    *
    * Format: `d.m.Y H:i:s` example: `26.11.2018 10:00:00`
-  */
+   */
   date_from: string;
 
   /**

@@ -1,6 +1,6 @@
-import pino from "pino";
+import pino from 'pino';
 
-export { BASE_AXIOS_RETRY_CONFIG } from "./core/http-client/client.config";
+export { BASE_AXIOS_RETRY_CONFIG } from './core/http-client/client.config';
 
 export const API_BASE_URL = 'https://senler.ru/api';
 export const DEFAULT_API_VERSION = '2.0';
@@ -9,12 +9,12 @@ export const BASE_LOGGING_CONFIG = {
   level: 'error',
   base: { pid: false },
   timestamp: pino.stdTimeFunctions.isoTime
-}
+};
 
 export const BASE_API_CONFIG = {
   baseUrl: API_BASE_URL,
-  apiVersion: DEFAULT_API_VERSION,
-}
+  apiVersion: DEFAULT_API_VERSION
+};
 
 export const ERROR_CODES: Record<number, string> = {
   0: 'Unknown error',

@@ -19,12 +19,8 @@ export class SenlerApiClient {
   public readonly deliveries: DeliveriesResource;
   public readonly bots: BotsResource;
 
-  constructor(
-    apiConfig: ApiClientConfig,
-    retryConfig?: AxiosRetryConfig,
-    loggingConfig?: LoggingConfig,
-  ) {
-    loggingConfig = Object.assign(BASE_LOGGING_CONFIG, loggingConfig)
+  constructor(apiConfig: ApiClientConfig, retryConfig?: AxiosRetryConfig, loggingConfig?: LoggingConfig) {
+    loggingConfig = Object.assign(BASE_LOGGING_CONFIG, loggingConfig);
 
     this.httpClient = new HttpClient(apiConfig, retryConfig, loggingConfig);
 

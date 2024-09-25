@@ -3,5 +3,5 @@ export enum StepType {
   timer = 'timer',
   action = 'action',
   if = 'if',
-  message = 'message',
+  message = 'message'
 }

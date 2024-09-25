@@ -4,5 +4,5 @@ export interface Step {
   step_id: string;
   title: string;
   type: keyof typeof StepType;
-  lead_inc: number
+  lead_inc: number;
 }

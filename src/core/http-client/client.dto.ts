@@ -1,6 +1,5 @@
-import { AxiosRequestConfig } from "axios";
-import { DestinationStream, LoggerOptions } from "pino";
-
+import { AxiosRequestConfig } from 'axios';
+import { DestinationStream, LoggerOptions } from 'pino';
 
 export interface ApiConfig {
   apiVersion?: string;
