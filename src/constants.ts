@@ -8,12 +8,12 @@ export const DEFAULT_API_VERSION = '2.0';
 export const BASE_LOGGING_CONFIG = {
   level: 'error',
   base: { pid: false },
-  timestamp: pino.stdTimeFunctions.isoTime
+  timestamp: pino.stdTimeFunctions.isoTime,
 };
 
 export const BASE_API_CONFIG = {
   baseUrl: API_BASE_URL,
-  apiVersion: DEFAULT_API_VERSION
+  apiVersion: DEFAULT_API_VERSION,
 };
 
 export const ERROR_CODES: Record<number, string> = {
@@ -31,5 +31,5 @@ export const ERROR_CODES: Record<number, string> = {
   11: 'The variable must contain only Latin letters or numbers',
   12: 'Incorrect parameter value',
   13: 'The specified token was not found',
-  14: 'Invalid token'
+  14: 'Invalid token',
 };
