@@ -3,7 +3,7 @@
 import { UtmTagWithSubscribeCount } from './statCount.subscription.dto';
 
 /** Getting statistics on the number of subscriptions to ***any*** group with the utm tag */
-export interface GetSubscriptionsCountStatisticsRequest {
+export interface GetUtmSubscriptionsCountStatisticRequest {
   /**
    * Date and time from which subscribed/unsubscribed
    *
@@ -40,7 +40,7 @@ export interface GetSubscriptionsCountStatisticsRequest {
   utm_id?: Array<number | string>;
 }
 
-export interface SubscriptionsCountStatisticsResponse {
+export interface GetUtmSubscriptionsCountStatisticResponse {
   /**
    * Link to a group of subscribers with a label
    */
