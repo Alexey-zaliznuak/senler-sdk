@@ -4,11 +4,11 @@ import { HttpClient } from './core/http-client';
 import { ApiConfig, LoggingConfig } from './core/http-client/client.dto';
 import { BotsResource } from './resources/bots/deliveries.api';
 import { DeliveriesResource } from './resources/deliveries/deliveries.api';
+import { GlobalVarsResource } from './resources/globalVars/globalVars.api';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
 import { SubscribersGroupsResource } from './resources/subscriptions/subscription.api';
 import { UtmsResource } from './resources/utms/utms.api';
 import { VarsResource } from './resources/vars/var.api';
-import { GlobalVarsResource } from './resources/vars_global/vars_global.api';
 
 export interface ApiClientConfig extends ApiConfig {}
 

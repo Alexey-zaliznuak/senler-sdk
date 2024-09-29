@@ -53,9 +53,9 @@ export { Var } from './resources/vars/dto/get.var.dto';
 export { SetVarRequest, SetVarResponse } from './resources/vars/dto/set.dto';
 
 // Global vars
-export { DeleteGlobalVarRequest, DeleteGlobalVarResponse } from './resources/vars_global/dto/del.dto';
-export { GetGlobalVarRequest, GetGlobalVarResponse } from './resources/vars_global/dto/get.dto';
-export { GlobalVar } from './resources/vars_global/dto/get.globalVar.dto';
-export { SetGlobalVarRequest, SetGlobalVarResponse } from './resources/vars_global/dto/set.dto';
+export { DeleteGlobalVarRequest, DeleteGlobalVarResponse } from './resources/globalVars/dto/del.dto';
+export { GetGlobalVarRequest, GetGlobalVarResponse } from './resources/globalVars/dto/get.dto';
+export { GlobalVar } from './resources/globalVars/dto/get.globalVar.dto';
+export { SetGlobalVarRequest, SetGlobalVarResponse } from './resources/globalVars/dto/set.dto';
 
 export { SubscriptionSourceType } from './resources/share/types';
