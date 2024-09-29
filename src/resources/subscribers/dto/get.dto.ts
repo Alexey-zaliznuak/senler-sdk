@@ -22,76 +22,76 @@ export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
    *
    * Example: `[1, 2]`
    */
-  vk_user_id?: number[];
+  vk_user_id?: Array<number | string>;
 
   /**
    * Subscriber group IDs, 0 for no group
    *
    * Example: `[1, 2]`
    */
-  subscription_id?: number[];
+  subscription_id?: Array<number | string>;
 
   /**
    * Exclude subscribers from these groups
    *
    * Example: [120, 123]
    */
-  ignore_subscription_id?: number[];
+  ignore_subscription_id?: Array<number | string>;
 
   /**
    * IDs of deliveries received by subscribers
    *
    * Example: `[123]`
    */
-  delivery_id?: number[];
+  delivery_id?: Array<number | string>;
 
   /**
    * Exclude subscribers who received these deliveries
    *
    * Example: `[123]`
    */
-  ignore_delivery_id?: number[];
+  ignore_delivery_id?: Array<number | string>;
 
   /**
    * Deliveries with errors
    *
    * Example: `[123]`
    */
-  error_delivery_id?: number[];
+  error_delivery_id?: Array<number | string>;
 
   /**
    * IDs of deliveries read by users
    * Example: `[123]`
    */
-  read_delivery_id?: number[];
+  read_delivery_id?: Array<number | string>;
 
   /**
    * Deliveries not read by users
    *
    * Example: `[123]`
    */
-  ignore_read_delivery_id?: number[];
+  ignore_read_delivery_id?: Array<number | string>;
 
   /**
    * Deliveries where users clicked links
    *
    * Example: `[123]`
    */
-  away_delivery_id?: number[];
+  away_delivery_id?: Array<number | string>;
 
   /**
    * Deliveries where users did not click links
    *
    * Example: `[123]`
    */
-  ignore_away_delivery_id?: number[];
+  ignore_away_delivery_id?: Array<number | string>;
 
   /**
    * Subscription source
    *
    * Examples: 'subscriptions', 'widget', 'api', etc.
    */
-  source?: SubscriptionSourceType[];
+  source?: Array<keyof typeof SubscriptionSourceType>;
 
   /**
    * Date of subscription from, format: d.m.Y H:i:s
@@ -160,16 +160,16 @@ export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
   /**
    * Bot ID
    *
-   * Example: `1`
+   * Example: `1234123`
    */
-  bot_id?: number;
+  bot_id?: number | string;
 
   /**
    * Bot step IDs for the given bot
    *
    * Example: `['5c6992770b295058e641bb86']`
    */
-  step_id?: string[];
+  step_id?: Array<string>;
 
   /**
    * Exclude subscribers from this bot
@@ -183,7 +183,7 @@ export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
    *
    * Example: `['5c6992770b295058e641bb86']`
    */
-  ignore_step_id?: string[];
+  ignore_step_id?: Array<string>;
 
   /** Subscriber status filter, 1 for Active, 2 for Inactive */
   lead_status?: 1 | 2;
@@ -200,7 +200,7 @@ export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
    *
    * Example: `30`
    */
-  var_value?: string;
+  var_value?: string | number;
 }
 
 export interface GetSubscribersResponse {
@@ -211,5 +211,5 @@ export interface GetSubscribersResponse {
    */
   offset_id: string;
 
-  items: Subscriber[];
+  items: Array<Subscriber>;
 }

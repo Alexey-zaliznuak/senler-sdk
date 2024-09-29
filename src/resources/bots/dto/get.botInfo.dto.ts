@@ -14,7 +14,7 @@ export interface BotInfo {
    *
    * `'1'` Started
    */
-  active: string;
+  active: '1' | '0';
 
   /**
    * Bot publication status

@@ -25,26 +25,26 @@ export interface GetSubscribersStatisticsBaseRequest extends Partial<UtmFilterPa
    *
    * Example: `[1]`
    */
-  vk_user_id?: number[];
+  vk_user_id?: Array<number | string>;
 
   /**
    * Subscriber group IDs
    *
    * Example: `[123]`
    */
-  subscription_id?: number[];
+  subscription_id?: Array<number | string>;
 
   /**
    * Exclude subscribers from these groups (0 for no group)
    *
    * Example: `[0, 123]`
    */
-  ignore_subscription_id?: number[];
+  ignore_subscription_id?: Array<number | string>;
 
   /**
    * Subscription source
    *
    * Example: `['subscription']`
    */
-  source?: SubscriptionSourceType[];
+  source?: Array<keyof typeof SubscriptionSourceType>;
 }

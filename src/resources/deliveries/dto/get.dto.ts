@@ -23,7 +23,7 @@ export interface GetDeliveriesRequest {
    */
   offset?: number;
 
-  delivery_id?: Array<number>;
+  delivery_id?: Array<number | string>;
 
   /**
    * deliveries types:

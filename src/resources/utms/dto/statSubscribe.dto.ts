@@ -43,21 +43,21 @@ export interface GetSubscriptionsStatisticsRequest {
    *
    * Example: `[1]`
    */
-  vk_user_id?: Array<number>;
+  vk_user_id?: Array<number | string>;
 
   /**
    * Subscriber group ID (missing if the subscription is without a group)
    *
    * Example: `[123]`
    */
-  subscription_id?: Array<number>;
+  subscription_id?: Array<number | string>;
 
   /**
    * Utm identifiers - Senler utm tags
    *
    * Example: `[0,123]`
    */
-  utm_id?: Array<number>;
+  utm_id?: Array<number | string>;
 
   /**
    * Subscriber action: 0 - all, 1 - subscribe, 2 - unsubscribe (default 0)

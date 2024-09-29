@@ -2,7 +2,7 @@
 
 export interface AddSubscriberRequest {
   vk_user_id: string;
-  bot_id: string;
+  bot_id: string | number;
 
   /**
    * `true` add subscriber to bot again if subscriber is already in bot

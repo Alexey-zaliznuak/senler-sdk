@@ -4,9 +4,9 @@ import { Step } from './getSteps.step.dto';
 
 export interface GetStepsRequest {
   /**
-   * Example: `'2314231'`
+   * Example: `2314231`
    */
-  bot_id: string;
+  bot_id: string | number;
 
   /**
    * Number of elements to return information about
@@ -35,6 +35,6 @@ export interface GetStepsRequest {
 }
 
 export interface GetStepsResponse {
-  count: string;
+  count: number;
   items: Array<Step>;
 }

@@ -23,21 +23,21 @@ export interface GetSubscriptionsCountStatisticsRequest {
    *
    * Example: `[1]`
    */
-  vk_user_id?: Array<number>;
+  vk_user_id?: Array<number | string>;
 
   /**
    * Subscriber group IDs
    *
    * Example: `[123]`
    */
-  subscription_id?: Array<number>;
+  subscription_id?: Array<number | string>;
 
   /**
    * Utm identifiers - Senler utm tags
    *
    * Example: `[123]`
    */
-  utm_id?: Array<number>;
+  utm_id?: Array<number | string>;
 }
 
 export interface SubscriptionsCountStatisticsResponse {

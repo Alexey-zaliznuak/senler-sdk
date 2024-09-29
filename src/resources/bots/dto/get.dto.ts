@@ -6,9 +6,9 @@ export interface GetBotsListRequest {
   /**
    * Number of elements to return information about
    *
-   * Maximum: `'100`
+   * Maximum: `100`
    */
-  count?: number;
+  count?: number | string;
 
   /**
    * Offset - how many elements to sample from
@@ -24,7 +24,7 @@ export interface GetBotsListRequest {
    *
    * Example: `[1234123]`
    */
-  bot_id?: Array<number>;
+  bot_id?: Array<number | string>;
 }
 
 export interface GetBotsListResponse {
