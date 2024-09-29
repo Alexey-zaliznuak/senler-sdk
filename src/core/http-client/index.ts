@@ -5,7 +5,9 @@ import pino, { Logger } from 'pino';
 import axiosRetry, { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
 import { ApiConfig, CustomAxiosRequestConfig, LoggingConfig } from './client.dto';
 import { BASE_AXIOS_RETRY_CONFIG } from './client.config';
-import { BASE_API_CONFIG, BASE_LOGGING_CONFIG } from '../../constants';
+import { CacheConfig } from './cache';
+import { KeyBuilder } from './cache/key-builder';
+import { BASE_API_CONFIG, BASE_LOGGING_CONFIG } from '../../configs';
 
 export class HttpClient {
   private client: AxiosInstance;
@@ -13,9 +15,11 @@ export class HttpClient {
 
   private readonly axiosRetryConfig: AxiosRetryConfig;
   private readonly apiConfig: ApiConfig;
+  private readonly cacheConfig: CacheConfig;
 
-  constructor(apiConfig: ApiConfig, axiosRetryConfig?: AxiosRetryConfig, loggingConfig?: LoggingConfig) {
+  constructor(apiConfig: ApiConfig, cacheConfig?: CacheConfig, axiosRetryConfig?: AxiosRetryConfig, loggingConfig?: LoggingConfig) {
     this.apiConfig = Object.assign(BASE_API_CONFIG, apiConfig);
+    this.cacheConfig = cacheConfig ?? { enabled: false }
     this.axiosRetryConfig = this._buildAxiosRetryConfig(axiosRetryConfig);
 
     this.logger = this._createLogger(loggingConfig);
@@ -24,7 +28,11 @@ export class HttpClient {
 
   @clearResponse
   @handleApiError
-  async request<T>(url: string, data?: AxiosRequestConfig['params']): Promise<T> {
+  async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig): Promise<T> {
+    const cachedValue = await this._getCachedValue<T>(url, data, Object.assign(this.cacheConfig, cacheConfig))
+
+    if (cachedValue) return cachedValue;
+
     const requestId = this.__generateRequestId();
     const logger = this._createChildRequestLogger(url, requestId);
 
@@ -36,11 +44,25 @@ export class HttpClient {
       logger.info({ code: response.status, data: response.data }, 'Received response');
 
       return response.data;
-    } catch (error) {
+    }
+    catch (error) {
       this.__logError(error, url, data, logger);
-
       throw error;
     }
+  }
+
+  private async _getCachedValue<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig): Promise<T | null> {
+    if (!cacheConfig?.enabled || cacheConfig.enabled && !cacheConfig.manager) return null
+
+    const key = KeyBuilder.buildKey(
+      url,
+      data,
+      cacheConfig,
+      this.client.defaults.params
+    )
+    console.log(key)
+
+    return null
   }
 
   private _createAxiosClient(): AxiosInstance {
