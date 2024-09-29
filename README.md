@@ -132,6 +132,20 @@ app.listen(3000, () => {
 
 - **`getSubscriptionsCountStatistics(data: GetDeliveryCountStatisticsRequest)`** — Delivery count statistic.
 
+### Vars
+- **`get(data?: GetVarRequest)`** — Get a user variable.
+
+- **`set(data: SetVarRequest)`** — Set a user variable.
+
+- **`del(data: DeleteVarRequest)`** — Delete a user variable.
+
+### Vars
+- **`get(data?: GetGlobalVarRequest)`** — Get a global variable.
+
+- **`set(data: SetGlobalVarRequest)`** — Set a global variable.
+
+- **`del(data: DeleteGlobalVarRequest)`** — Delete a global variable.
+
 ## Error handling
 
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.

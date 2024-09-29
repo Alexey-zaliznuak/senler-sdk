@@ -22,7 +22,7 @@ export class VarsResource {
   }
 
   /**
-   * Setting a user variable.
+   * Set a user variable.
    *
    * https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/ustanovka-peremennoi
    */
@@ -31,7 +31,7 @@ export class VarsResource {
   }
 
   /**
-   * Deleting a user variable.
+   * Delete a user variable.
    *
    * https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/udalenie-peremennoi
    */
