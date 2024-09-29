@@ -2,12 +2,21 @@
   "name": "senler-sdk",
   "version": "0.6.2",
   "description": "SDK for Senler API",
-  "source": "src/index.ts",
+  "author": "Alexey Zaliznuak alexey.zaliznuak@gmail.com",
+  "homepage": "https://github.com/Alexey-zaliznuak/senler-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alexey-zaliznuak/senler-sdk.git"
+  },
   "license": "MIT",
+  "keywords": ["sdk", "senler", "api", "vk", "marketing"],
+
+  "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
+
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "microbundle --tsconfig build.tsconfig.json",
