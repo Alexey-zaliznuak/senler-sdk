@@ -16,10 +16,9 @@ const client = new SenlerApiClient({
 // }
 // ).then((res) => console.log(res))
 
-
 client.bots.getSteps({
-    bot_id: "2314231",
-  }).then((res) => console.log(res));
+  bot_id: "2314231",
+}).then((res) => console.log(res));
 
 // client.subscribers.
 // client.subscribers.
