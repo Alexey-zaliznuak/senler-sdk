@@ -159,13 +159,13 @@ Errors implemented via `success`, `error_code` and `error_message` ([docs](https
 
 ## Roadmap
 
-- Add more resources
-
-- Module tests??
+- All resources
 
 - Caching
 
-- Full API reference??
+- Module tests
+
+- Full API reference
 
 - Simple Integrations Examples
 
