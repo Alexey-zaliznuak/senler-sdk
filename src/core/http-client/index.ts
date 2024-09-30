@@ -29,12 +29,11 @@ export class HttpClient {
   @clearResponse
   @handleApiError
   async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig): Promise<T> {
-    const cachedValue = await this._getCachedValue<T>(url, data, Object.assign(this.cacheConfig, cacheConfig))
-
-    if (cachedValue) return cachedValue;
-
     const requestId = this.__generateRequestId();
     const logger = this._createChildRequestLogger(url, requestId);
+
+    const cachedValue = await this._getCachedValue<T>(url, data, Object.assign(this.cacheConfig, cacheConfig), requestId)
+    if (cachedValue) return cachedValue;
 
     logger.info({ data }, 'Send request');
 
@@ -42,6 +41,8 @@ export class HttpClient {
       const response: AxiosResponse<T, CustomAxiosRequestConfig> = await this.client.postForm<T>(url, data, { requestId } as CustomAxiosRequestConfig);
 
       logger.info({ code: response.status, data: response.data }, 'Received response');
+
+      // this._saveCacheIfNeed(response.data, cacheConfig)
 
       return response.data;
     }
@@ -51,19 +52,30 @@ export class HttpClient {
     }
   }
 
-  private async _getCachedValue<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig): Promise<T | null> {
+  private async _getCachedValue<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
     if (!cacheConfig?.enabled || cacheConfig.enabled && !cacheConfig.manager) return null
 
-    const key = KeyBuilder.buildKey(
-      url,
-      data,
-      cacheConfig,
-      this.client.defaults.params
-    )
-    console.log(key)
+    const logger = this._createChildRequestLogger(url, requestId || "undefined")
 
-    return null
+    const key = KeyBuilder.buildKey(url, { data }, this.client)
+
+    logger.debug({ key }, "Get cache by key:")
+
+    const cache = await cacheConfig.manager!.get<T>(key)
+
+    logger.debug({ cache }, "Get cache:")
+
+    return cache
   }
+
+
+  // private async _saveCacheIfNeed<T>(data: any, cacheConfig?: CacheConfig): Promise<void> {
+  //   if (!cacheConfig?.enabled || cacheConfig.enabled && !cacheConfig.manager) return
+
+  //   const key = KeyBuilder.buildKey(url, data, cacheConfig, this.client.defaults.params)
+
+  //   return await cacheConfig.manager!.get<T>(key)
+  // }
 
   private _createAxiosClient(): AxiosInstance {
     const axiosConfig: AxiosRequestConfig = {

@@ -2,8 +2,8 @@ export const API_BASE_URL = 'https://senler.ru/api';
 export const DEFAULT_API_VERSION = '2.0';
 
 export const ERROR_CODES: Record<number, string> = {
-  0: 'Unknown error',
-  1: 'One of the required request parameters is missing',
+0: 'Unknown error',
+1: 'One of the required request parameters is missing',
   2: 'Hash is missing',
   3: 'Incorrect hash',
   4: 'User did not allow sending messages',

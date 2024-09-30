@@ -1,7 +1,13 @@
-export interface CacheManager {
-  get(key: string): Promise<any | null>;
+export interface CacheManager<K = string, V = any, C = any> {
+  cacheConfig: C;
 
-  set(key: string, value: any, ttl?: number): Promise<any>;
+  get<T = V>(key: K): Promise<T | null>;
 
-  del(key: string): Promise<any>;
+  set<T = V>(key: K, value: T, cacheConfig: C): Promise<void>;
+
+  delete(key: K): Promise<void>;
+
+  clear?(): Promise<void>;
+
+  has?(key: K): Promise<boolean>;
 }
