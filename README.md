@@ -146,6 +146,16 @@ const retryConfig = {
 const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
 ```
 
+## Caching
+Caching is based on [cache-manager](https://www.npmjs.com/package/cache-manager):
+
+```typescript
+const cacheConfig = {
+  manager: createCache({ ttl: 10_000 })
+}
+const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+```
+
 ## Roadmap
 - Full API reference
 
