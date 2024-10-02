@@ -2,7 +2,7 @@ import { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
 import { BASE_LOGGING_CONFIG } from './constants';
 import { HttpClient } from './core/http-client';
 import { ApiConfig, LoggingConfig } from './core/http-client/client.dto';
-import { BotsResource } from './resources/bots/deliveries.api';
+import { BotsResource } from './resources/bots/bots.api';
 import { DeliveriesResource } from './resources/deliveries/deliveries.api';
 import { GlobalVarsResource } from './resources/globalVars/globalVars.api';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
