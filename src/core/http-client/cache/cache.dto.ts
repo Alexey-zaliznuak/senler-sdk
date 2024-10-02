@@ -1,8 +1,12 @@
-import { CacheManager } from "./cache.interface";
+import { createCache } from "cache-manager";
 
+export type CacheManager = ReturnType<typeof createCache>;
 
 export type CacheConfig = {
   enabled: boolean;
   manager?: CacheManager;
-  ttl?: number | null;
+}
+
+export type RequestCacheConfig = CacheConfig & {
+  ttl?: number;
 }

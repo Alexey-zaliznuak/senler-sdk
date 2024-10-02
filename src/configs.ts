@@ -1,3 +1,7 @@
+export { CacheConfig, RequestCacheConfig } from './core/http-client/cache/cache.dto';
+export { LoggingConfig } from './core/http-client/client.dto';
+export { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
+
 import pino from 'pino';
 
 import {

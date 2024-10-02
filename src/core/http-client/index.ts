@@ -8,6 +8,8 @@ import { BASE_AXIOS_RETRY_CONFIG } from './client.config';
 import { CacheConfig } from './cache';
 import { KeyBuilder } from './cache/key-builder';
 import { BASE_API_CONFIG, BASE_LOGGING_CONFIG } from '../../configs';
+import { RequestCacheConfig } from './cache/cache.dto';
+
 
 export class HttpClient {
   private client: AxiosInstance;
@@ -28,21 +30,26 @@ export class HttpClient {
 
   @clearResponse
   @handleApiError
-  async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig): Promise<T> {
+  async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: RequestCacheConfig): Promise<T> {
     const requestId = this.__generateRequestId();
     const logger = this._createChildRequestLogger(url, requestId);
 
-    const cachedValue = await this._getCachedValue<T>(url, data, Object.assign(this.cacheConfig, cacheConfig), requestId)
-    if (cachedValue) return cachedValue;
+    cacheConfig = Object.assign(this.cacheConfig, cacheConfig);
+
+    const cachedData = await this._getCachedValue<T>(url, data, cacheConfig, requestId)
+    if (cachedData) {
+      logger.info({requestData: data, cachedData}, 'Return cached response')
+      return cachedData
+    };
 
     logger.info({ data }, 'Send request');
 
     try {
-      const response: AxiosResponse<T, CustomAxiosRequestConfig> = await this.client.postForm<T>(url, data, { requestId } as CustomAxiosRequestConfig);
+      const response: AxiosResponse<T> = await this.client.postForm<T>(url, data, { requestId } as CustomAxiosRequestConfig);
 
       logger.info({ code: response.status, data: response.data }, 'Received response');
 
-      // this._saveCacheIfNeed(response.data, cacheConfig)
+      await this._saveCacheIfNeed(url, data, response.data, cacheConfig, requestId)
 
       return response.data;
     }
@@ -55,27 +62,35 @@ export class HttpClient {
   private async _getCachedValue<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
     if (!cacheConfig?.enabled || cacheConfig.enabled && !cacheConfig.manager) return null
 
-    const logger = this._createChildRequestLogger(url, requestId || "undefined")
+    const logger = this._createChildRequestLogger(url, requestId || 'unknown')
+
+    logger.debug('Checking cache')
 
     const key = KeyBuilder.buildKey(url, { data }, this.client)
 
-    logger.debug({ key }, "Get cache by key:")
-
     const cache = await cacheConfig.manager!.get<T>(key)
 
-    logger.debug({ cache }, "Get cache:")
+    if (!cache) {
+      logger.debug({ key }, 'No cache found:')
+      return null
+    }
 
+    logger.debug({ key, cache }, 'Found cache:')
     return cache
   }
 
+  private async _saveCacheIfNeed(url: string, requestData: AxiosRequestConfig['params'], responseData: AxiosResponse['data'], requestCacheConfig?: RequestCacheConfig, requestId?: string): Promise<void> {
+    if (!requestCacheConfig?.enabled || requestCacheConfig.enabled && !requestCacheConfig.manager) return
+    if (!responseData.success) return
 
-  // private async _saveCacheIfNeed<T>(data: any, cacheConfig?: CacheConfig): Promise<void> {
-  //   if (!cacheConfig?.enabled || cacheConfig.enabled && !cacheConfig.manager) return
+    const logger = this._createChildRequestLogger(url, requestId || 'unknown')
 
-  //   const key = KeyBuilder.buildKey(url, data, cacheConfig, this.client.defaults.params)
+    const key = KeyBuilder.buildKey(url, { data: requestData }, this.client)
 
-  //   return await cacheConfig.manager!.get<T>(key)
-  // }
+    await requestCacheConfig.manager!.set(key, responseData, requestCacheConfig.ttl)
+
+    logger.debug({ key, requestCacheConfig, data: responseData }, 'Set cache')
+  }
 
   private _createAxiosClient(): AxiosInstance {
     const axiosConfig: AxiosRequestConfig = {

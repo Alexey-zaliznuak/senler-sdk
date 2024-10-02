@@ -1,2 +1,2 @@
-export { CacheConfig } from './cache.dto';
-export { CacheManager } from './cache.interface';
+export { CacheConfig, CacheManager } from "./cache.dto";
+export { KeyBuilder } from "./key-builder";
