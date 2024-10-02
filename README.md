@@ -112,6 +112,39 @@ app.get('/get', async (_req, res) => {
 
 Errors implemented via `success`, `error_code` and `error_message` ([docs](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki)) are converted and throws out as an ApiError with the corresponding message.
 
+## Logging
+Logging is based on [pino](https://www.npmjs.com/package/pino), you can overwrite the [default configuration](src/configs.ts).
+
+### Example:
+```typescript
+const loggingConfig = {
+  level: 'info',
+  destination: pino.destination("./log.log"),
+  base: { pid: false },
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      indent: 4
+    }
+  }
+}
+const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+```
+
+## Retrying
+Retrying is based on [axios-retry](https://www.npmjs.com/package/axios-retry), you can overwrite the [default configuration](src/configs.ts).
+
+###  Example:
+```typescript
+const retryConfig = {
+  retries: 3,
+  retryDelay(retryCount, error): number {
+    return axiosRetry.exponentialDelay(retryCount, error, 100);
+  }
+}
+const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+```
 
 ## Roadmap
 - Full API reference
