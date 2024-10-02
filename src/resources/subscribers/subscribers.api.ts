@@ -16,7 +16,6 @@ export class SubscribersResource {
   }
 
   /**
-   * Getting list of subscribers.
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
