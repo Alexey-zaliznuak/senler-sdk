@@ -114,18 +114,11 @@ Errors implemented via `success`, `error_code` and `error_message` ([docs](https
 
 
 ## Roadmap
-
-- All resources
-
-- Caching
+- Full API reference
 
 - Module tests
 
-- Full API reference
-
 - Simple Integrations Examples
-
-- explanation with examples about "superimposing" configs
 
 ## License
 

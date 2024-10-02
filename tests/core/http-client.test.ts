@@ -1,5 +1,6 @@
 import nock from 'nock';
 import { HttpClient } from '../../src/core/http-client';
+import axiosRetry from 'axios-retry';
 
 const RETRIES_COUNT = 2;
 
@@ -7,7 +8,12 @@ describe('handleApiError decorator', () => {
   let client: HttpClient;
 
   beforeEach(() => {
-    client = new HttpClient({ accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' }, undefined, { retries: RETRIES_COUNT });
+    client = new HttpClient({ accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' }, undefined, {
+      retries: RETRIES_COUNT,
+      retryDelay(retryCount, error): number {
+        return axiosRetry.exponentialDelay(retryCount, error, 100);
+      }
+    });
   });
 
   afterEach(() => {

@@ -6,5 +6,5 @@ export enum SubscriptionSourceType {
   api = 'api',
   site = 'site',
   hand = 'hand',
-  other = 'other',
+  other = 'other'
 }

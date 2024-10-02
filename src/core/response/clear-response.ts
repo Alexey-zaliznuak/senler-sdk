@@ -6,7 +6,7 @@
 export function clearResponse(_target: any, _propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor {
   const originalMethod = descriptor.value;
 
-  descriptor.value = async function (...args: any[]): Promise<any> {
+  descriptor.value = async function(...args: any[]): Promise<any> {
     const result = await originalMethod.apply(this, args);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

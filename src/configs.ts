@@ -1,18 +1,12 @@
 export { CacheConfig, RequestCacheConfig } from './core/http-client/cache/cache.dto';
 export { LoggingConfig } from './core/http-client/client.dto';
-export { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
+export { RetryConfig } from './core/http-client/client.config';
 
 import pino from 'pino';
 
-import {
-  API_BASE_URL,
-  DEFAULT_API_VERSION
-} from './constants';
+import { API_BASE_URL, DEFAULT_API_VERSION } from './constants';
 
-export {
-  BASE_AXIOS_RETRY_CONFIG,
-  BASE_CACHE_CONFIG,
-} from './core/http-client/client.config';
+export { BASE_RETRY_CONFIG, BASE_CACHE_CONFIG } from './core/http-client/client.config';
 
 export const BASE_LOGGING_CONFIG = {
   level: 'error',

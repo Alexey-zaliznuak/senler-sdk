@@ -42,7 +42,7 @@ describe('handleApiError decorator', () => {
     } catch (error) {
       expect(error).toHaveProperty('details', {
         errorCode: mockFailedResponse.error_code,
-        errorMessage: mockFailedResponse.error_message,
+        errorMessage: mockFailedResponse.error_message
       });
     }
   });

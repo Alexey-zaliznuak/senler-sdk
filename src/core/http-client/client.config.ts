@@ -1,10 +1,16 @@
-import axiosRetry, { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
+import axiosRetry, { IAxiosRetryConfigExtended } from 'axios-retry';
 import { CacheConfig } from './cache';
 
-export const BASE_AXIOS_RETRY_CONFIG: AxiosRetryConfig = {
-  retries: 3,
+export interface RetryConfig extends IAxiosRetryConfigExtended {
+  delayFactor?: number;
+}
 
-  retryDelay: axiosRetry.exponentialDelay,
+export const BASE_RETRY_CONFIG: RetryConfig = {
+  retries: 5,
+
+  retryDelay(retryCount, error) {
+    return axiosRetry.exponentialDelay(retryCount, error, 1000);
+  },
 
   retryCondition: (error): boolean => {
     const networkError = axiosRetry.isNetworkOrIdempotentRequestError(error);
@@ -15,9 +21,9 @@ export const BASE_AXIOS_RETRY_CONFIG: AxiosRetryConfig = {
     const isENOTFOUND = error.code === 'ENOTFOUND';
 
     return statusCode5xx || statusCode429 || networkError || isENOTFOUND;
-  },
+  }
 };
 
 export const BASE_CACHE_CONFIG: CacheConfig = {
-  enabled: false,
+  enabled: false
 };
