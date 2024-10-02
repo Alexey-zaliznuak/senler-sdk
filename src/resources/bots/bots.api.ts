@@ -31,7 +31,7 @@ export class BotsResource {
   }
 
   /**
-   * Add a subscriber to the bot
+   * Add a subscriber to the bot.
    *
    * https://help.senler.ru/senler/dev/api/methods/boty/dobavlenie-podpischika-v-bota
    */
