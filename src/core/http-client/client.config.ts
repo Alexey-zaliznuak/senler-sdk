@@ -1,4 +1,5 @@
 import axiosRetry, { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
+import { CacheConfig } from './cache';
 
 export const BASE_AXIOS_RETRY_CONFIG: AxiosRetryConfig = {
   retries: 3,
@@ -15,4 +16,8 @@ export const BASE_AXIOS_RETRY_CONFIG: AxiosRetryConfig = {
 
     return statusCode5xx || statusCode429 || networkError || isENOTFOUND;
   },
+};
+
+export const BASE_CACHE_CONFIG: CacheConfig = {
+  enabled: false,
 };

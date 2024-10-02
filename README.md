@@ -125,6 +125,8 @@ Errors implemented via `success`, `error_code` and `error_message` ([docs](https
 
 - Simple Integrations Examples
 
+- explanation with examples about "superimposing" configs
+
 ## License
 
 This project is licensed under the MIT license. See [LICENSE](./LICENSE) for details.

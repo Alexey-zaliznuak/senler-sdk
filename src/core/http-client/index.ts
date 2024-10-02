@@ -5,7 +5,11 @@ import pino, { Logger } from 'pino';
 import axiosRetry, { IAxiosRetryConfig as AxiosRetryConfig } from 'axios-retry';
 import { ApiConfig, CustomAxiosRequestConfig, LoggingConfig } from './client.dto';
 import { BASE_AXIOS_RETRY_CONFIG } from './client.config';
-import { BASE_API_CONFIG, BASE_LOGGING_CONFIG } from '../../constants';
+import { CacheConfig } from './cache';
+import { KeyBuilder } from './cache/key-builder';
+import { BASE_API_CONFIG, BASE_LOGGING_CONFIG } from '../../configs';
+import { RequestCacheConfig } from './cache/cache.dto';
+
 
 export class HttpClient {
   private client: AxiosInstance;
@@ -13,9 +17,11 @@ export class HttpClient {
 
   private readonly axiosRetryConfig: AxiosRetryConfig;
   private readonly apiConfig: ApiConfig;
+  private readonly cacheConfig: CacheConfig;
 
-  constructor(apiConfig: ApiConfig, axiosRetryConfig?: AxiosRetryConfig, loggingConfig?: LoggingConfig) {
+  constructor(apiConfig: ApiConfig, cacheConfig?: CacheConfig, axiosRetryConfig?: AxiosRetryConfig, loggingConfig?: LoggingConfig) {
     this.apiConfig = Object.assign(BASE_API_CONFIG, apiConfig);
+    this.cacheConfig = cacheConfig ?? { enabled: false }
     this.axiosRetryConfig = this._buildAxiosRetryConfig(axiosRetryConfig);
 
     this.logger = this._createLogger(loggingConfig);
@@ -24,23 +30,66 @@ export class HttpClient {
 
   @clearResponse
   @handleApiError
-  async request<T>(url: string, data?: AxiosRequestConfig['params']): Promise<T> {
+  async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: RequestCacheConfig): Promise<T> {
     const requestId = this.__generateRequestId();
     const logger = this._createChildRequestLogger(url, requestId);
+
+    cacheConfig = Object.assign(this.cacheConfig, cacheConfig);
+
+    const cachedData = await this._getCachedValue<T>(url, data, cacheConfig, requestId)
+    if (cachedData) {
+      logger.info({requestData: data, cachedData}, 'Return cached response')
+      return cachedData
+    };
 
     logger.info({ data }, 'Send request');
 
     try {
-      const response: AxiosResponse<T, CustomAxiosRequestConfig> = await this.client.postForm<T>(url, data, { requestId } as CustomAxiosRequestConfig);
+      const response: AxiosResponse<T> = await this.client.postForm<T>(url, data, { requestId } as CustomAxiosRequestConfig);
 
       logger.info({ code: response.status, data: response.data }, 'Received response');
 
-      return response.data;
-    } catch (error) {
-      this.__logError(error, url, data, logger);
+      await this._saveCacheIfNeed(url, data, response.data, cacheConfig, requestId)
 
+      return response.data;
+    }
+    catch (error) {
+      this.__logError(error, url, data, logger);
       throw error;
     }
+  }
+
+  private async _getCachedValue<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
+    if (!cacheConfig?.enabled || cacheConfig.enabled && !cacheConfig.manager) return null
+
+    const logger = this._createChildRequestLogger(url, requestId || 'unknown')
+
+    logger.debug('Checking cache')
+
+    const key = KeyBuilder.buildKey(url, { data }, this.client)
+
+    const cache = await cacheConfig.manager!.get<T>(key)
+
+    if (!cache) {
+      logger.debug({ key }, 'No cache found:')
+      return null
+    }
+
+    logger.debug({ key, cache }, 'Found cache:')
+    return cache
+  }
+
+  private async _saveCacheIfNeed(url: string, requestData: AxiosRequestConfig['params'], responseData: AxiosResponse['data'], requestCacheConfig?: RequestCacheConfig, requestId?: string): Promise<void> {
+    if (!requestCacheConfig?.enabled || requestCacheConfig.enabled && !requestCacheConfig.manager) return
+    if (!responseData.success) return
+
+    const logger = this._createChildRequestLogger(url, requestId || 'unknown')
+
+    const key = KeyBuilder.buildKey(url, { data: requestData }, this.client)
+
+    await requestCacheConfig.manager!.set(key, responseData, requestCacheConfig.ttl)
+
+    logger.debug({ key, requestCacheConfig, data: responseData }, 'Set cache')
   }
 
   private _createAxiosClient(): AxiosInstance {

@@ -7,7 +7,7 @@ describe('handleApiError decorator', () => {
   let client: HttpClient;
 
   beforeEach(() => {
-    client = new HttpClient({ accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' }, { retries: RETRIES_COUNT });
+    client = new HttpClient({ accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' }, undefined, { retries: RETRIES_COUNT });
   });
 
   afterEach(() => {
