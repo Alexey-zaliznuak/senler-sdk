@@ -1,67 +1,73 @@
 # Methods
 
-### [Subscribers](https://help.senler.ru/senler/dev/api/methods/podpischiki)
+### <a href="https://help.senler.ru/senler/dev/api/methods/podpischiki">Subscribers</a>
 
-- **`[get](https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov)(data: [GetSubscribersRequest](src\resources\subscribers\subscribers.api.ts))`** — Get list of subscribers.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov">get</a>(data: <a href="src\resources\subscribers\dto\get.dto.ts">GetSubscribersRequest</a>)</code> — Get list of subscribers.
 
-- **`[addInGroup](https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika)(data: [AddSubscribersInGroupRequest](src\resources\subscribers\dto\add.dto.ts))`** — Add subscriber(s) in group.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika">addInGroup</a>(data: <a href="src\resources\subscribers\dto\add.dto.ts">AddSubscribersInGroupRequest</a>)</code> — Add subscriber(s) in group.
 
-- **`[delFromGroup](https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika)(data: [DelSubscriberFromSubscriptionGroupRequest](src\resources\subscribers\dto\del.dto.ts))`** — Del subscriber from group of subscribers.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika">delFromGroup</a>(data: <a href="src\resources\subscribers\dto\del.dto.ts">DelSubscriberFromSubscriptionGroupRequest</a>)</code> — Del subscriber from group of subscribers.
 
-- **`[getSubscriptionsStatistics](https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok)(data: [GetSubscriptionsStatisticsRequest](src\resources\subscribers\dto\statSubscribe.dto.ts))`** — Get statistics on registration and cancellation of subscriptions.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok">getSubscriptionsStatistics</a>(data: <a href="src\resources\subscribers\dto\statSubscribe.dto.ts">GetSubscriptionsStatisticsRequest</a>)</code> — Get statistics on registration and cancellation of subscriptions.
 
-- **`[getSubscriptionsCountStatistics](https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount)(data: [GetSubscriptionsCountStatisticRequest](src\resources\subscribers\dto\statCount.dto.ts))`** — Get statistics on count of registration and cancellation of subscriptions.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount">getSubscriptionsCountStatistics</a>(data: <a href="src\resources\subscribers\dto\statCount.dto.ts">GetSubscriptionsCountStatisticRequest</a>)</code> — Get statistics on count of registration and cancellation of subscriptions.
 
-### [Subscribers groups](https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov)
-- **`[get](https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov)(data?: [GetSubscribersGroupsRequest](src\resources\subscriptions\dto\get.dto.ts))`** — Getting list of subscribers groups.
+### <a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov">Subscribers groups</a>
 
-- **`[add](https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/dobavlenie-gruppy-podpischikov)(data: [AddSubscribersGroupRequest](src\resources\subscriptions\dto\add.dto.ts))`** — Add subscribers group.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov">get</a>(data?: <a href="src\resources\subscriptions\dto\get.dto.ts">GetSubscribersGroupsRequest</a>)</code> — Getting list of subscribers groups.
 
-- **`[edit](https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/redaktirovanie-gruppy-podpischikov)(data: [EditSubscribersGroupRequest](src\resources\subscriptions\dto\edit.dto.ts))`** — Edit subscribers group.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/dobavlenie-gruppy-podpischikov">add</a>(data: <a href="src\resources\subscriptions\dto\add.dto.ts">AddSubscribersGroupRequest</a>)</code> — Add subscribers group.
 
-- **`[del](https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/udalenie-gruppy-podpischikov)(data: [DelSubscribersGroupRequest](src\resources\subscriptions\dto\del.dto.ts))`** — Del subscribers group.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/redaktirovanie-gruppy-podpischikov">edit</a>(data: <a href="src\resources\subscriptions\dto\edit.dto.ts">EditSubscribersGroupRequest</a>)</code> — Edit subscribers group.
 
-### [Utms](https://help.senler.ru/senler/dev/api/methods/metki)
-- **`[get](https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok)(data?: [GetUtmRequest](src\resources\utms\dto\get.dto.ts))`** — Getting list of utm tags.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/udalenie-gruppy-podpischikov">del</a>(data: <a href="src\resources\subscriptions\dto\del.dto.ts">DelSubscribersGroupRequest</a>)</code> — Del subscribers group.
 
-- **`[add](https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki)(data: [AddUtmRequest](src\resources\utms\dto\add.dto.ts))`** — Add utm tag.
+### <a href="https://help.senler.ru/senler/dev/api/methods/metki">Utms</a>
 
-- **`[edit](https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku)(data: [EditUtmRequest](src\resources\utms\dto\edit.dto.ts))`** — Edit utm tag.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok">get</a>(data?: <a href="src\resources\utms\dto\get.dto.ts">GetUtmRequest</a>)</code> — Getting list of utm tags.
 
-- **`[del](https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki)(data: [DeleteUtmRequest](src\resources\utms\dto\del.dto.ts))`** — Del utm tag.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki">add</a>(data: <a href="src\resources\utms\dto\add.dto.ts">AddUtmRequest</a>)</code> — Add utm tag.
 
-- **`[getLink](https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki)(data: [GetLinkUtmRequest](src\resources\utms\dto\getLink.dto.ts))`** — Get link to a subscription page with a utm.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku">edit</a>(data: <a href="src\resources\utms\dto\edit.dto.ts">EditUtmRequest</a>)</code> — Edit utm tag.
 
-- **`[getSubscriptionsCountStatistics](https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok)(data: [GetSubscriptionsCountStatisticsRequest](src\resources\utms\dto\statCount.dto.ts))`** — Get statistics on the count of subscriptions with utm tags.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki">del</a>(data: <a href="src\resources\utms\dto\del.dto.ts">DeleteUtmRequest</a>)</code> — Del utm tag.
 
-- **`[getSubscriptionsStatistics](https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami)(data: [GetSubscriptionsStatisticsRequest](src\resources\utms\dto\statSubscribe.dto.ts))`** — Get statistics on user actions with utm tags.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki">getLink</a>(data: <a href="src\resources\utms\dto\getLink.dto.ts">GetLinkUtmRequest</a>)</code> — Get link to a subscription page with a utm.
 
-### [Deliveries](https://help.senler.ru/senler/dev/api/methods/rassylki)
-- **`[get](https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok)(data?: [GetDeliveriesRequest](src\resources\deliveries\dto\get.dto.ts))`** — Get list of deliveries.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok">getSubscriptionsCountStatistics</a>(data: <a href="src\resources\utms\dto\statCount.dto.ts">GetSubscriptionsCountStatisticsRequest</a>)</code> — Get statistics on the count of subscriptions with utm tags.
 
-- **`[getSubscriptionsStatistics](https://help.senler.ru/senler/dev/api/methods/rassylki/statistika-dostavki)(data: [GetRecipientStatisticsRequest](src\resources\deliveries\dto\stat.dto.ts))`** — Delivery statistic with user info.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami">getSubscriptionsStatistics</a>(data: <a href="src\resources\utms\dto\statSubscribe.dto.ts">GetSubscriptionsStatisticsRequest</a>)</code> — Get statistics on user actions with utm tags.
 
-- **`[getSubscriptionsCountStatistics](https://help.senler.ru/senler/dev/api/methods/rassylki/statcount)(data: [GetDeliveryCountStatisticsRequest](src\resources\deliveries\dto\statCount.dto.ts))`** — Delivery count statistic.
+### <a href="https://help.senler.ru/senler/dev/api/methods/rassylki">Deliveries</a>
 
-### [Vars](https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov)
-- **`[get](https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/poluchenie-peremennoi)(data?: [GetVarRequest](src\resources\vars\dto\get.dto.ts))`** — Get a user variable.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok">get</a>(data?: <a href="src\resources\deliveries\dto\get.dto.ts">GetDeliveriesRequest</a>)</code> — Get list of deliveries.
 
-- **`[set](https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/ustanovka-peremennoi)(data: [SetVarRequest](src\resources\vars\dto\set.dto.ts))`** — Delivery statistic with user info.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/rassylki/statistika-dostavki">getSubscriptionsStatistics</a>(data: <a href="src\resources\deliveries\dto\stat.dto.ts">GetRecipientStatisticsRequest</a>)</code> — Delivery statistic with user info.
 
-- **`[del](https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/udalenie-peremennoi)(data: [DeleteVarRequest](src\resources\vars\dto\del.dto.ts))`** — Delete a user variable.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/rassylki/statcount">getSubscriptionsCountStatistics</a>(data: <a href="src\resources\deliveries\dto\statCount.dto.ts">GetDeliveryCountStatisticsRequest</a>)</code> — Delivery count statistic.
 
-### [Global vars](https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov)
-- **`[get](https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/poluchenie-peremennoj)(data?: [GetDeliveriesRequest](src\resources\globalVars\dto\get.dto.ts))`** — Get a global variable.
+### <a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov">Vars</a>
 
-- **`[set](https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/ustanovka-peremennoj)(data: [SetGlobalVarRequest](src\resources\globalVars\dto\set.dto.ts))`** — Set a global variable.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/poluchenie-peremennoi">get</a>(data?: <a href="src\resources\vars\dto\get.dto.ts">GetVarRequest</a>)</code> — Get a user variable.
 
-- **`[del](https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/udalenie-peremennoi)(data: [DeleteGlobalVarRequest](src\resources\globalVars\dto\del.dto.ts))`** — Delete a global variable.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/ustanovka-peremennoi">set</a>(data: <a href="src\resources\vars\dto\set.dto.ts">SetVarRequest</a>)</code> — Delivery statistic with user info.
 
-### [Bots](https://help.senler.ru/senler/dev/api/methods/boty)
-- **`[get](https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-botov)(data?: [GetBotsListRequest](src\resources\bots\dto\get.dto.ts))`** — Get a list of bots.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/udalenie-peremennoi">del</a>(data: <a href="src\resources\vars\dto\del.dto.ts">DeleteVarRequest</a>)</code> — Delete a user variable.
 
-- **`[getSteps](https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-shagov-v-bote)(data: [GetStepsRequest](src\resources\bots\dto\getSteps.dto.ts))`** — Get a list of steps in a bot.
+### <a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov">Global vars</a>
 
-- **`[addSubscriber](https://help.senler.ru/senler/dev/api/methods/boty/dobavlenie-podpischika-v-bota)(data: [AddSubscriberRequest](src\resources\bots\dto\addSubscriber.dto.ts))`** — Add a subscriber to the bot.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/poluchenie-peremennoj">get</a>(data?: <a href="src\resources\globalVars\dto\get.dto.ts">GetDeliveriesRequest</a>)</code> — Get a global variable.
 
-- **`[delSubscriber](https://help.senler.ru/senler/dev/api/methods/boty/udalit-podpischika-iz-bota)(data: [DelSubscriberRequest](src\resources\bots\dto\delSubscriber.dto.ts))`** — Remove subscriber from bot.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/ustanovka-peremennoj">set</a>(data: <a href="src\resources\globalVars\dto\set.dto.ts">SetGlobalVarRequest</a>)</code> — Set a global variable.
+
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/udalenie-peremennoi">del</a>(data: <a href="src\resources\globalVars\dto\del.dto.ts">DeleteGlobalVarRequest</a>)</code> — Delete a global variable.
+
+### <a href="https://help.senler.ru/senler/dev/api/methods/boty">Bots</a>
+
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-botov">get</a>(data?: <a href="src\resources\bots\dto\get.dto.ts">GetBotsListRequest</a>)</code> — Get a list of bots.
+
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-shagov-v-bote">getSteps</a>(data: <a href="src\resources\bots\dto\getSteps.dto.ts">GetStepsRequest</a>)</code> — Get a list of steps in a bot.
+
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/boty/dobavlenie-podpischika-v-bota">addSubscriber</a>(data: <a href="src\resources\bots\dto\addSubscriber.dto.ts">AddSubscriberRequest</a>)</code> — Add a subscriber to the bot.
+
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/boty/udalit-podpischika-iz-bota">delSubscriber</a>(data: <a href="src\resources\bots\dto\delSubscriber.dto.ts">DelSubscriberRequest</a>)</code> — Remove subscriber from bot.
