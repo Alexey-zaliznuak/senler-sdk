@@ -2,7 +2,7 @@
 
 export interface DelSubscriberRequest {
   vk_user_id: string;
-  bot_id: string;
+  bot_id: string | number;
 }
 
 export interface DelSubscriberResponse {}

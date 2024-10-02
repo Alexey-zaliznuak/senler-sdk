@@ -15,7 +15,7 @@ export const BASE_AXIOS_RETRY_CONFIG: AxiosRetryConfig = {
     const isENOTFOUND = error.code === 'ENOTFOUND';
 
     return statusCode5xx || statusCode429 || networkError || isENOTFOUND;
-  }
+  },
 };
 
 export const BASE_CACHE_CONFIG: CacheConfig = {

@@ -16,5 +16,5 @@ export const ERROR_CODES: Record<number, string> = {
   11: 'The variable must contain only Latin letters or numbers',
   12: 'Incorrect parameter value',
   13: 'The specified token was not found',
-  14: 'Invalid token'
+  14: 'Invalid token',
 };

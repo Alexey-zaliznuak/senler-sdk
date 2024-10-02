@@ -10,7 +10,7 @@ import { BaseResponse } from './base-response';
 export function handleApiError(_target: any, _propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor {
   const originalMethod = descriptor.value;
 
-  descriptor.value = async function(...args: any[]): Promise<any> {
+  descriptor.value = async function (...args: any[]): Promise<any> {
     const result: BaseResponse = await originalMethod.apply(this, args);
 
     if (result.success === false) {

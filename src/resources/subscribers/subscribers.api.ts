@@ -1,10 +1,10 @@
 import { HttpClient } from '../../core/http-client';
-import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
-import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
-import { GetSubscriptionsStatisticsRequest, GetSubscriptionsStatisticResponse } from './dto/statSubscribe.dto';
-import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequest } from './dto/statCount.dto';
 import { GetSubscribersCountResponse } from './dto/count.dto';
+import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
+import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
+import { GetSubscriptionsCountStatisticRequest, GetSubscriptionsCountStatisticResponse } from './dto/statCount.dto';
+import { GetSubscriptionsStatisticResponse, GetSubscriptionsStatisticsRequest } from './dto/statSubscribe.dto';
 
 export class SubscribersResource {
   private httpClient: HttpClient;
@@ -66,7 +66,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount
    */
-  async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticsRequest): Promise<GetSubscriptionsCountStatisticResponse> {
+  async getSubscriptionsCountStatistics(params: GetSubscriptionsCountStatisticRequest): Promise<GetSubscriptionsCountStatisticResponse> {
     return await this.httpClient.request<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, params);
   }
 }

@@ -1,3 +1,3 @@
 export interface GetSubscribersCountResponse {
-  count: 2;
+  count: number;
 }

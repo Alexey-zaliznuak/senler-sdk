@@ -8,18 +8,18 @@ export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
    *
    * Example: `1`
    */
-  vk_user_id: number | number[];
+  vk_user_id: number | Array<number>;
 
   /**
    * Id of the subscriber group (0 - without a group)
    *
    * Example: `123`
    */
-  subscription_id: number;
+  subscription_id: number | string;
 }
 
 export interface AddSubscribersInGroupResponse {
-  subscribers: AddSubscribersInGroupUserOperationDetails[];
+  subscribers: Array<AddSubscribersInGroupUserOperationDetails>;
 }
 
 export interface AddSubscribersInGroupUserOperationDetails {

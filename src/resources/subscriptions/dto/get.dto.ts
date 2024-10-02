@@ -26,10 +26,10 @@ export interface GetSubscribersGroupsRequest {
    *
    * Example: `[1, 2]`
    */
-  subscription_id?: number[];
+  subscription_id?: Array<number>;
 }
 
 export interface GetSubscribersGroupsResponse {
   count: number;
-  items: Subscription[];
+  items: Array<Subscription>;
 }

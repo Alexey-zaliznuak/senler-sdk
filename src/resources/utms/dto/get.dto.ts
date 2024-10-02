@@ -22,7 +22,7 @@ export interface GetUtmRequest {
    */
   offset?: number;
 
-  utm_id?: Array<number>;
+  utm_id?: Array<number | string>;
 }
 
 export interface GetUtmResponse {

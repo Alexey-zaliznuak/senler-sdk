@@ -4,8 +4,8 @@ import { DeleteUtmRequest, DeleteUtmResponse } from './dto/del.dto';
 import { EditUtmRequest, EditUtmResponse } from './dto/edit.dto';
 import { GetUtmRequest, GetUtmResponse } from './dto/get.dto';
 import { GetLinkUtmRequest, GetLinkUtmResponse } from './dto/getLink.dto';
-import { GetSubscriptionsCountStatisticsRequest, SubscriptionsCountStatisticsResponse } from './dto/statCount.dto';
-import { GetSubscriptionsStatisticsRequest, SubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
+import { GetUtmSubscriptionsCountStatisticRequest, GetUtmSubscriptionsCountStatisticResponse } from './dto/statCount.dto';
+import { GetUtmSubscriptionsStatisticsRequest, SubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
 
 export class UtmsResource {
   private httpClient: HttpClient;
@@ -67,8 +67,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
    */
-  async getSubscriptionsCountStatistics(data: GetSubscriptionsCountStatisticsRequest): Promise<SubscriptionsCountStatisticsResponse> {
-    return await this.httpClient.request<SubscriptionsCountStatisticsResponse>(`${this.RESOURCE_NAME}/statCount`, data);
+  async getSubscriptionsCountStatistics(data: GetUtmSubscriptionsCountStatisticRequest): Promise<GetUtmSubscriptionsCountStatisticResponse> {
+    return await this.httpClient.request<GetUtmSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data);
   }
 
   /**
@@ -76,7 +76,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
    */
-  async getSubscriptionsStatistics(data: GetSubscriptionsStatisticsRequest): Promise<SubscriptionsStatisticsResponse> {
+  async getSubscriptionsStatistics(data: GetUtmSubscriptionsStatisticsRequest): Promise<SubscriptionsStatisticsResponse> {
     return await this.httpClient.request<SubscriptionsStatisticsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, data);
   }
 }

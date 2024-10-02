@@ -3,7 +3,7 @@
 import { UtmTagWithSubscribeCount } from './statCount.subscription.dto';
 
 /** Getting statistics on the number of subscriptions to ***any*** group with the utm tag */
-export interface GetSubscriptionsCountStatisticsRequest {
+export interface GetUtmSubscriptionsCountStatisticRequest {
   /**
    * Date and time from which subscribed/unsubscribed
    *
@@ -23,24 +23,24 @@ export interface GetSubscriptionsCountStatisticsRequest {
    *
    * Example: `[1]`
    */
-  vk_user_id?: Array<number>;
+  vk_user_id?: Array<number | string>;
 
   /**
    * Subscriber group IDs
    *
    * Example: `[123]`
    */
-  subscription_id?: Array<number>;
+  subscription_id?: Array<number | string>;
 
   /**
    * Utm identifiers - Senler utm tags
    *
    * Example: `[123]`
    */
-  utm_id?: Array<number>;
+  utm_id?: Array<number | string>;
 }
 
-export interface SubscriptionsCountStatisticsResponse {
+export interface GetUtmSubscriptionsCountStatisticResponse {
   /**
    * Link to a group of subscribers with a label
    */

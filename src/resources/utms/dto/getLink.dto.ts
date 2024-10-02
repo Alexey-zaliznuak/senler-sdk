@@ -7,9 +7,9 @@ export interface GetLinkUtmRequest {
   /**
    * Subscriber group id
    *
-   * Example: `'123'`
+   * Example: `123`
    */
-  subscription_id: string;
+  subscription_id: string | number;
 
   /**
    * Automatic subscription on transition: 0 - no, 1 - yes (default: 0)
@@ -21,5 +21,5 @@ export interface GetLinkUtmRequest {
 
 export interface GetLinkUtmResponse {
   /** Link to a group of subscribers with a utm tag */
-  link: number;
+  link: string;
 }

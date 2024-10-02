@@ -5,21 +5,21 @@ export interface UtmTag {
   /**
    * Utm tag name
    *
-   * Example: `'label 1'`
+   * Example: `label 1`
    */
   name: string;
 
   /**
    * Default subscriber group id
    *
-   * Example: `'123'`
+   * Example: `123`
    */
   subscription_id: string;
 
   /**
    * Subscription counter
    *
-   * Example: `'421'`
+   * Example: `421`
    */
   count: string;
 }
