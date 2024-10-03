@@ -1,3 +1,4 @@
+import { RequestCacheConfig } from 'src/configs';
 import { HttpClient } from '../../core/http-client';
 import { AddSubscribersGroupRequest, AddSubscribersGroupResponse } from './dto/add.dto';
 import { DelSubscribersGroupRequest, DelSubscribersGroupResponse } from './dto/del.dto';
@@ -18,8 +19,8 @@ export class SubscribersGroupsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov
    */
-  async get(data?: GetSubscribersGroupsRequest): Promise<GetSubscribersGroupsResponse> {
-    return await this.httpClient.request<GetSubscribersGroupsResponse>(`${this.RESOURCE_NAME}/get`, data);
+  async get(data?: GetSubscribersGroupsRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersGroupsResponse> {
+    return await this.httpClient.request<GetSubscribersGroupsResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
   /**
@@ -27,8 +28,8 @@ export class SubscribersGroupsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/dobavlenie-gruppy-podpischikov
    */
-  async add(data: AddSubscribersGroupRequest): Promise<AddSubscribersGroupResponse> {
-    return await this.httpClient.request<AddSubscribersGroupResponse>(`${this.RESOURCE_NAME}/add`, data);
+  async add(data: AddSubscribersGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<AddSubscribersGroupResponse> {
+    return await this.httpClient.request<AddSubscribersGroupResponse>(`${this.RESOURCE_NAME}/add`, data, cacheConfig);
   }
 
   /**
@@ -36,8 +37,8 @@ export class SubscribersGroupsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/redaktirovanie-gruppy-podpischikov
    */
-  async edit(data: EditSubscribersGroupRequest): Promise<EditSubscribersGroupResponse> {
-    return await this.httpClient.request<EditSubscribersGroupResponse>(`${this.RESOURCE_NAME}/edit`, data);
+  async edit(data: EditSubscribersGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<EditSubscribersGroupResponse> {
+    return await this.httpClient.request<EditSubscribersGroupResponse>(`${this.RESOURCE_NAME}/edit`, data, cacheConfig);
   }
 
   /**
@@ -45,7 +46,7 @@ export class SubscribersGroupsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/udalenie-gruppy-podpischikov
    */
-  async del(data: DelSubscribersGroupRequest): Promise<DelSubscribersGroupResponse> {
-    return await this.httpClient.request<DelSubscribersGroupResponse>(`${this.RESOURCE_NAME}/del`, data);
+  async del(data: DelSubscribersGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DelSubscribersGroupResponse> {
+    return await this.httpClient.request<DelSubscribersGroupResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }
 }
