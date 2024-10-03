@@ -67,12 +67,11 @@ describe('Retrying', () => {
   });
 });
 
-
 describe('Caching', () => {
   let client: HttpClient;
 
   beforeEach(() => {
-    client = new HttpClient({ accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' }, undefined, { retries: 0 }, {enabled: true, manager: createCache()});
+    client = new HttpClient({ accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' }, undefined, { retries: 0 }, { enabled: true, manager: createCache() });
   });
 
   afterEach(() => {
@@ -97,9 +96,9 @@ describe('Caching', () => {
       .reply(200, { success: true, data: 'value' })
       .post('/test', () => true)
       .query(true)
-      .reply(200, { success: true, data: 'no cached value' })
+      .reply(200, { success: true, data: 'no cached value' });
 
-    await client.request('test');  // Set cache
+    await client.request('test'); // Set cache
     const result = await client.request('test');
 
     expect(result).toEqual({ data: 'value' });
