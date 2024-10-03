@@ -1,3 +1,4 @@
+import { RequestCacheConfig } from 'src/configs';
 import { HttpClient } from '../../core/http-client';
 import { AddUtmRequest, AddUtmResponse } from './dto/add.dto';
 import { DeleteUtmRequest, DeleteUtmResponse } from './dto/del.dto';
@@ -22,8 +23,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
    */
-  async add(data: AddUtmRequest): Promise<AddUtmResponse> {
-    return await this.httpClient.request<AddUtmResponse>(`${this.RESOURCE_NAME}/add`, data);
+  async add(data: AddUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<AddUtmResponse> {
+    return await this.httpClient.request<AddUtmResponse>(`${this.RESOURCE_NAME}/add`, data, cacheConfig);
   }
 
   /**
@@ -31,8 +32,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku
    */
-  async edit(data: EditUtmRequest): Promise<EditUtmResponse> {
-    return await this.httpClient.request<EditUtmResponse>(`${this.RESOURCE_NAME}/edit`, data);
+  async edit(data: EditUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<EditUtmResponse> {
+    return await this.httpClient.request<EditUtmResponse>(`${this.RESOURCE_NAME}/edit`, data, cacheConfig);
   }
 
   /**
@@ -40,8 +41,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki
    */
-  async del(data: DeleteUtmRequest): Promise<DeleteUtmResponse> {
-    return await this.httpClient.request<DeleteUtmResponse>(`${this.RESOURCE_NAME}/del`, data);
+  async del(data: DeleteUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DeleteUtmResponse> {
+    return await this.httpClient.request<DeleteUtmResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }
 
   /**
@@ -49,8 +50,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok
    */
-  async get(data?: GetUtmRequest): Promise<GetUtmResponse> {
-    return await this.httpClient.request<GetUtmResponse>(`${this.RESOURCE_NAME}/get`, data);
+  async get(data?: GetUtmRequest, cacheConfig?: RequestCacheConfig): Promise<GetUtmResponse> {
+    return await this.httpClient.request<GetUtmResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
   /**
@@ -58,8 +59,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki
    */
-  async getLink(data: GetLinkUtmRequest): Promise<GetLinkUtmResponse> {
-    return await this.httpClient.request<GetLinkUtmResponse>(`${this.RESOURCE_NAME}/getLink`, data);
+  async getLink(data: GetLinkUtmRequest, cacheConfig?: RequestCacheConfig): Promise<GetLinkUtmResponse> {
+    return await this.httpClient.request<GetLinkUtmResponse>(`${this.RESOURCE_NAME}/getLink`, data, cacheConfig);
   }
 
   /**
@@ -67,8 +68,8 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
    */
-  async getSubscriptionsCountStatistics(data: GetUtmSubscriptionsCountStatisticRequest): Promise<GetUtmSubscriptionsCountStatisticResponse> {
-    return await this.httpClient.request<GetUtmSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data);
+  async getSubscriptionsCountStatistics(data: GetUtmSubscriptionsCountStatisticRequest, cacheConfig?: RequestCacheConfig): Promise<GetUtmSubscriptionsCountStatisticResponse> {
+    return await this.httpClient.request<GetUtmSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data, cacheConfig);
   }
 
   /**
@@ -76,7 +77,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
    */
-  async getSubscriptionsStatistics(data: GetUtmSubscriptionsStatisticsRequest): Promise<SubscriptionsStatisticsResponse> {
-    return await this.httpClient.request<SubscriptionsStatisticsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, data);
+  async getSubscriptionsStatistics(data: GetUtmSubscriptionsStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<SubscriptionsStatisticsResponse> {
+    return await this.httpClient.request<SubscriptionsStatisticsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, data, cacheConfig);
   }
 }

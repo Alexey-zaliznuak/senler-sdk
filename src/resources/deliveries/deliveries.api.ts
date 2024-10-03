@@ -1,3 +1,4 @@
+import { RequestCacheConfig } from 'src/configs';
 import { HttpClient } from '../../core/http-client';
 import { GetDeliveriesRequest, GetDeliveriesResponse } from './dto/get.dto';
 import { GetRecipientStatisticsRequest, RecipientStatisticsResponse } from './dto/stat.dto';
@@ -17,8 +18,8 @@ export class DeliveriesResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok
    */
-  async get(data?: GetDeliveriesRequest): Promise<GetDeliveriesResponse> {
-    return await this.httpClient.request<GetDeliveriesResponse>(`${this.RESOURCE_NAME}/get`, data);
+  async get(data?: GetDeliveriesRequest, cacheConfig?: RequestCacheConfig): Promise<GetDeliveriesResponse> {
+    return await this.httpClient.request<GetDeliveriesResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
   /**
@@ -26,8 +27,8 @@ export class DeliveriesResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/rassylki/statistika-dostavki
    */
-  async getSubscriptionsStatistics(data: GetRecipientStatisticsRequest): Promise<RecipientStatisticsResponse> {
-    return await this.httpClient.request<RecipientStatisticsResponse>(`${this.RESOURCE_NAME}/stat`, data);
+  async getSubscriptionsStatistics(data: GetRecipientStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<RecipientStatisticsResponse> {
+    return await this.httpClient.request<RecipientStatisticsResponse>(`${this.RESOURCE_NAME}/stat`, data, cacheConfig);
   }
 
   /**
@@ -35,7 +36,7 @@ export class DeliveriesResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/rassylki/statcount
    */
-  async getSubscriptionsCountStatistics(data: GetDeliveryCountStatisticsRequest): Promise<DeliveryCountStatisticsResponse> {
-    return await this.httpClient.request<DeliveryCountStatisticsResponse>(`${this.RESOURCE_NAME}/statCount`, data);
+  async getSubscriptionsCountStatistics(data: GetDeliveryCountStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<DeliveryCountStatisticsResponse> {
+    return await this.httpClient.request<DeliveryCountStatisticsResponse>(`${this.RESOURCE_NAME}/statCount`, data, cacheConfig);
   }
 }

@@ -1,3 +1,4 @@
+import { RequestCacheConfig } from 'src/configs';
 import { HttpClient } from '../../core/http-client';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
 import { GetSubscribersCountResponse } from './dto/count.dto';
@@ -16,17 +17,16 @@ export class SubscribersResource {
   }
 
   /**
-   * Getting list of subscribers.
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
-  async get(data?: GetSubscribersRequest): Promise<GetSubscribersResponse> {
-    return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, data);
+  async get(data?: GetSubscribersRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersResponse> {
+    return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
   /** Get count of subscribers */
-  async count(): Promise<number> {
-    const result = await this.httpClient.request<GetSubscribersCountResponse>(`${this.RESOURCE_NAME}/count`);
+  async count(cacheConfig?: RequestCacheConfig): Promise<number> {
+    const result = await this.httpClient.request<GetSubscribersCountResponse>(`${this.RESOURCE_NAME}/count`, null, cacheConfig);
     return result.count;
   }
 
@@ -37,8 +37,8 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika
    */
-  async addInGroup(data: AddSubscribersInGroupRequest): Promise<AddSubscribersInGroupResponse> {
-    return await this.httpClient.request<AddSubscribersInGroupResponse>(`${this.RESOURCE_NAME}/add`, data);
+  async addInGroup(data: AddSubscribersInGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<AddSubscribersInGroupResponse> {
+    return await this.httpClient.request<AddSubscribersInGroupResponse>(`${this.RESOURCE_NAME}/add`, data, cacheConfig);
   }
 
   /**
@@ -48,8 +48,8 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika
    */
-  async delFromGroup(data: DelSubscriberFromSubscriptionGroupRequest): Promise<DelSubscriberFromSubscriptionGroupResponse> {
-    return await this.httpClient.request<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, data);
+  async delFromGroup(data: DelSubscriberFromSubscriptionGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DelSubscriberFromSubscriptionGroupResponse> {
+    return await this.httpClient.request<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }
 
   /**
@@ -57,8 +57,8 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok
    */
-  async getSubscriptionsStatistics(data: GetSubscriptionsStatisticsRequest): Promise<GetSubscriptionsStatisticResponse> {
-    return await this.httpClient.request<GetSubscriptionsStatisticResponse>(`${this.RESOURCE_NAME}/statSubscribe`, data);
+  async getSubscriptionsStatistics(data: GetSubscriptionsStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscriptionsStatisticResponse> {
+    return await this.httpClient.request<GetSubscriptionsStatisticResponse>(`${this.RESOURCE_NAME}/statSubscribe`, data, cacheConfig);
   }
 
   /**
@@ -66,7 +66,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount
    */
-  async getSubscriptionsCountStatistics(data: GetSubscriptionsCountStatisticRequest): Promise<GetSubscriptionsCountStatisticResponse> {
-    return await this.httpClient.request<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data);
+  async getSubscriptionsCountStatistics(data: GetSubscriptionsCountStatisticRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscriptionsCountStatisticResponse> {
+    return await this.httpClient.request<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data, cacheConfig);
   }
 }
