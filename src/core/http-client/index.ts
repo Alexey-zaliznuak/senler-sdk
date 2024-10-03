@@ -35,7 +35,7 @@ export class HttpClient {
 
     cacheConfig = Object.assign(this.cacheConfig, cacheConfig);
 
-    const cachedData = await this._getCachedValue<T>(url, data, cacheConfig, requestId);
+    const cachedData = await this._getCachedData<T>(url, data, cacheConfig, requestId);
     if (cachedData) {
       logger.info({ requestData: data, cachedData }, 'Return cached response');
       return cachedData;
@@ -57,7 +57,7 @@ export class HttpClient {
     }
   }
 
-  private async _getCachedValue<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
+  private async _getCachedData<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
     if (!cacheConfig?.enabled || (cacheConfig.enabled && !cacheConfig.manager)) return null;
 
     const logger = this._createChildRequestLogger(url, requestId || 'unknown');
