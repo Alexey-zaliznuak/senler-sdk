@@ -96,7 +96,7 @@ describe('Caching', () => {
       .reply(200, { success: true, data: 'value' })
       .post('/test', () => true)
       .query(true)
-      .reply(200, { success: true, data: 'no cached value' });
+      .reply(500);
 
     await client.request('test'); // Set cache
     const result = await client.request('test');

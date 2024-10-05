@@ -1,5 +1,10 @@
 import { ERROR_CODES } from '../../constants';
 
+
+/**
+ * Raised by HttpClient when api returns `success: false`.
+ * [See](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki).
+ */
 export class ApiError extends Error {
   public errorCode: number;
   public details: object | undefined;

@@ -157,12 +157,10 @@ const cacheConfig = {
 const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
 ```
 
-## Roadmap
-- Full API reference
-
-- Module tests
-
-- Simple Integrations Examples
+You can also provide custom cache config in any routes:
+```typescript
+await client.subscribers.get({count: 30}, cacheConfig)
+```
 
 ## License
 
