@@ -21,21 +21,21 @@ export class HttpClient {
   constructor(apiConfig: ApiConfig, loggingConfig?: LoggingConfig, axiosRetryConfig?: RetryConfig, cacheConfig?: CacheConfig) {
     this.apiConfig = Object.assign(BASE_API_CONFIG, apiConfig);
     this.cacheConfig = cacheConfig ?? { enabled: false };
-    this.axiosRetryConfig = this._buildRetryConfig(axiosRetryConfig);
+    this.axiosRetryConfig = this.buildRetryConfig(axiosRetryConfig);
 
-    this.logger = this._createLogger(loggingConfig);
-    this.client = this._createAxiosClient();
+    this.logger = this.createLogger(loggingConfig);
+    this.client = this.createAxiosClient();
   }
 
   @clearResponse
   @handleApiError
-  async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: RequestCacheConfig): Promise<T> {
-    const requestId = this.__generateRequestId();
-    const logger = this._createChildRequestLogger(url, requestId);
+  public async request<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: RequestCacheConfig): Promise<T> {
+    const requestId = this.generateRequestId();
+    const logger = this.createChildRequestLogger(url, requestId);
 
     cacheConfig = Object.assign(this.cacheConfig, cacheConfig);
 
-    const cachedData = await this._getCachedData<T>(url, data, cacheConfig, requestId);
+    const cachedData = await this.getCachedData<T>(url, data, cacheConfig, requestId);
     if (cachedData) {
       logger.info({ requestData: data, cachedData }, 'Return cached response');
       return cachedData;
@@ -48,19 +48,19 @@ export class HttpClient {
 
       logger.info({ code: response.status, data: response.data }, 'Received response');
 
-      await this._saveCacheIfNeed(url, data, response.data, cacheConfig, requestId);
+      await this.saveCacheIfNeed(url, data, response.data, cacheConfig, requestId);
 
       return response.data;
     } catch (error) {
-      this.__logError(error, url, data, logger);
+      this.logError(error, url, data, logger);
       throw error;
     }
   }
 
-  private async _getCachedData<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
+  private async getCachedData<T>(url: string, data?: AxiosRequestConfig['params'], cacheConfig?: CacheConfig, requestId?: string): Promise<T | null> {
     if (!cacheConfig?.enabled || (cacheConfig.enabled && !cacheConfig.manager)) return null;
 
-    const logger = this._createChildRequestLogger(url, requestId || 'unknown');
+    const logger = this.createChildRequestLogger(url, requestId || 'unknown');
 
     logger.debug('Checking cache');
 
@@ -77,7 +77,7 @@ export class HttpClient {
     return cache;
   }
 
-  private async _saveCacheIfNeed(
+  private async saveCacheIfNeed(
     url: string,
     requestData: AxiosRequestConfig['params'],
     responseData: AxiosResponse['data'],
@@ -87,7 +87,7 @@ export class HttpClient {
     if (!requestCacheConfig?.enabled || (requestCacheConfig.enabled && !requestCacheConfig.manager)) return;
     if (!responseData.success) return;
 
-    const logger = this._createChildRequestLogger(url, requestId || 'unknown');
+    const logger = this.createChildRequestLogger(url, requestId || 'unknown');
 
     const key = KeyBuilder.buildKey(url, { data: requestData }, this.client);
 
@@ -96,7 +96,7 @@ export class HttpClient {
     logger.debug({ key, requestCacheConfig, data: responseData }, 'Set cache');
   }
 
-  private _createAxiosClient(): AxiosInstance {
+  private createAxiosClient(): AxiosInstance {
     const axiosConfig: AxiosRequestConfig = {
       baseURL: this.apiConfig.baseUrl,
       params: {
@@ -115,7 +115,7 @@ export class HttpClient {
     return instance;
   }
 
-  private _createLogger(loggingConfig?: LoggingConfig): Logger {
+  private createLogger(loggingConfig?: LoggingConfig): Logger {
     loggingConfig = Object.assign(BASE_LOGGING_CONFIG, loggingConfig);
 
     const { destination, ...loggerOptions } = loggingConfig;
@@ -123,39 +123,39 @@ export class HttpClient {
     return pino(loggerOptions, destination);
   }
 
-  private _createChildRequestLogger(endpoint: string, requestId: string): Logger {
+  private createChildRequestLogger(endpoint: string, requestId: string): Logger {
     return this.logger.child({ endpoint, requestId });
   }
 
-  private _buildRetryConfig(axiosRetryConfig?: RetryConfig): RetryConfig {
+  private buildRetryConfig(axiosRetryConfig?: RetryConfig): RetryConfig {
     axiosRetryConfig = Object.assign(BASE_RETRY_CONFIG, axiosRetryConfig);
-    return this._appendLoggingOnRetry(axiosRetryConfig);
+    return this.appendLoggingOnRetry(axiosRetryConfig);
   }
 
-  private _appendLoggingOnRetry(oldRetryConfig: RetryConfig): RetryConfig {
+  private appendLoggingOnRetry(oldRetryConfig: RetryConfig): RetryConfig {
     const axiosRetryConfig: RetryConfig = {
       ...oldRetryConfig,
 
       onRetry: async (retryCount: number, error: AxiosError, requestConfig: AxiosRequestConfig): Promise<void> => {
         if (oldRetryConfig.onRetry) await oldRetryConfig.onRetry(retryCount, error, requestConfig);
 
-        this.__logRetrying(retryCount, error, requestConfig);
+        this.logRetrying(retryCount, error, requestConfig);
       }
     };
     return axiosRetryConfig;
   }
 
-  private __logError(error: unknown | Error | AxiosError, url: string, data: any, logger: Logger): void {
+  private logError(error: unknown | Error | AxiosError, url: string, data: any, logger: Logger): void {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     logger.error({ url, data, error }, `Failed request: ${errorMessage}`);
   }
 
-  private __logRetrying(retryCount: number, error: AxiosError, requestConfig: AxiosRequestConfig): void {
-    const logger = this._createChildRequestLogger((requestConfig as CustomAxiosRequestConfig).url, (requestConfig as CustomAxiosRequestConfig).requestId);
+  private logRetrying(retryCount: number, error: AxiosError, requestConfig: AxiosRequestConfig): void {
+    const logger = this.createChildRequestLogger((requestConfig as CustomAxiosRequestConfig).url, (requestConfig as CustomAxiosRequestConfig).requestId);
     logger.warn({ requestConfig }, `Request ${retryCount} attempt failed, error: ${error.message}`);
   }
 
-  private __generateRequestId = (): string =>
+  private generateRequestId = (): string =>
     Math.random()
       .toString(16)
       .slice(2);
