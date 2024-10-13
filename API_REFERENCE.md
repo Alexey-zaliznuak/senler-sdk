@@ -30,7 +30,7 @@
 
 - <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku">edit</a>(data: <a href="src\resources\utms\dto\edit.dto.ts">EditUtmRequest</a>)</code> — Edit utm tag.
 
-- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki">del</a>(data: <a href="src\resources\utms\dto\del.dto.ts">DeleteUtmRequest</a>)</code> — Del utm tag.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki">del</a>(data: <a href="src\resources\utms\dto\del.dto.ts">DeleteUtmRequest</a>)</code> — Delete utm tag.
 
 - <code><a href="https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki">getLink</a>(data: <a href="src\resources\utms\dto\getLink.dto.ts">GetLinkUtmRequest</a>)</code> — Get link to a subscription page with a utm.
 
@@ -48,15 +48,15 @@
 
 ### <a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov">Vars</a>
 
-- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/poluchenie-peremennoi">get</a>(data?: <a href="src\resources\vars\dto\get.dto.ts">GetVarRequest</a>)</code> — Get a user variable.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/poluchenie-peremennoi">get</a>(data?: <a href="src\resources\vars\dto\get.dto.ts">GetVarRequest</a>)</code> — Get list of user variables.
 
-- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/ustanovka-peremennoi">set</a>(data: <a href="src\resources\vars\dto\set.dto.ts">SetVarRequest</a>)</code> — Delivery statistic with user info.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/ustanovka-peremennoi">set</a>(data: <a href="src\resources\vars\dto\set.dto.ts">SetVarRequest</a>)</code> — Set a user variable.
 
 - <code><a href="https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/udalenie-peremennoi">del</a>(data: <a href="src\resources\vars\dto\del.dto.ts">DeleteVarRequest</a>)</code> — Delete a user variable.
 
 ### <a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov">Global vars</a>
 
-- <code><a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/poluchenie-peremennoj">get</a>(data?: <a href="src\resources\globalVars\dto\get.dto.ts">GetDeliveriesRequest</a>)</code> — Get a global variable.
+- <code><a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/poluchenie-peremennoj">get</a>(data?: <a href="src\resources\globalVars\dto\get.dto.ts">GetGlobalVarRequest</a>)</code> — Get list of global variables.
 
 - <code><a href="https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/ustanovka-peremennoj">set</a>(data: <a href="src\resources\globalVars\dto\set.dto.ts">SetGlobalVarRequest</a>)</code> — Set a global variable.
 
