@@ -1,16 +1,20 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov#struktura-elementa-massiva-s-podpischikami-items */
 
+import { IsDate, IsEnum, IsInt } from 'class-validator';
 import { SubscriptionSourceType } from 'src/resources/share/types';
 
-export interface Subscription {
+export class Subscription {
   /**
    * Date of the subscription format: d.m.Y H:i:s
    * Example: `27.11.2018 10:00:00`
    */
-  date: string;
+  @IsDate()
+  date!: string;
 
   /** ID of the subscriber group */
-  subscription_id: number;
+  @IsInt()
+  subscription_id!: number;
 
-  source: SubscriptionSourceType;
+  @IsEnum(SubscriptionSourceType)
+  source!: SubscriptionSourceType;
 }

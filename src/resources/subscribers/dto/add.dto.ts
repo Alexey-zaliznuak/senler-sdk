@@ -1,21 +1,26 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika  */
 
+import { IsArray, IsInt, IsOptional } from 'class-validator';
 import { UtmFilterParams } from 'src/resources/share/types';
 
-export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
+export class AddSubscribersInGroupRequest extends UtmFilterParams {
   /**
-   * VKontakte user ID it is possible to add both one user at a time and in bulk
+   * VKontakte user ID. It is possible to add both one user at a time and in bulk.
    *
    * Example: `1`
    */
-  vk_user_id: number | Array<number>;
+  @IsArray()
+  @IsInt({ each: true })
+  vk_user_id!: number[];
 
   /**
    * Id of the subscriber group (0 - without a group)
    *
    * Example: `123`
    */
-  subscription_id: number | string;
+  @IsOptional()
+  @IsInt()
+  subscription_id?: number;
 }
 
 export interface AddSubscribersInGroupResponse {

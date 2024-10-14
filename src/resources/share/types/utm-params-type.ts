@@ -1,3 +1,5 @@
+import { IsInt, IsString } from 'class-validator';
+
 /**
  * For responses annotations
  */
@@ -6,44 +8,49 @@ export interface Utm extends UtmFilterParams {}
 /**
  * For request params annotations
  */
-export interface UtmFilterParams {
+export class UtmFilterParams {
   /**
-   * ID of the Senler tags is an
+   * ID of the Senler tags
    * Example: `123`
    */
-  utm_id: number;
+
+  @IsInt()
+  utm_id?: number;
 
   /**
    * Campaign source
    * Example: `vk`
    */
-  utm_source: string;
+  @IsString()
+  utm_source?: number;
 
   /**
    * Traffic type
    * Example: `cpc`
    */
-  utm_medium: string;
+  @IsString()
+  utm_medium!: string;
 
   /**
    * Campaign name
-   *
    * Example: `skid_ko_karte`
    */
-  utm_campaign: string;
+  @IsString()
+  utm_campaign!: string;
 
   /**
    * The ad ID
-   *
    * Example: `banner`
    */
-  utm_content: string;
+  @IsString()
+  utm_content!: string;
 
   /**
    * Keyword
    * Example: `order a chair online`
    */
-  utm_term: string;
+  @IsString()
+  utm_term!: string;
 }
 
 export interface UtmManyFilterParams {

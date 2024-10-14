@@ -1,19 +1,24 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika */
 
-export interface DelSubscriberFromSubscriptionGroupRequest {
+import { IsInt } from 'class-validator';
+import { IsStringOrNumberArray } from 'src/core/validation';
+
+export class DelSubscriberFromSubscriptionGroupRequest {
   /**
    * VKontakte user ID
    *
    * Examples: 1; [1, 2, 3]
    */
-  vk_user_id: number | Array<number>;
+  @IsStringOrNumberArray()
+  vk_user_id!: number | Array<number>;
 
   /**
    * ID of the subscriber group (0 - full unsubscription from all groups)
    *
    * Example: `123`
    */
-  subscription_id: number | string;
+  @IsInt()
+  subscription_id!: number;
 }
 
 export interface DelSubscriberFromSubscriptionGroupResponse {}
