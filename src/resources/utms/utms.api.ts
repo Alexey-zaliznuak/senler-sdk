@@ -20,7 +20,6 @@ export class UtmsResource {
   /**
    * Add Utm.clear
    *
-   *
    * https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
    */
   async add(data: AddUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<AddUtmResponse> {

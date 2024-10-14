@@ -5,13 +5,12 @@ import pino, { Logger } from 'pino';
 import axiosRetry from 'axios-retry';
 import { ApiConfig, CustomAxiosRequestConfig, LoggingConfig } from './client.dto';
 import { BASE_RETRY_CONFIG, RetryConfig } from './client.config';
-import { CacheConfig } from './cache';
-import { KeyBuilder } from './cache/key-builder';
+import { CacheConfig, KeyBuilder } from './cache';
 import { BASE_API_CONFIG, BASE_LOGGING_CONFIG } from '../../configs';
 import { RequestCacheConfig } from './cache/cache.dto';
 
 export class HttpClient {
-  private client: AxiosInstance;
+  private readonly client: AxiosInstance;
   private logger: Logger;
 
   private readonly axiosRetryConfig: RetryConfig;
@@ -82,7 +81,7 @@ export class HttpClient {
     requestData: AxiosRequestConfig['params'],
     responseData: AxiosResponse['data'],
     requestCacheConfig?: RequestCacheConfig,
-    requestId?: string
+    requestId?: string,
   ): Promise<void> {
     if (!requestCacheConfig?.enabled || (requestCacheConfig.enabled && !requestCacheConfig.manager)) return;
     if (!responseData.success) return;
@@ -102,8 +101,8 @@ export class HttpClient {
       params: {
         access_token: this.apiConfig.accessToken,
         vk_group_id: this.apiConfig.vkGroupId,
-        v: this.apiConfig.apiVersion
-      }
+        v: this.apiConfig.apiVersion,
+      },
     };
 
     this.logger.debug({ axiosConfig, axiosRetryConfig: this.axiosRetryConfig }, 'Create axios client:');
@@ -133,16 +132,15 @@ export class HttpClient {
   }
 
   private appendLoggingOnRetry(oldRetryConfig: RetryConfig): RetryConfig {
-    const axiosRetryConfig: RetryConfig = {
+    return {
       ...oldRetryConfig,
 
       onRetry: async (retryCount: number, error: AxiosError, requestConfig: AxiosRequestConfig): Promise<void> => {
         if (oldRetryConfig.onRetry) await oldRetryConfig.onRetry(retryCount, error, requestConfig);
 
         this.logRetrying(retryCount, error, requestConfig);
-      }
+      },
     };
-    return axiosRetryConfig;
   }
 
   private logError(error: unknown | Error | AxiosError, url: string, data: any, logger: Logger): void {
@@ -155,8 +153,5 @@ export class HttpClient {
     logger.warn({ requestConfig }, `Request ${retryCount} attempt failed, error: ${error.message}`);
   }
 
-  private generateRequestId = (): string =>
-    Math.random()
-      .toString(16)
-      .slice(2);
+  private generateRequestId = (): string => Math.random().toString(16).slice(2);
 }
