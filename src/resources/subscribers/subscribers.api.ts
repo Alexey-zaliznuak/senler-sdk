@@ -6,6 +6,7 @@ import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptio
 import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
 import { GetSubscriptionsCountStatisticRequest, GetSubscriptionsCountStatisticResponse } from './dto/statCount.dto';
 import { GetSubscriptionsStatisticResponse, GetSubscriptionsStatisticsRequest } from './dto/statSubscribe.dto';
+import { validateData } from 'src/core/validation';
 
 export class SubscribersResource {
   private httpClient: HttpClient;
@@ -21,6 +22,8 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
   async get(data?: GetSubscribersRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersResponse> {
+    if (data) {await validateData(GetSubscribersRequest, data)}
+
     return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
