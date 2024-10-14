@@ -81,7 +81,7 @@ export class HttpClient {
     requestData: AxiosRequestConfig['params'],
     responseData: AxiosResponse['data'],
     requestCacheConfig?: RequestCacheConfig,
-    requestId?: string,
+    requestId?: string
   ): Promise<void> {
     if (!requestCacheConfig?.enabled || (requestCacheConfig.enabled && !requestCacheConfig.manager)) return;
     if (!responseData.success) return;
@@ -101,8 +101,8 @@ export class HttpClient {
       params: {
         access_token: this.apiConfig.accessToken,
         vk_group_id: this.apiConfig.vkGroupId,
-        v: this.apiConfig.apiVersion,
-      },
+        v: this.apiConfig.apiVersion
+      }
     };
 
     this.logger.debug({ axiosConfig, axiosRetryConfig: this.axiosRetryConfig }, 'Create axios client:');
@@ -139,7 +139,7 @@ export class HttpClient {
         if (oldRetryConfig.onRetry) await oldRetryConfig.onRetry(retryCount, error, requestConfig);
 
         this.logRetrying(retryCount, error, requestConfig);
-      },
+      }
     };
   }
 
@@ -153,5 +153,8 @@ export class HttpClient {
     logger.warn({ requestConfig }, `Request ${retryCount} attempt failed, error: ${error.message}`);
   }
 
-  private generateRequestId = (): string => Math.random().toString(16).slice(2);
+  private generateRequestId = (): string =>
+    Math.random()
+      .toString(16)
+      .slice(2);
 }

@@ -1,10 +1,9 @@
-import { ClassConstructor, plainToInstance } from "class-transformer";
-import { validateOrReject, ValidationError } from "class-validator";
+import { ClassConstructor, plainToInstance } from 'class-transformer';
+import { validateOrReject, ValidationError } from 'class-validator';
 
-import { ValidationError as CustomValidationError } from "./validation-error";
+import { ValidationError as CustomValidationError } from './validation-error';
 
-
-export async function validateData<T extends object>(cls: ClassConstructor<T>, data: any) {
+export async function validateData<T extends object>(cls: ClassConstructor<T>, data: any): Promise<never | void> {
   const instance = plainToInstance(cls, data);
 
   try {
@@ -12,8 +11,7 @@ export async function validateData<T extends object>(cls: ClassConstructor<T>, d
   } catch (errors) {
     if (Array.isArray(errors)) {
       throw new CustomValidationError(errors as ValidationError[]);
-    }
-    else {
+    } else {
       throw new Error('Unknown validation error occurred.');
     }
   }

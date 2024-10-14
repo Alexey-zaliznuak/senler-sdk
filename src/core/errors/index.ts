@@ -1,6 +1,5 @@
 import { ERROR_CODES } from '../../constants';
 
-
 /**
  * Raised by HttpClient when api returns `success: false`.
  * [See](https://help.senler.ru/senler/dev/api/vozvrashaemye-oshibki).
