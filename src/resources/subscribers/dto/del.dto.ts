@@ -1,5 +1,8 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika */
 
+import Joi from "joi";
+import { Alternatives, RequiredPosInteger, RequiredString, TypeOrNotEmptyArray } from "../../../core/validation";
+
 export interface DelSubscriberFromSubscriptionGroupRequest {
   /**
    * VKontakte user ID
@@ -15,5 +18,10 @@ export interface DelSubscriberFromSubscriptionGroupRequest {
    */
   subscription_id: number | string;
 }
+
+export const DelSubscriberFromSubscriptionGroupRequestSchema = Joi.object({
+  vk_user_id: TypeOrNotEmptyArray(RequiredPosInteger),
+  subscription_id: Alternatives([RequiredString, RequiredPosInteger]),
+}).required();
 
 export interface DelSubscriberFromSubscriptionGroupResponse {}

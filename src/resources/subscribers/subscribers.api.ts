@@ -2,11 +2,11 @@ import { RequestCacheConfig } from 'src/configs';
 import { HttpClient } from '../../core/http-client';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
 import { GetSubscribersCountResponse } from './dto/count.dto';
-import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
+import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupRequestSchema, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
 import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
 import { GetSubscriptionsCountStatisticRequest, GetSubscriptionsCountStatisticResponse } from './dto/statCount.dto';
 import { GetSubscriptionsStatisticResponse, GetSubscriptionsStatisticsRequest } from './dto/statSubscribe.dto';
-import { validateData } from 'src/core/validation';
+import { ValidateData } from 'src/core/validation';
 
 export class SubscribersResource {
   private httpClient: HttpClient;
@@ -22,10 +22,6 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
   async get(data?: GetSubscribersRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersResponse> {
-    if (data) {
-      await validateData(GetSubscribersRequest, data);
-    }
-
     return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
@@ -53,7 +49,8 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika
    */
-  async delFromGroup(data: DelSubscriberFromSubscriptionGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DelSubscriberFromSubscriptionGroupResponse> {
+  @ValidateData(DelSubscriberFromSubscriptionGroupRequestSchema)
+  async delFromGroup(data?: DelSubscriberFromSubscriptionGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DelSubscriberFromSubscriptionGroupResponse> {
     return await this.httpClient.request<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }
 
