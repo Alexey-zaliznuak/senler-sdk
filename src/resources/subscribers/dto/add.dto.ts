@@ -1,27 +1,29 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika  */
 
-import { IsArray, IsInt, IsOptional } from 'class-validator';
+import Joi from 'joi'
+import { TypeOrNotEmptyArray, RequiredPosInteger, Alternatives, RequiredString } from 'src/core/validation'
 import { UtmFilterParams } from 'src/resources/share/types';
 
-export class AddSubscribersInGroupRequest extends UtmFilterParams {
+export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
   /**
-   * VKontakte user ID. It is possible to add both one user at a time and in bulk.
+   * VKontakte user ID it is possible to add both one user at a time and in bulk
    *
    * Example: `1`
    */
-  @IsArray()
-  @IsInt({ each: true })
-  vk_user_id!: number[];
+  vk_user_id: number | Array<number>;
 
   /**
    * Id of the subscriber group (0 - without a group)
    *
    * Example: `123`
    */
-  @IsOptional()
-  @IsInt()
-  subscription_id?: number;
+  subscription_id: number | string;
 }
+
+export const DelSubscriberFromSubscriptionGroupRequestSchema = Joi.object({
+  vk_user_id: TypeOrNotEmptyArray(RequiredPosInteger),
+  subscription_id: Alternatives([RequiredString, RequiredPosInteger]),
+}).required();
 
 export interface AddSubscribersInGroupResponse {
   subscribers: Array<AddSubscribersInGroupUserOperationDetails>;
