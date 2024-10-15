@@ -1,15 +1,19 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok */
 
+import { IsInt, IsOptional, Max } from 'class-validator';
 import { GetSubscribersStatisticsBaseRequest } from './getStatsBase.dto';
 
 import { SubscriptionAction } from 'src/resources/share/types';
 
-export interface GetSubscriptionsStatisticsRequest extends GetSubscribersStatisticsBaseRequest {
+export class GetSubscriptionsStatisticsRequest extends GetSubscribersStatisticsBaseRequest {
   /**
    * Number of elements to return
    *
    * Max: `100`
    */
+  @IsOptional()
+  @IsInt()
+  @Max(100)
   count?: number;
 
   /**
@@ -17,6 +21,8 @@ export interface GetSubscriptionsStatisticsRequest extends GetSubscribersStatist
    *
    * Example: `10`
    */
+  @IsOptional()
+  @IsInt()
   offset?: number;
 }
 
