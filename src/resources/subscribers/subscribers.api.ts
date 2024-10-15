@@ -1,12 +1,12 @@
 import { RequestCacheConfig } from 'src/configs';
+import { ValidateData } from 'src/core/validation';
 import { HttpClient } from '../../core/http-client';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupResponse } from './dto/add.dto';
 import { GetSubscribersCountResponse } from './dto/count.dto';
 import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupRequestSchema, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
-import { GetSubscribersRequest, GetSubscribersResponse } from './dto/get.dto';
-import { GetSubscriptionsCountStatisticRequest, GetSubscriptionsCountStatisticResponse } from './dto/statCount.dto';
+import { GetSubscribersRequest, GetSubscribersRequestSchema, GetSubscribersResponse } from './dto/get.dto';
+import { GetSubscriptionsCountStatisticResponse, GetSubscriptionsCountStatisticsRequest } from './dto/statCount.dto';
 import { GetSubscriptionsStatisticResponse, GetSubscriptionsStatisticsRequest } from './dto/statSubscribe.dto';
-import { ValidateData } from 'src/core/validation';
 
 export class SubscribersResource {
   private httpClient: HttpClient;
@@ -21,6 +21,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
+  @ValidateData(GetSubscribersRequestSchema, false)
   async get(data?: GetSubscribersRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersResponse> {
     return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
@@ -50,7 +51,7 @@ export class SubscribersResource {
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika
    */
   @ValidateData(DelSubscriberFromSubscriptionGroupRequestSchema)
-  async delFromGroup(data?: DelSubscriberFromSubscriptionGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DelSubscriberFromSubscriptionGroupResponse> {
+  async delFromGroup(data: DelSubscriberFromSubscriptionGroupRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DelSubscriberFromSubscriptionGroupResponse> {
     return await this.httpClient.request<DelSubscriberFromSubscriptionGroupResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }
 
@@ -68,7 +69,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/statcount
    */
-  async getSubscriptionsCountStatistics(data: GetSubscriptionsCountStatisticRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscriptionsCountStatisticResponse> {
+  async getSubscriptionsCountStatistics(data: GetSubscriptionsCountStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscriptionsCountStatisticResponse> {
     return await this.httpClient.request<GetSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data, cacheConfig);
   }
 }

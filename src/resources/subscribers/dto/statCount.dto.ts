@@ -2,7 +2,7 @@
 
 import { GetSubscribersStatisticsBaseRequest } from './getStatsBase.dto';
 
-export class GetSubscriptionsCountStatisticRequest extends GetSubscribersStatisticsBaseRequest {}
+export interface GetSubscriptionsCountStatisticsRequest extends GetSubscribersStatisticsBaseRequest {}
 
 export interface GetSubscriptionsCountStatisticResponse {
   count_subscribe: number;
