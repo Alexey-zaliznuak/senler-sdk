@@ -1,11 +1,11 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
 
-import Joi from 'joi'
-import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation'
-import { UtmTagWithSubscribeCount } from './statCount.subscription.dto'
+import Joi from 'joi';
+import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation';
+import { UtmTagWithSubscribeCount } from './statCount.subscription.dto';
 
 /** Getting statistics on the number of subscriptions to ***any*** group with the utm tag */
-export interface GetUtmSubscriptionsCountStatisticRequest {
+export interface GetUtmSubscriptionsCountStatisticsRequest {
   /**
    * Date and time from which subscribed/unsubscribed
    *
@@ -42,15 +42,21 @@ export interface GetUtmSubscriptionsCountStatisticRequest {
   utm_id?: Array<number | string>;
 }
 
-export const GetRecipientStatisticsRequestSchema = Joi.object({
+export const GetUtmSubscriptionsCountStatisticsRequestSchema = Joi.object({
   date_from: Joi.date().required(),
   date_to: Joi.date().required(),
-  vk_user_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
-  subscription_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
-  utm_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+  vk_user_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
+  subscription_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
+  utm_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
 }).required();
 
-export interface GetUtmSubscriptionsCountStatisticResponse {
+export interface GetUtmSubscriptionsCountStatisticsResponse {
   /**
    * Link to a group of subscribers with a label
    */

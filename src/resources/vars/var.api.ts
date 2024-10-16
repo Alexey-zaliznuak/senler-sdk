@@ -1,8 +1,9 @@
 import { RequestCacheConfig } from 'src/configs';
 import { HttpClient } from '../../core/http-client';
-import { DeleteVarRequest, DeleteVarResponse } from './dto/del.dto';
-import { GetVarRequest, GetVarResponse } from './dto/get.dto';
-import { SetVarRequest, SetVarResponse } from './dto/set.dto';
+import { DeleteVarRequest, DeleteVarRequestSchema, DeleteVarResponse } from './dto/del.dto';
+import { GetVarRequest, GetVarRequestSchema, GetVarResponse } from './dto/get.dto';
+import { SetVarRequest, SetVarRequestSchema, SetVarResponse } from './dto/set.dto';
+import { ValidateData } from 'src/core/validation'
 
 export class VarsResource {
   private httpClient: HttpClient;
@@ -18,7 +19,8 @@ export class VarsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/poluchenie-peremennoi
    */
-  async get(data?: GetVarRequest, cacheConfig?: RequestCacheConfig): Promise<GetVarResponse> {
+  @ValidateData(GetVarRequestSchema)
+  async get(data: GetVarRequest, cacheConfig?: RequestCacheConfig): Promise<GetVarResponse> {
     return await this.httpClient.request<GetVarResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
 
@@ -27,6 +29,7 @@ export class VarsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/ustanovka-peremennoi
    */
+  @ValidateData(SetVarRequestSchema)
   async set(data: SetVarRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<SetVarResponse> {
     return await this.httpClient.request<SetVarResponse>(`${this.RESOURCE_NAME}/set`, data, cacheConfig);
   }
@@ -36,6 +39,7 @@ export class VarsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/peremennye-podpischikov/udalenie-peremennoi
    */
+  @ValidateData(DeleteVarRequestSchema)
   async del(data: DeleteVarRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DeleteVarResponse> {
     return await this.httpClient.request<DeleteVarResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }

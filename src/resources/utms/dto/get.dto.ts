@@ -27,7 +27,7 @@ export interface GetUtmRequest {
   utm_id?: Array<number | string>;
 }
 
-export const EditUtmRequestSchema = Joi.object({
+export const GetUtmRequestSchema = Joi.object({
   count: OptionalPosInteger.max(100),
   offset: OptionalPosInteger.max(100000),
   utm_id: Alternatives([OptionalPosInteger, OptionalString]).optional(),

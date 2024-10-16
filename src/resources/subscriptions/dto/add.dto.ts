@@ -9,7 +9,7 @@ export interface AddSubscribersGroupRequest extends BaseEditableSubscribersGroup
   name: string;
 }
 
-export const DelSubscriberFromSubscriptionGroupRequestSchema = BaseEditableSubscribersGroupSchema.concat(
+export const AddSubscribersGroupRequestSchema = BaseEditableSubscribersGroupSchema.concat(
   Joi.object({
     name: RequiredString,
   })

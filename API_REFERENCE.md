@@ -20,7 +20,7 @@
 
 - <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/redaktirovanie-gruppy-podpischikov">edit</a>(data: <a href="src\resources\subscriptions\dto\edit.dto.ts">EditSubscribersGroupRequest</a>)</code> — Edit subscribers group.
 
-- <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/udalenie-gruppy-podpischikov">del</a>(data: <a href="src\resources\subscriptions\dto\del.dto.ts">DelSubscribersGroupRequest</a>)</code> — Del subscribers group.
+ - <code><a href="https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/udalenie-gruppy-podpischikov">del</a>(data: <a href="src\resources\subscriptions\dto\del.dto.ts">DelSubscribersGroupRequest</a>)</code> — Del subscribers group.
 
 ### <a href="https://help.senler.ru/senler/dev/api/methods/metki">Utms</a>
 

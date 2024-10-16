@@ -1,7 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/boty/dobavlenie-podpischika-v-bota
 
-import Joi from 'joi'
-import { Alternatives, RequiredPosInteger, RequiredString, OptionalString } from 'src/core/validation'
+import Joi from 'joi';
+import { Alternatives, OptionalString, RequiredPosInteger, RequiredString } from 'src/core/validation';
 
 export interface AddSubscriberRequest {
   vk_user_id: string | number;

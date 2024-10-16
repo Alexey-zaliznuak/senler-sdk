@@ -153,4 +153,4 @@ export const BaseEditableSubscribersGroupSchema = Joi.object({
   limit_period_to: OptionalString,
   exclude_subscription_id: Joi.array().items(OptionalPosInteger),
   bot_ids: Joi.array().items(OptionalPosInteger),
-}).required();
+});

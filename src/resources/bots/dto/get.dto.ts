@@ -1,8 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-botov
 
-import { Alternatives, OptionalPosInteger, OptionalString, RequiredPosInteger, RequiredString, TypeOrNotEmptyArray } from 'src/core/validation'
+import Joi from 'joi';
+import { Alternatives, OptionalPosInteger, RequiredPosInteger, RequiredString } from 'src/core/validation';
 import { BotInfo } from './get.botInfo.dto';
-import Joi from 'joi'
 
 export interface GetBotsListRequest {
   /**
@@ -30,9 +30,11 @@ export interface GetBotsListRequest {
 }
 
 export const GetBotsListRequestSchema = Joi.object({
-  count: Alternatives([RequiredPosInteger, RequiredString]).required(),
+  count: Alternatives([RequiredPosInteger, RequiredString]).optional(),
   offset: OptionalPosInteger,
-  bot_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+  bot_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
 }).required();
 
 export interface GetBotsListResponse {

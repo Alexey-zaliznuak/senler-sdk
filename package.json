@@ -23,7 +23,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "build": "microbundle --tsconfig build.tsconfig.json",
+    "build": "microbundle --no-compress --sourcemap --tsconfig build.tsconfig.json",
     "clean-build": "npm run build:remove-dist && npm run build",
     "build:remove-dist": "if exist dist (rmdir /s /q dist)",
     "lint": "eslint --fix",

@@ -1,3 +1,6 @@
+import Joi from 'joi'
+import { OptionalPosInteger, OptionalString } from 'src/core/validation'
+
 /**
  * For responses annotations
  */
@@ -45,6 +48,15 @@ export interface UtmFilterParams {
    */
   utm_term: string;
 }
+
+export const UtmFilterParamsSchema = Joi.object({
+  utm_id: OptionalPosInteger,
+  utm_source: OptionalString,
+  utm_medium: OptionalString,
+  utm_campaign: OptionalString,
+  utm_content: OptionalString,
+  utm_term: OptionalString,
+});
 
 export interface UtmManyFilterParams {
   /**

@@ -57,7 +57,7 @@ export interface GetDeliveriesRequest {
   status?: Array<keyof typeof DeliveriesStatus>;
 }
 
-export const GetStepsRequestSchema = Joi.object({
+export const GetDeliveriesRequestSchema = Joi.object({
   count: OptionalInteger.max(100),
   offset:OptionalInteger.max(100000),
   delivery_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),

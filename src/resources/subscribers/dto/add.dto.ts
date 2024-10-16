@@ -20,7 +20,7 @@ export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
   subscription_id: number | string;
 }
 
-export const DelSubscriberFromSubscriptionGroupRequestSchema = Joi.object({
+export const AddSubscribersInGroupRequestSchema = Joi.object({
   vk_user_id: TypeOrNotEmptyArray(RequiredPosInteger),
   subscription_id: Alternatives([RequiredString, RequiredPosInteger]),
 }).required();

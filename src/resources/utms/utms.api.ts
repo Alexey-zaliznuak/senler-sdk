@@ -1,12 +1,13 @@
 import { RequestCacheConfig } from 'src/configs';
+import { ValidateData } from 'src/core/validation';
 import { HttpClient } from '../../core/http-client';
-import { AddUtmRequest, AddUtmResponse } from './dto/add.dto';
-import { DeleteUtmRequest, DeleteUtmResponse } from './dto/del.dto';
-import { EditUtmRequest, EditUtmResponse } from './dto/edit.dto';
-import { GetUtmRequest, GetUtmResponse } from './dto/get.dto';
-import { GetLinkUtmRequest, GetLinkUtmResponse } from './dto/getLink.dto';
-import { GetUtmSubscriptionsCountStatisticRequest, GetUtmSubscriptionsCountStatisticResponse } from './dto/statCount.dto';
-import { GetUtmSubscriptionsStatisticsRequest, SubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
+import { AddUtmRequest, AddUtmRequestSchema, AddUtmResponse } from './dto/add.dto';
+import { DeleteUtmRequest, DeleteUtmRequestSchema, DeleteUtmResponse } from './dto/del.dto';
+import { EditUtmRequest, EditUtmRequestSchema, EditUtmResponse } from './dto/edit.dto';
+import { GetUtmRequest, GetUtmRequestSchema, GetUtmResponse } from './dto/get.dto';
+import { GetLinkUtmRequest, GetLinkUtmRequestSchema, GetLinkUtmResponse } from './dto/getLink.dto';
+import { GetUtmSubscriptionsCountStatisticsRequest, GetUtmSubscriptionsCountStatisticsRequestSchema, GetUtmSubscriptionsCountStatisticsResponse } from './dto/statCount.dto';
+import { GetUtmSubscriptionsStatisticsRequest, GetUtmSubscriptionsStatisticsRequestSchema, SubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
 
 export class UtmsResource {
   private httpClient: HttpClient;
@@ -22,6 +23,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
    */
+  @ValidateData(AddUtmRequestSchema)
   async add(data: AddUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<AddUtmResponse> {
     return await this.httpClient.request<AddUtmResponse>(`${this.RESOURCE_NAME}/add`, data, cacheConfig);
   }
@@ -31,6 +33,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku
    */
+  @ValidateData(EditUtmRequestSchema)
   async edit(data: EditUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<EditUtmResponse> {
     return await this.httpClient.request<EditUtmResponse>(`${this.RESOURCE_NAME}/edit`, data, cacheConfig);
   }
@@ -40,6 +43,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki
    */
+  @ValidateData(DeleteUtmRequestSchema)
   async del(data: DeleteUtmRequest, cacheConfig: RequestCacheConfig = { enabled: false }): Promise<DeleteUtmResponse> {
     return await this.httpClient.request<DeleteUtmResponse>(`${this.RESOURCE_NAME}/del`, data, cacheConfig);
   }
@@ -49,6 +53,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok
    */
+  @ValidateData(GetUtmRequestSchema, false)
   async get(data?: GetUtmRequest, cacheConfig?: RequestCacheConfig): Promise<GetUtmResponse> {
     return await this.httpClient.request<GetUtmResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }
@@ -58,6 +63,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki
    */
+  @ValidateData(GetLinkUtmRequestSchema)
   async getLink(data: GetLinkUtmRequest, cacheConfig?: RequestCacheConfig): Promise<GetLinkUtmResponse> {
     return await this.httpClient.request<GetLinkUtmResponse>(`${this.RESOURCE_NAME}/getLink`, data, cacheConfig);
   }
@@ -67,8 +73,9 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/statistika-metok
    */
-  async getSubscriptionsCountStatistics(data: GetUtmSubscriptionsCountStatisticRequest, cacheConfig?: RequestCacheConfig): Promise<GetUtmSubscriptionsCountStatisticResponse> {
-    return await this.httpClient.request<GetUtmSubscriptionsCountStatisticResponse>(`${this.RESOURCE_NAME}/statCount`, data, cacheConfig);
+  @ValidateData(GetUtmSubscriptionsCountStatisticsRequestSchema)
+  async getSubscriptionsCountStatistics(data: GetUtmSubscriptionsCountStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<GetUtmSubscriptionsCountStatisticsResponse> {
+    return await this.httpClient.request<GetUtmSubscriptionsCountStatisticsResponse>(`${this.RESOURCE_NAME}/statCount`, data, cacheConfig);
   }
 
   /**
@@ -76,6 +83,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
    */
+  @ValidateData(GetUtmSubscriptionsStatisticsRequestSchema)
   async getSubscriptionsStatistics(data: GetUtmSubscriptionsStatisticsRequest, cacheConfig?: RequestCacheConfig): Promise<SubscriptionsStatisticsResponse> {
     return await this.httpClient.request<SubscriptionsStatisticsResponse>(`${this.RESOURCE_NAME}/statSubscribe`, data, cacheConfig);
   }

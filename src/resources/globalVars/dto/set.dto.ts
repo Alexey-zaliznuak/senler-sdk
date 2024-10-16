@@ -8,7 +8,7 @@ export interface SetGlobalVarRequest {
   value: string;
 }
 
-export const GetGlobalVarRequestSchema = Joi.object({
+export const SetGlobalVarRequestSchema = Joi.object({
   name: RequiredString,
   value: RequiredString
 }).required();

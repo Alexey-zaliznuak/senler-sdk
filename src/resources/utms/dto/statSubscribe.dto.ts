@@ -1,5 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/podpischiki-s-metkami
 
+import Joi from 'joi';
+import { Alternatives, OptionalPosInteger, RequiredPosInteger, RequiredString } from 'src/core/validation';
 import { SubscriptionAction } from 'src/resources/share/types';
 
 /**
@@ -66,6 +68,23 @@ export interface GetUtmSubscriptionsStatisticsRequest {
    */
   action?: number;
 }
+
+export const GetUtmSubscriptionsStatisticsRequestSchema = Joi.object({
+  date_from: Joi.date().required(),
+  date_to: Joi.date().required(),
+  count: OptionalPosInteger.max(100),
+  offset: OptionalPosInteger.max(100000),
+  vk_user_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
+  subscription_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
+  utm_id: Joi.array()
+    .items(Alternatives([RequiredPosInteger, RequiredString]))
+    .optional(),
+  action: OptionalPosInteger.max(2),
+}).required();
 
 export interface SubscriptionsStatisticsResponse {
   /**

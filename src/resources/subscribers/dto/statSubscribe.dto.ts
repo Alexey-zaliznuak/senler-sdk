@@ -1,6 +1,8 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/statistika-podpisok */
 
-import { GetSubscribersStatisticsBaseRequest } from './getStatsBase.dto';
+import Joi from 'joi';
+import { OptionalPosInteger } from 'src/core/validation';
+import { GetSubscribersStatisticsBaseRequest, GetSubscribersStatisticsBaseRequestSchema } from './getStatsBase.dto';
 
 import { SubscriptionAction } from 'src/resources/share/types';
 
@@ -20,6 +22,13 @@ export interface GetSubscriptionsStatisticsRequest extends GetSubscribersStatist
   offset?: number;
 }
 
-export interface GetSubscriptionsStatisticResponse {
+export const GetSubscriptionsStatisticsRequestSchema = GetSubscribersStatisticsBaseRequestSchema.concat(
+  Joi.object({
+    count: OptionalPosInteger,
+    offset: OptionalPosInteger,
+  })
+);
+
+export interface GetSubscriptionsStatisticsResponse {
   items: SubscriptionAction[];
 }

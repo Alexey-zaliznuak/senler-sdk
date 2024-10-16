@@ -8,7 +8,7 @@ export interface DelSubscribersGroupRequest {
 }
 
 // TODO: Протестировать required
-export const DelSubscriberFromSubscriptionGroupRequestSchema = Joi.object({
+export const DelSubscribersGroupRequestSchema = Joi.object({
   subscription_id: Alternatives([RequiredInteger, RequiredString]).required()
 }).required();
 

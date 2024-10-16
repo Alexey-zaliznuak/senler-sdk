@@ -1,5 +1,8 @@
-import { UtmFilterParams } from 'src/resources/share/types';
-import { SubscriptionSourceType } from 'src/types';
+import Joi from 'joi';
+import { Alternatives, OptionalPosInteger, OptionalString } from 'src/core/validation';
+import { ListOfEnumerate } from 'src/core/validation/shortcuts/enum.validator';
+import { SubscriptionSourceType, UtmFilterParams } from 'src/resources/share/types';
+import { UtmFilterParamsSchema } from 'src/resources/share/types/utm-params-type';
 
 export interface GetSubscribersStatisticsBaseRequest extends Partial<UtmFilterParams> {
   /**
@@ -48,3 +51,14 @@ export interface GetSubscribersStatisticsBaseRequest extends Partial<UtmFilterPa
    */
   source?: Array<keyof typeof SubscriptionSourceType>;
 }
+
+export const GetSubscribersStatisticsBaseRequestSchema = UtmFilterParamsSchema.concat(
+  Joi.object({
+    date_from: Joi.date().required(),
+    date_to: Joi.date().required(),
+    vk_user_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])),
+    subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])),
+    ignore_subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])),
+    source: Joi.array().items(ListOfEnumerate(SubscriptionSourceType)),
+  })
+);
