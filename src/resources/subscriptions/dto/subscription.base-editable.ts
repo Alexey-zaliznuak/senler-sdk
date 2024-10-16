@@ -1,3 +1,6 @@
+import Joi from 'joi';
+import { OptionalPosInteger, OptionalString } from 'src/core/validation';
+
 export interface BaseEditableSubscribersGroup {
   /**
    * Title on the subscription page
@@ -128,3 +131,26 @@ export interface BaseEditableSubscribersGroup {
    */
   bot_ids?: number[];
 }
+
+export const BaseEditableSubscribersGroupSchema = Joi.object({
+  title: OptionalString,
+  btn_ok: OptionalString,
+  btn_cancel: OptionalString,
+  inactive: Joi.boolean(),
+  hide_subscriptions: Joi.boolean(),
+  video_key: OptionalString,
+  disabled_notify: Joi.boolean(),
+  short_description: OptionalString,
+  description: OptionalString,
+  vk_pixel: OptionalString,
+  fb_pixel: OptionalPosInteger,
+  ya_metrica: OptionalPosInteger,
+  ga_metrica: OptionalString,
+  url_after_subscribing: OptionalString,
+  url_after_unsubscribing: OptionalString,
+  limit_period: Joi.boolean(),
+  limit_period_from: OptionalString,
+  limit_period_to: OptionalString,
+  exclude_subscription_id: Joi.array().items(OptionalPosInteger),
+  bot_ids: Joi.array().items(OptionalPosInteger),
+}).required();

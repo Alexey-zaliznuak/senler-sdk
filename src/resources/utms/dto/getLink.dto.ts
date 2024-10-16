@@ -1,8 +1,11 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki
 
+import Joi from 'joi';
+import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation';
+
 /** Getting a link to a subscription page with a tag */
 export interface GetLinkUtmRequest {
-  utm_id: string;
+  utm_id: number | string;
 
   /**
    * Subscriber group id
@@ -18,6 +21,12 @@ export interface GetLinkUtmRequest {
    */
   force?: number;
 }
+
+export const GetLinkUtmRequestSchema = Joi.object({
+  utm_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
+  subscription_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
+  force: RequiredPosInteger.max(1),
+}).required();
 
 export interface GetLinkUtmResponse {
   /** Link to a group of subscribers with a utm tag */

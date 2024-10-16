@@ -1,7 +1,10 @@
 // https://help.senler.ru/senler/dev/api/methods/boty/dobavlenie-podpischika-v-bota
 
+import Joi from 'joi'
+import { Alternatives, RequiredPosInteger, RequiredString, OptionalString } from 'src/core/validation'
+
 export interface AddSubscriberRequest {
-  vk_user_id: string;
+  vk_user_id: string | number;
   bot_id: string | number;
 
   /**
@@ -18,4 +21,12 @@ export interface AddSubscriberRequest {
    */
   step_id?: string;
 }
+
+export const AddSubscriberRequestSchema = Joi.object({
+  vk_user_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
+  bot_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
+  enforce: Joi.boolean().optional(),
+  step_id: OptionalString,
+}).required();
+
 export interface AddSubscriberResponse {}

@@ -1,5 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/rassylki/statcount
 
+import Joi from 'joi'
+import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation'
+
 export interface GetDeliveryCountStatisticsRequest {
   /**
    * Date and time from which subscribed/unsubscribed
@@ -33,6 +36,13 @@ export interface GetDeliveryCountStatisticsRequest {
    */
   delivery_id?: Array<number | string>;
 }
+
+export const GetDeliveryCountStatisticsRequestSchema = Joi.object({
+  date_from: Joi.date().required(),
+  date_to: Joi.date().required(),
+  vk_user_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+  delivery_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+}).required();
 
 export interface DeliveryCountStatisticsResponse {
   /**

@@ -1,6 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/rassylki/statistika-dostavki
 
-import { DeliveryToUserAgent } from './stat.deliveryToUserAgent.dto';
+import Joi from 'joi'
+import { Alternatives, OptionalString, RequiredPosInteger, RequiredString } from 'src/core/validation'
+import { DeliveryToUserAgent } from './stat.deliveryToUserAgent.dto'
 
 export interface GetRecipientStatisticsRequest {
   /**
@@ -51,6 +53,15 @@ export interface GetRecipientStatisticsRequest {
    */
   delivery_id?: Array<string | number>;
 }
+
+export const GetRecipientStatisticsRequestSchema = Joi.object({
+  date_from: Joi.date().required(),
+  date_to: Joi.date().required(),
+  count: RequiredPosInteger.max(100),
+  offset_id: OptionalString,
+  vk_user_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+  delivery_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+}).required();
 
 export interface RecipientStatisticsResponse {
   /**

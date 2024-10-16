@@ -1,5 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok
 
+import Joi from 'joi';
+import { Alternatives, OptionalPosInteger, OptionalString } from 'src/core/validation';
 import { UtmTag } from './get.utm.dto';
 
 /** Return a list of all utm tags */
@@ -24,6 +26,12 @@ export interface GetUtmRequest {
 
   utm_id?: Array<number | string>;
 }
+
+export const EditUtmRequestSchema = Joi.object({
+  count: OptionalPosInteger.max(100),
+  offset: OptionalPosInteger.max(100000),
+  utm_id: Alternatives([OptionalPosInteger, OptionalString]).optional(),
+}).required();
 
 export interface GetUtmResponse {
   /**

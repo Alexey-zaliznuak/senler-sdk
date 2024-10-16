@@ -1,8 +1,11 @@
 // https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok
 
-import { Delivery } from './get.delivery.dto';
-import { DeliveriesStatus } from './get.status.dto';
-import { DeliveriesType } from './get.type.dto';
+import Joi from 'joi'
+import { Alternatives, OptionalInteger, RequiredPosInteger, RequiredString } from 'src/core/validation'
+import { ListOfEnumerate } from 'src/core/validation/shortcuts/enum.validator'
+import { Delivery } from './get.delivery.dto'
+import { DeliveriesStatus } from './get.status.dto'
+import { DeliveriesType } from './get.type.dto'
 
 export interface GetDeliveriesRequest {
   /**
@@ -38,7 +41,7 @@ export interface GetDeliveriesRequest {
    *
    * example: `['once','auto','subscription','chain','single']`
    */
-  type?: Array<DeliveriesType>;
+  type?: Array<keyof typeof DeliveriesType>;
 
   /**
    * mailing status:
@@ -53,6 +56,14 @@ export interface GetDeliveriesRequest {
    */
   status?: Array<keyof typeof DeliveriesStatus>;
 }
+
+export const GetStepsRequestSchema = Joi.object({
+  count: OptionalInteger.max(100),
+  offset:OptionalInteger.max(100000),
+  delivery_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
+  type: Joi.array().items(ListOfEnumerate(DeliveriesType)).optional(),
+  status: Joi.array().items(ListOfEnumerate(DeliveriesStatus)).optional(),
+}).required();
 
 export interface GetDeliveriesResponse {
   /**
