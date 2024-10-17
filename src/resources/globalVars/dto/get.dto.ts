@@ -15,7 +15,7 @@ export interface GetGlobalVarRequest {
 
 export const GetGlobalVarRequestSchema = Joi.object({
   name: OptionalString
-}).required();
+});
 
 export interface GetGlobalVarResponse {
   items: Array<GlobalVar>;

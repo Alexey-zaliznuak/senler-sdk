@@ -1,7 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-ssylki-dlya-metki
 
 import Joi from 'joi';
-import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation';
+import { Alternatives, OptionalPosInteger, RequiredPosInteger, RequiredString } from 'src/core/validation';
 
 /** Getting a link to a subscription page with a tag */
 export interface GetLinkUtmRequest {
@@ -25,7 +25,7 @@ export interface GetLinkUtmRequest {
 export const GetLinkUtmRequestSchema = Joi.object({
   utm_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
   subscription_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
-  force: RequiredPosInteger.max(1),
+  force: OptionalPosInteger.max(1),
 }).required();
 
 export interface GetLinkUtmResponse {

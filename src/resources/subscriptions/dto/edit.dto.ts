@@ -1,7 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/redaktirovanie-gruppy-podpischikov */
 
 import Joi from 'joi';
-import { Alternatives, RequiredInteger, RequiredString } from 'src/core/validation';
+import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation';
 import { BaseEditableSubscribersGroup, BaseEditableSubscribersGroupSchema } from './subscription.base-editable';
 
 export interface EditSubscribersGroupRequest extends BaseEditableSubscribersGroup {
@@ -13,7 +13,7 @@ export interface EditSubscribersGroupRequest extends BaseEditableSubscribersGrou
 
 export const EditSubscribersGroupRequestSchema = BaseEditableSubscribersGroupSchema.concat(
   Joi.object({
-    subscription_id: Alternatives([RequiredInteger, RequiredString]).required(),
+    subscription_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
     name: RequiredString,
   })
 ).required();

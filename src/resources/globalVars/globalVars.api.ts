@@ -20,7 +20,7 @@ export class GlobalVarsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/poluchenie-peremennoj
    */
-  @ValidateData(GetGlobalVarRequestSchema, false)
+  @ValidateData(GetGlobalVarRequestSchema, true)
   async get(data?: GetGlobalVarRequest, cacheConfig?: RequestCacheConfig): Promise<GetGlobalVarResponse> {
     return await this.httpClient.request<GetVarResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

@@ -21,7 +21,7 @@ export class SubscribersResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov
    */
-  @ValidateData(GetSubscribersRequestSchema, false)
+  @ValidateData(GetSubscribersRequestSchema, true)
   async get(data?: GetSubscribersRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersResponse> {
     return await this.httpClient.request<GetSubscribersResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

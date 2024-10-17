@@ -63,7 +63,7 @@ export const GetDeliveriesRequestSchema = Joi.object({
   delivery_id: Joi.array().items(Alternatives([RequiredPosInteger, RequiredString])).optional(),
   type: Joi.array().items(ListOfEnumerate(DeliveriesType)).optional(),
   status: Joi.array().items(ListOfEnumerate(DeliveriesStatus)).optional(),
-}).required();
+});
 
 export interface GetDeliveriesResponse {
   /**

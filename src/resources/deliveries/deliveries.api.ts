@@ -19,7 +19,7 @@ export class DeliveriesResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/rassylki/poluchenie-spiska-rassylok
    */
-  @ValidateData(GetDeliveriesRequestSchema, false)
+  @ValidateData(GetDeliveriesRequestSchema, true)
   async get(data?: GetDeliveriesRequest, cacheConfig?: RequestCacheConfig): Promise<GetDeliveriesResponse> {
     return await this.httpClient.request<GetDeliveriesResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

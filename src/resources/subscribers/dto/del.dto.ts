@@ -9,7 +9,7 @@ export interface DelSubscriberFromSubscriptionGroupRequest {
    *
    * Examples: 1; [1, 2, 3]
    */
-  vk_user_id: number | Array<number>;
+  vk_user_id: string | Array<string>;
 
   /**
    * ID of the subscriber group (0 - full unsubscription from all groups)
@@ -20,7 +20,7 @@ export interface DelSubscriberFromSubscriptionGroupRequest {
 }
 
 export const DelSubscriberFromSubscriptionGroupRequestSchema = Joi.object({
-  vk_user_id: TypeOrNotEmptyArray(RequiredPosInteger),
+  vk_user_id: TypeOrNotEmptyArray(RequiredString),
   subscription_id: Alternatives([RequiredString, RequiredPosInteger]),
 }).required();
 

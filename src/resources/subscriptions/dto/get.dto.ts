@@ -1,7 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov */
 
 import Joi from 'joi';
-import { OptionalInteger, OptionalString } from 'src/core/validation';
+import { Alternatives, OptionalInteger, OptionalPosInteger, OptionalString } from 'src/core/validation';
 import { Subscription } from './subscription.dto';
 
 export interface GetSubscribersGroupsRequest {
@@ -28,14 +28,14 @@ export interface GetSubscribersGroupsRequest {
    *
    * Example: `[1, 2]`
    */
-  subscription_id?: Array<number>;
+  subscription_id?: Array<number | string>;
 }
 
 export const GetSubscribersGroupsRequestSchema = Joi.object({
   count: OptionalInteger,
   offset: OptionalString,
-  subscription_id: Joi.array().items(OptionalInteger),
-}).required();
+  subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
+});
 
 export interface GetSubscribersGroupsResponse {
   count: number;

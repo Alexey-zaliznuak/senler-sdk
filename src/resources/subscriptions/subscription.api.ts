@@ -20,7 +20,7 @@ export class SubscribersGroupsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/poluchenie-spiska-grupp-podpischikov
    */
-  @ValidateData(GetSubscribersGroupsRequestSchema, false)
+  @ValidateData(GetSubscribersGroupsRequestSchema, true)
   async get(data?: GetSubscribersGroupsRequest, cacheConfig?: RequestCacheConfig): Promise<GetSubscribersGroupsResponse> {
     return await this.httpClient.request<GetSubscribersGroupsResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

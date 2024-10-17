@@ -20,7 +20,7 @@ export class BotsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-botov
    */
-  @ValidateData(GetBotsListRequestSchema, false)
+  @ValidateData(GetBotsListRequestSchema, true  )
   async get(data?: GetBotsListRequest, cacheConfig?: RequestCacheConfig): Promise<GetBotsListResponse> {
     return await this.httpClient.request<GetBotsListResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

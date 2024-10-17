@@ -239,7 +239,7 @@ export const GetSubscribersRequestSchema = Joi.object({
   lead_status: Joi.valid(1, 2).optional(),
   var_name: OptionalString,
   var_value: Alternatives([RequiredString, RequiredPosInteger]),
-}).required();
+});
 
 export interface GetSubscribersResponse {
   /**

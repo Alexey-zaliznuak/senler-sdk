@@ -12,7 +12,7 @@ export interface SetVarRequest {
 export const SetVarRequestSchema = Joi.object({
   vk_user_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
   name: RequiredString,
-  html_entity_decode: Joi.boolean().required(),
+  value: RequiredString,
 }).required();
 
 export interface SetVarResponse {}

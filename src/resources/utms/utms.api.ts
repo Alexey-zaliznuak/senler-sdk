@@ -53,7 +53,7 @@ export class UtmsResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/metki/poluchenie-metok
    */
-  @ValidateData(GetUtmRequestSchema, false)
+  @ValidateData(GetUtmRequestSchema, true)
   async get(data?: GetUtmRequest, cacheConfig?: RequestCacheConfig): Promise<GetUtmResponse> {
     return await this.httpClient.request<GetUtmResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

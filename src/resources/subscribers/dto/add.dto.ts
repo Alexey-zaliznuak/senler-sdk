@@ -10,7 +10,7 @@ export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
    *
    * Example: `1`
    */
-  vk_user_id: number | Array<number>;
+  vk_user_id: string | Array<string>;
 
   /**
    * Id of the subscriber group (0 - without a group)
@@ -21,7 +21,7 @@ export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {
 }
 
 export const AddSubscribersInGroupRequestSchema = Joi.object({
-  vk_user_id: TypeOrNotEmptyArray(RequiredPosInteger),
+  vk_user_id: TypeOrNotEmptyArray(RequiredString),
   subscription_id: Alternatives([RequiredString, RequiredPosInteger]),
 }).required();
 
