@@ -1,18 +1,12 @@
 import { RequestCacheConfig } from 'src/configs';
-import { HttpClient } from '../../core/http-client';
 import { DeleteVarRequest, DeleteVarRequestSchema, DeleteVarResponse } from './dto/del.dto';
 import { GetVarRequest, GetVarRequestSchema, GetVarResponse } from './dto/get.dto';
 import { SetVarRequest, SetVarRequestSchema, SetVarResponse } from './dto/set.dto';
 import { ValidateData } from 'src/core/validation'
+import { HttpResource } from 'src/core/abstract-http-resource';
 
-export class VarsResource {
-  private httpClient: HttpClient;
-
+export class VarsResource extends HttpResource {
   public readonly RESOURCE_NAME = 'vars';
-
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
 
   /**
    * Get a user variable.

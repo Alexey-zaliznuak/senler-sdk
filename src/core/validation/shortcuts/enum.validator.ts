@@ -1,11 +1,21 @@
 import Joi from 'joi';
 
 type EnumObject = { [key: string]: string };
+
 /**
- * Стрелочная функция для создания Joi схемы, которая валидирует значения enum
- * @param enumObj - перечисление (enum)
+ * Arrow function for creating a Joi schema that validates enum values
+ * @param enumObject enumerate object
+ * @returns Joi.Alternatives.try(your enum)
+ */
+export const OneOfEnumerate = (enumObject: EnumObject): Joi.StringSchema => {
+  return Joi.string().valid(...Object.values(enumObject))
+}
+
+/**
+ * Arrow function for creating a Joi schema that validates enum values
+ * @param enumObject enumerate object
  * @returns Joi.Alternatives.try(your enum)
  */
 export const ListOfEnumerate = (enumObject: EnumObject): Joi.ArraySchema => {
-  return Joi.array().items(Joi.string().valid(...Object.values(enumObject)));
+  return Joi.array().items(OneOfEnumerate(enumObject));
 }

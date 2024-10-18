@@ -10,11 +10,14 @@ import { UtmsResource } from './resources/utms/utms.api';
 import { CacheConfig } from './core/http-client/cache';
 import { VarsResource } from './resources/vars/var.api';
 import { RetryConfig } from './core/http-client/client.config';
+import { IntegrationsResource } from './resources/integrations/integrrations.api';
 
 export interface ApiClientConfig extends ApiConfig {}
 
 export class SenlerApiClient {
   public readonly httpClient: HttpClient;
+
+  public readonly integrations: IntegrationsResource;
 
   public readonly subscribers: SubscribersResource;
   public readonly subscribersGroups: SubscribersGroupsResource;
@@ -28,6 +31,8 @@ export class SenlerApiClient {
     loggingConfig = Object.assign(BASE_LOGGING_CONFIG, loggingConfig);
 
     this.httpClient = new HttpClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+
+    this.integrations = new IntegrationsResource(this.httpClient);
 
     this.subscribers = new SubscribersResource(this.httpClient);
     this.subscribersGroups = new SubscribersGroupsResource(this.httpClient);
