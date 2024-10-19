@@ -9,3 +9,5 @@ jest.config.js
 
 .env*
 .prettierrc
+
+.vscode

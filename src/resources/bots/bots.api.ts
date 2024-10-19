@@ -1,19 +1,13 @@
 import { RequestCacheConfig } from 'src/configs';
-import { HttpClient } from '../../core/http-client';
 import { AddSubscriberRequest, AddSubscriberRequestSchema, AddSubscriberResponse } from './dto/addSubscriber.dto';
 import { DelSubscriberRequest, DelSubscriberRequestSchema, DelSubscriberResponse } from './dto/delSubscriber.dto';
 import { GetBotsListRequest, GetBotsListRequestSchema, GetBotsListResponse } from './dto/get.dto';
 import { GetStepsRequest, GetStepsRequestSchema, GetStepsResponse } from './dto/getSteps.dto';
 import { ValidateData } from 'src/core/validation'
+import { HttpResource } from 'src/core/abstract-http-resource';
 
-export class BotsResource {
-  private httpClient: HttpClient;
-
+export class BotsResource extends HttpResource {
   public readonly RESOURCE_NAME = 'bots';
-
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
 
   /**
    * Get a list of bots.

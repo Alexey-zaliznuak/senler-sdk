@@ -1,6 +1,5 @@
 import { RequestCacheConfig } from 'src/configs';
 import { ValidateData } from 'src/core/validation';
-import { HttpClient } from '../../core/http-client';
 import { AddUtmRequest, AddUtmRequestSchema, AddUtmResponse } from './dto/add.dto';
 import { DeleteUtmRequest, DeleteUtmRequestSchema, DeleteUtmResponse } from './dto/del.dto';
 import { EditUtmRequest, EditUtmRequestSchema, EditUtmResponse } from './dto/edit.dto';
@@ -8,15 +7,10 @@ import { GetUtmRequest, GetUtmRequestSchema, GetUtmResponse } from './dto/get.dt
 import { GetLinkUtmRequest, GetLinkUtmRequestSchema, GetLinkUtmResponse } from './dto/getLink.dto';
 import { GetUtmSubscriptionsCountStatisticsRequest, GetUtmSubscriptionsCountStatisticsRequestSchema, GetUtmSubscriptionsCountStatisticsResponse } from './dto/statCount.dto';
 import { GetUtmSubscriptionsStatisticsRequest, GetUtmSubscriptionsStatisticsRequestSchema, SubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
+import { HttpResource } from 'src/core/abstract-http-resource';
 
-export class UtmsResource {
-  private httpClient: HttpClient;
-
+export class UtmsResource extends HttpResource {
   public readonly RESOURCE_NAME = 'utms';
-
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
 
   /**
    * Add Utm.clear

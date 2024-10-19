@@ -1,21 +1,15 @@
 import { RequestCacheConfig } from 'src/configs';
 import { ValidateData } from 'src/core/validation';
-import { HttpClient } from '../../core/http-client';
 import { AddSubscribersInGroupRequest, AddSubscribersInGroupRequestSchema, AddSubscribersInGroupResponse } from './dto/add.dto';
 import { GetSubscribersCountResponse } from './dto/count.dto';
 import { DelSubscriberFromSubscriptionGroupRequest, DelSubscriberFromSubscriptionGroupRequestSchema, DelSubscriberFromSubscriptionGroupResponse } from './dto/del.dto';
 import { GetSubscribersRequest, GetSubscribersRequestSchema, GetSubscribersResponse } from './dto/get.dto';
 import { GetSubscriptionsCountStatisticsRequest, GetSubscriptionsCountStatisticsRequestSchema, GetSubscriptionsCountStatisticsResponse } from './dto/statCount.dto';
 import { GetSubscriptionsStatisticsRequest, GetSubscriptionsStatisticsRequestSchema, GetSubscriptionsStatisticsResponse } from './dto/statSubscribe.dto';
+import { HttpResource } from 'src/core/abstract-http-resource';
 
-export class SubscribersResource {
-  private httpClient: HttpClient;
-
+export class SubscribersResource extends HttpResource {
   public readonly RESOURCE_NAME = 'subscribers';
-
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
 
   /**
    *

@@ -1,18 +1,12 @@
 import { RequestCacheConfig } from 'src/configs';
-import { HttpClient } from '../../core/http-client';
 import { GetDeliveriesRequest, GetDeliveriesRequestSchema, GetDeliveriesResponse } from './dto/get.dto';
 import { GetRecipientStatisticsRequest, GetRecipientStatisticsRequestSchema, RecipientStatisticsResponse } from './dto/stat.dto';
 import { GetDeliveryCountStatisticsRequest, DeliveryCountStatisticsResponse, GetDeliveryCountStatisticsRequestSchema } from './dto/statCount.dto';
 import { ValidateData } from 'src/core/validation'
+import { HttpResource } from 'src/core/abstract-http-resource';
 
-export class DeliveriesResource {
-  private httpClient: HttpClient;
-
+export class DeliveriesResource extends HttpResource {
   public readonly RESOURCE_NAME = 'deliveries';
-
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
 
   /**
    * Get all deliveries.
