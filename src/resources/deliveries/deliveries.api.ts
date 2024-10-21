@@ -2,7 +2,7 @@ import { RequestCacheConfig } from 'src/configs';
 import { GetDeliveriesRequest, GetDeliveriesRequestSchema, GetDeliveriesResponse } from './dto/get.dto';
 import { GetRecipientStatisticsRequest, GetRecipientStatisticsRequestSchema, RecipientStatisticsResponse } from './dto/stat.dto';
 import { GetDeliveryCountStatisticsRequest, DeliveryCountStatisticsResponse, GetDeliveryCountStatisticsRequestSchema } from './dto/statCount.dto';
-import { ValidateData } from 'src/core/validation'
+import { ValidateData } from 'src/core/validation';
 import { HttpResource } from 'src/core/abstract-http-resource';
 
 export class DeliveriesResource extends HttpResource {

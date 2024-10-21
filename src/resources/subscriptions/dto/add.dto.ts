@@ -12,7 +12,7 @@ export interface AddSubscribersGroupRequest extends BaseEditableSubscribersGroup
 export const AddSubscribersGroupRequestSchema = BaseEditableSubscribersGroupSchema.concat(
   Joi.object({
     name: RequiredString,
-  })
+  }),
 ).required();
 
 export interface AddSubscribersGroupResponse {

@@ -13,7 +13,7 @@ describe('Retrying', () => {
       retries: RETRIES_COUNT,
       retryDelay(retryCount, error): number {
         return axiosRetry.exponentialDelay(retryCount, error, 100);
-      }
+      },
     });
   });
 

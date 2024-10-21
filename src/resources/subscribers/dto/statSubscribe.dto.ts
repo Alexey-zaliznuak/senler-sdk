@@ -26,7 +26,7 @@ export const GetSubscriptionsStatisticsRequestSchema = GetSubscribersStatisticsB
   Joi.object({
     count: OptionalPosInteger,
     offset: OptionalPosInteger,
-  })
+  }),
 );
 
 export interface GetSubscriptionsStatisticsResponse {

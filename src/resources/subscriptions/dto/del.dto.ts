@@ -1,7 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/gruppy-podpischikov/udalenie-gruppy-podpischikov */
 
-import Joi from 'joi'
-import { Alternatives, RequiredInteger, RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { Alternatives, RequiredInteger, RequiredString } from 'src/core/validation';
 
 export interface DelSubscribersGroupRequest {
   subscription_id: string | number;
@@ -9,7 +9,7 @@ export interface DelSubscribersGroupRequest {
 
 // TODO: Протестировать required
 export const DelSubscribersGroupRequestSchema = Joi.object({
-  subscription_id: Alternatives([RequiredInteger, RequiredString]).required()
+  subscription_id: Alternatives([RequiredInteger, RequiredString]).required(),
 }).required();
 
 export interface DelSubscribersGroupResponse {}

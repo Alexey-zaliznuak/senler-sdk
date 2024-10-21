@@ -1,7 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/dobavlenie-metki
 
-import Joi from 'joi'
-import { RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { RequiredString } from 'src/core/validation';
 
 /** Add utm tag */
 export interface AddUtmRequest {

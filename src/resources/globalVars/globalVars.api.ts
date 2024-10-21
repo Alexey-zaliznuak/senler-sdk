@@ -3,10 +3,10 @@ import { GetVarResponse } from '../vars/dto/get.dto';
 import { DeleteGlobalVarRequest, DeleteGlobalVarRequestSchema, DeleteGlobalVarResponse } from './dto/del.dto';
 import { GetGlobalVarRequest, GetGlobalVarRequestSchema, GetGlobalVarResponse } from './dto/get.dto';
 import { SetGlobalVarRequest, SetGlobalVarRequestSchema, SetGlobalVarResponse } from './dto/set.dto';
-import { ValidateData } from 'src/core/validation'
+import { ValidateData } from 'src/core/validation';
 import { HttpResource } from 'src/core/abstract-http-resource';
 
-export class GlobalVarsResource extends HttpResource{
+export class GlobalVarsResource extends HttpResource {
   public readonly RESOURCE_NAME = 'vars_global';
 
   /**

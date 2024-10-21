@@ -1,14 +1,14 @@
 /** https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/udalenie-peremennoi */
 
-import Joi from 'joi'
-import { RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { RequiredString } from 'src/core/validation';
 
 export interface DeleteGlobalVarRequest {
   name: string;
 }
 
 export const DeleteGlobalVarRequestSchema = Joi.object({
-  name: RequiredString
+  name: RequiredString,
 }).required();
 
 export interface DeleteGlobalVarResponse {}

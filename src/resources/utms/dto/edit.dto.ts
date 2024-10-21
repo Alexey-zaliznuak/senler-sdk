@@ -1,7 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/redaktirovat-metku
 
-import Joi from 'joi'
-import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation';
 
 /** Change the utm tag by its `utm_id` */
 export interface EditUtmRequest {
@@ -17,7 +17,7 @@ export interface EditUtmRequest {
 
 export const EditUtmRequestSchema = Joi.object({
   utm_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
-  name: RequiredString
+  name: RequiredString,
 }).required();
 
 export interface EditUtmResponse {}

@@ -1,6 +1,8 @@
 import Joi from 'joi';
 
-type EnumObject = { [key: string]: string };
+interface EnumObject {
+  [key: string]: string;
+}
 
 /**
  * Arrow function for creating a Joi schema that validates enum values
@@ -8,8 +10,8 @@ type EnumObject = { [key: string]: string };
  * @returns Joi.Alternatives.try(your enum)
  */
 export const OneOfEnumerate = (enumObject: EnumObject): Joi.StringSchema => {
-  return Joi.string().valid(...Object.values(enumObject))
-}
+  return Joi.string().valid(...Object.values(enumObject));
+};
 
 /**
  * Arrow function for creating a Joi schema that validates enum values
@@ -18,4 +20,4 @@ export const OneOfEnumerate = (enumObject: EnumObject): Joi.StringSchema => {
  */
 export const ListOfEnumerate = (enumObject: EnumObject): Joi.ArraySchema => {
   return Joi.array().items(OneOfEnumerate(enumObject));
-}
+};

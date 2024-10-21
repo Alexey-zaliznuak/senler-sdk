@@ -34,7 +34,9 @@ export interface GetSubscribersGroupsRequest {
 export const GetSubscribersGroupsRequestSchema = Joi.object({
   count: OptionalInteger,
   offset: OptionalString,
-  subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
+  subscription_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
 });
 
 export interface GetSubscribersGroupsResponse {

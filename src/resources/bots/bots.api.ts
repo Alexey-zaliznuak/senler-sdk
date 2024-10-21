@@ -3,7 +3,7 @@ import { AddSubscriberRequest, AddSubscriberRequestSchema, AddSubscriberResponse
 import { DelSubscriberRequest, DelSubscriberRequestSchema, DelSubscriberResponse } from './dto/delSubscriber.dto';
 import { GetBotsListRequest, GetBotsListRequestSchema, GetBotsListResponse } from './dto/get.dto';
 import { GetStepsRequest, GetStepsRequestSchema, GetStepsResponse } from './dto/getSteps.dto';
-import { ValidateData } from 'src/core/validation'
+import { ValidateData } from 'src/core/validation';
 import { HttpResource } from 'src/core/abstract-http-resource';
 
 export class BotsResource extends HttpResource {
@@ -14,7 +14,7 @@ export class BotsResource extends HttpResource {
    *
    * https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-botov
    */
-  @ValidateData(GetBotsListRequestSchema, true  )
+  @ValidateData(GetBotsListRequestSchema, true)
   async get(data?: GetBotsListRequest, cacheConfig?: RequestCacheConfig): Promise<GetBotsListResponse> {
     return await this.httpClient.request<GetBotsListResponse>(`${this.RESOURCE_NAME}/get`, data, cacheConfig);
   }

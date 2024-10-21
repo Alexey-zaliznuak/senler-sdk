@@ -1,7 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/ustanovka-peremennoj */
 
-import Joi from 'joi'
-import { RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { RequiredString } from 'src/core/validation';
 
 export interface SetGlobalVarRequest {
   name: string;
@@ -10,7 +10,7 @@ export interface SetGlobalVarRequest {
 
 export const SetGlobalVarRequestSchema = Joi.object({
   name: RequiredString,
-  value: RequiredString
+  value: RequiredString,
 }).required();
 
 export interface SetGlobalVarResponse {}

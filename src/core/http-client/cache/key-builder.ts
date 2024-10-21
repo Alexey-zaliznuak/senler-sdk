@@ -17,7 +17,7 @@ export class KeyBuilder {
     return {
       headers: axios.defaults.headers,
       params: axios.defaults.params,
-      data: axios.defaults.data
+      data: axios.defaults.data,
     };
   }
 }

@@ -3,7 +3,7 @@ import { AddSubscribersGroupRequest, AddSubscribersGroupRequestSchema, AddSubscr
 import { DelSubscribersGroupRequest, DelSubscribersGroupRequestSchema, DelSubscribersGroupResponse } from './dto/del.dto';
 import { EditSubscribersGroupRequest, EditSubscribersGroupRequestSchema, EditSubscribersGroupResponse } from './dto/edit.dto';
 import { GetSubscribersGroupsRequest, GetSubscribersGroupsRequestSchema, GetSubscribersGroupsResponse } from './dto/get.dto';
-import { ValidateData } from 'src/core/validation'
+import { ValidateData } from 'src/core/validation';
 import { HttpResource } from 'src/core/abstract-http-resource';
 
 export class SubscribersGroupsResource extends HttpResource {

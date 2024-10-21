@@ -1,8 +1,8 @@
 // https://help.senler.ru/senler/dev/api/methods/boty/poluchenie-spiska-shagov-v-bote
 
-import { Alternatives, OptionalPosInteger, OptionalString, RequiredPosInteger, RequiredString } from 'src/core/validation'
+import { Alternatives, OptionalPosInteger, OptionalString, RequiredPosInteger, RequiredString } from 'src/core/validation';
 import { Step } from './getSteps.step.dto';
-import Joi from 'joi'
+import Joi from 'joi';
 
 export interface GetStepsRequest {
   /**
@@ -36,14 +36,12 @@ export interface GetStepsRequest {
   step_id?: string;
 }
 
-
 export const GetStepsRequestSchema = Joi.object({
   bot_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
   count: OptionalString,
   offset: OptionalPosInteger,
   step_id: OptionalString,
 }).required();
-
 
 export interface GetStepsResponse {
   count: number;

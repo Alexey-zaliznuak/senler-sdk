@@ -60,5 +60,5 @@ export const GetSubscribersStatisticsBaseRequestSchema = UtmFilterParamsSchema.c
     subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])),
     ignore_subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])),
     source: Joi.array().items(ListOfEnumerate(SubscriptionSourceType)),
-  })
+  }),
 );

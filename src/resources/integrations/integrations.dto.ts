@@ -1,23 +1,23 @@
-import Joi from "joi";
-import { RequiredInteger, RequiredString } from "src/core/validation";
-import { OneOfEnumerate } from "src/core/validation/shortcuts/enum.validator";
+import Joi from 'joi';
+import { RequiredInteger, RequiredString } from 'src/core/validation';
+import { OneOfEnumerate } from 'src/core/validation/shortcuts/enum.validator';
 
 export enum IntegrationType {
-  gpt = "gpt",
-  liidex = "liidex",
+  gpt = 'gpt',
+  liidex = 'liidex',
 }
 
 export interface UpdateIntegrationsSettingsRequest {
   vk_group_id: number;
-  bot_id: number
-  step_id: string
-  description: string
-  title: string
-  value: string
+  bot_id: number;
+  step_id: string;
+  description: string;
+  title: string;
+  value: string;
   settings: string;
-  params: string
-  command: string
-  type: IntegrationType
+  params: string;
+  command: string;
+  type: IntegrationType;
 }
 
 export const UpdateIntegrationStepSettingsRequestSchema = Joi.object({

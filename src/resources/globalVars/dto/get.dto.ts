@@ -1,8 +1,8 @@
 /** https://help.senler.ru/senler/dev/api/methods/globalnye-peremennye-podpischikov/poluchenie-peremennoj */
 
-import { OptionalString } from 'src/core/validation'
+import { OptionalString } from 'src/core/validation';
 import { GlobalVar } from './get.globalVar.dto';
-import Joi from 'joi'
+import Joi from 'joi';
 
 export interface GetGlobalVarRequest {
   /**
@@ -14,7 +14,7 @@ export interface GetGlobalVarRequest {
 }
 
 export const GetGlobalVarRequestSchema = Joi.object({
-  name: OptionalString
+  name: OptionalString,
 });
 
 export interface GetGlobalVarResponse {

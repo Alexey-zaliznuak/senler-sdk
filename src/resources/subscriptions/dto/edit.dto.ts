@@ -15,7 +15,7 @@ export const EditSubscribersGroupRequestSchema = BaseEditableSubscribersGroupSch
   Joi.object({
     subscription_id: Alternatives([RequiredPosInteger, RequiredString]).required(),
     name: RequiredString,
-  })
+  }),
 ).required();
 
 export interface EditSubscribersGroupResponse {}

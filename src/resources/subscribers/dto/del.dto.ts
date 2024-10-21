@@ -1,7 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/udalenie-podpischika */
 
-import Joi from "joi";
-import { Alternatives, RequiredPosInteger, RequiredString, TypeOrNotEmptyArray } from "../../../core/validation";
+import Joi from 'joi';
+import { Alternatives, RequiredPosInteger, RequiredString, TypeOrNotEmptyArray } from '../../../core/validation';
 
 export interface DelSubscriberFromSubscriptionGroupRequest {
   /**

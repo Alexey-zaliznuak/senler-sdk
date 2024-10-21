@@ -2,7 +2,7 @@ import { RequestCacheConfig } from 'src/configs';
 import { DeleteVarRequest, DeleteVarRequestSchema, DeleteVarResponse } from './dto/del.dto';
 import { GetVarRequest, GetVarRequestSchema, GetVarResponse } from './dto/get.dto';
 import { SetVarRequest, SetVarRequestSchema, SetVarResponse } from './dto/set.dto';
-import { ValidateData } from 'src/core/validation'
+import { ValidateData } from 'src/core/validation';
 import { HttpResource } from 'src/core/abstract-http-resource';
 
 export class VarsResource extends HttpResource {

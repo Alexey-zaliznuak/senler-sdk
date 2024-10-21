@@ -1,7 +1,7 @@
 // https://help.senler.ru/senler/dev/api/methods/metki/udalenie-metki
 
-import Joi from 'joi'
-import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { Alternatives, RequiredPosInteger, RequiredString } from 'src/core/validation';
 
 export interface DeleteUtmRequest {
   utm_id: number | string;

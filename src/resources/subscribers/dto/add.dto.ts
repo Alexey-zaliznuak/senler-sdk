@@ -1,7 +1,7 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/dobavlenie-podpischika  */
 
-import Joi from 'joi'
-import { TypeOrNotEmptyArray, RequiredPosInteger, Alternatives, RequiredString } from 'src/core/validation'
+import Joi from 'joi';
+import { TypeOrNotEmptyArray, RequiredPosInteger, Alternatives, RequiredString } from 'src/core/validation';
 import { UtmFilterParams } from 'src/resources/share/types';
 
 export interface AddSubscribersInGroupRequest extends Partial<UtmFilterParams> {

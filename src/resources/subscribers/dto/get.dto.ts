@@ -1,8 +1,8 @@
 /** https://help.senler.ru/senler/dev/api/methods/podpischiki/poluchenie-podpischikov */
 
 import Joi from 'joi';
-import { OptionalInteger, OptionalString, Alternatives, OptionalPosInteger, RequiredString, RequiredPosInteger } from 'src/core/validation'
-import { ListOfEnumerate } from 'src/core/validation/shortcuts/enum.validator'
+import { OptionalInteger, OptionalString, Alternatives, OptionalPosInteger, RequiredString, RequiredPosInteger } from 'src/core/validation';
+import { ListOfEnumerate } from 'src/core/validation/shortcuts/enum.validator';
 import { Subscriber, SubscriptionSourceType, UtmManyFilterParams } from 'src/resources/share/types';
 
 export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
@@ -209,16 +209,36 @@ export interface GetSubscribersRequest extends Partial<UtmManyFilterParams> {
 export const GetSubscribersRequestSchema = Joi.object({
   count: OptionalInteger,
   offset_id: OptionalString,
-  subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  vk_user_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  ignore_subscription_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  ignore_delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  error_delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  read_delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  ignore_read_delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  away_delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
-  ignore_away_delivery_id: Joi.array().items(Alternatives([OptionalPosInteger, OptionalString])).optional(),
+  subscription_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  vk_user_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  ignore_subscription_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  ignore_delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  error_delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  read_delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  ignore_read_delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  away_delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
+  ignore_away_delivery_id: Joi.array()
+    .items(Alternatives([OptionalPosInteger, OptionalString]))
+    .optional(),
   source: ListOfEnumerate(SubscriptionSourceType).optional(),
   date_subscription_from: Joi.date().optional(),
   date_subscription_to: Joi.date().optional(),

@@ -21,9 +21,9 @@ export const BASE_RETRY_CONFIG: RetryConfig = {
     const isENOTFOUND = error.code === 'ENOTFOUND';
 
     return statusCode5xx || statusCode429 || networkError || isENOTFOUND;
-  }
+  },
 };
 
 export const BASE_CACHE_CONFIG: CacheConfig = {
-  enabled: false
+  enabled: false,
 };

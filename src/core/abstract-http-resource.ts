@@ -1,4 +1,4 @@
-import { HttpClient } from "./http-client";
+import { HttpClient } from './http-client';
 
 export abstract class HttpResource {
   protected httpClient: HttpClient;

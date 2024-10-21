@@ -1,10 +1,10 @@
-import Joi from 'joi'
-import { OptionalPosInteger, OptionalString } from 'src/core/validation'
+import Joi from 'joi';
+import { OptionalPosInteger, OptionalString } from 'src/core/validation';
 
 /**
  * For responses annotations
  */
-export interface Utm extends UtmFilterParams {};
+export interface Utm extends UtmFilterParams {}
 
 /**
  * For request params annotations
