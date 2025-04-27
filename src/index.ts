@@ -1,1 +1,1 @@
-export { ApiClientConfig, SenlerApiClient } from './client';
+export { ApiClientConfig, SenlerApiClientV2 } from './v2/client';

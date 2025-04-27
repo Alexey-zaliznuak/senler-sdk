@@ -23,9 +23,9 @@ npm install senler-sdk
 To work with the API, you will need the `access_token` and `vk_group_id` of your VKontakte community.
 
 ```typescript
-import { SenlerApiClient } from "senler-sdk"
+import { SenlerApiClientV2 } from "senler-sdk"
 
-const client = new SenlerApiClient({
+const client = new SenlerApiClientV2({
   accessToken: "YOUR_ACCESS_TOKEN",
   vkGroupId: "YOUR_VK_GROUP_ID",
 })
@@ -74,7 +74,7 @@ app.get(
   }),
 
   async (req, res) => {
-    const client = new SenlerApiClient({
+    const client = new SenlerApiClientV2({
       accessToken: req.accessToken,
       vkGroupId: "YOUR_VK_GROUP_ID",
     })
@@ -93,7 +93,7 @@ app.listen(3000, () => {
 To handle errors correctly, use `try-catch` blocks or `.catch()` methods.
 ```typescript
 
-const client = new SenlerApiClient({
+const client = new SenlerApiClientV2({
   accessToken: "YOUR_TOKEN",
   vkGroupId: "YOUR_VK_GROUP_ID",
 })
@@ -129,7 +129,7 @@ const loggingConfig = {
     }
   }
 }
-const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+const client = new SenlerApiClientV2(apiConfig, loggingConfig, retryConfig, cacheConfig);
 ```
 
 ## Retrying
@@ -143,7 +143,7 @@ const retryConfig = {
     return axiosRetry.exponentialDelay(retryCount, error, 100);
   }
 }
-const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+const client = new SenlerApiClientV2(apiConfig, loggingConfig, retryConfig, cacheConfig);
 ```
 
 ## Caching
@@ -154,7 +154,7 @@ const cacheConfig = {
   enabled: true,
   manager: createCache({ ttl: 10_000 })
 }
-const client = new SenlerApiClient(apiConfig, loggingConfig, retryConfig, cacheConfig);
+const client = new SenlerApiClientV2(apiConfig, loggingConfig, retryConfig, cacheConfig);
 ```
 
 You can also provide custom cache config in any routes:
