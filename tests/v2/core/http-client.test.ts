@@ -10,7 +10,7 @@ describe('Retrying', () => {
 
   beforeEach(() => {
     client = new HttpClient({
-      apiConfig: { accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' },
+      apiConfig: { accessToken: '123', vkGroupId: 123, baseUrl: 'https://localhost' },
       axiosRetryConfig: {
         retries: RETRIES_COUNT,
         retryDelay(retryCount, error): number {
@@ -75,7 +75,7 @@ describe('Caching', () => {
 
   beforeEach(() => {
     client = new HttpClient({
-      apiConfig: { accessToken: '123', vkGroupId: '123', baseUrl: 'https://localhost' },
+      apiConfig: { accessToken: '123', vkGroupId: 123, baseUrl: 'https://localhost' },
       axiosRetryConfig: { retries: 0 },
       cacheConfig: { enabled: true, manager: createCache() },
     });
