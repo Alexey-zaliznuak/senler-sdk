@@ -11,5 +11,5 @@ export const OptionalPosInteger = OptionalInteger.min(0);
 export const RequiredPosInteger = OptionalPosInteger.required();
 
 // Strings
-export const OptionalString = Joi.string();
+export const OptionalString = Joi.string().allow('');
 export const RequiredString = OptionalString.required();
