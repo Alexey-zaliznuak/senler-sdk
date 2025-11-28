@@ -6,6 +6,7 @@ import { ApiConfig, LoggingConfig } from './core/http-client/client.dto';
 import { BotsResource } from './resources/bots/bots.api';
 import { DeliveriesResource } from './resources/deliveries/deliveries.api';
 import { GlobalVarsResource } from './resources/globalVars/globalVars.api';
+import { GroupsResource } from './resources/groups/groups.api';
 import { IntegrationResource } from './resources/integration/integration.api';
 import { SubscribersResource } from './resources/subscribers/subscribers.api';
 import { SubscribersGroupsResource } from './resources/subscriptions/subscription.api';
@@ -26,6 +27,7 @@ export class SenlerApiClientV2 {
   public readonly bots: BotsResource;
   public readonly vars: VarsResource;
   public readonly globalVars: GlobalVarsResource;
+  public readonly groups: GroupsResource;
 
   constructor(config: { apiConfig: ApiClientConfig; loggingConfig?: LoggingConfig; retryConfig?: RetryConfig; cacheConfig?: CacheConfig }) {
     config.loggingConfig = Object.assign(BASE_LOGGING_CONFIG, config.loggingConfig);
@@ -41,5 +43,6 @@ export class SenlerApiClientV2 {
     this.bots = new BotsResource(this.httpClient);
     this.vars = new VarsResource(this.httpClient);
     this.globalVars = new GlobalVarsResource(this.httpClient);
+    this.groups = new GroupsResource(this.httpClient);
   }
 }
